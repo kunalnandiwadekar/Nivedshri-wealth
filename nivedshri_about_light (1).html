@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Nivedshri Wealth | Clarity. Discipline. Long-Term Trust.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET ─── */
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --gold:#A07830;
+  --gold-light:#B8924A;
+  --gold-bright:#C9A96E;
+  --gold-dark:#7A5C20;
+  --gold-dim:rgba(160,120,48,0.12);
+  --gold-faint:rgba(160,120,48,0.05);
+  --orange:#D4530A;
+  --orange-light:#E8703A;
+  --orange-dim:rgba(212,83,10,0.1);
+  --bg:#FAFAF8;
+  --bg2:#F4F2EE;
+  --bg3:#EDE9E2;
+  --bg4:#E4DFD6;
+  --ivory:#1C1A14;
+  --ivory-mid:#6B6050;
+  --ivory-dim:rgba(28,26,20,0.5);
+  --ivory-faint:rgba(28,26,20,0.08);
+  --divider:rgba(160,120,48,0.15);
+  --divider-bright:rgba(160,120,48,0.35);
+}
+
+html{scroll-behavior:smooth;cursor:none}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--bg);
+  color:var(--ivory);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+/* Light mode overrides for elements that used hardcoded dark colors */
+
+/* ─── NOISE TEXTURE ─── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;opacity:1;
+}
+
+/* ─── CUSTOM CURSOR ─── */
+.cursor-dot{
+  width:6px;height:6px;
+  background:var(--gold);
+  border-radius:50%;
+  position:fixed;z-index:99999;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  transition:transform 0.1s ease,width 0.3s ease,height 0.3s ease,background 0.3s ease;
+  mix-blend-mode:difference;
+}
+.cursor-ring{
+  width:36px;height:36px;
+  border:1px solid rgba(160,120,48,0.6);
+  border-radius:50%;
+  position:fixed;z-index:99998;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  transition:transform 0.18s cubic-bezier(0.22,1,0.36,1),width 0.3s ease,height 0.3s ease,border-color 0.3s ease,opacity 0.3s ease;
+}
+.cursor-ring.hovered{width:56px;height:56px;border-color:var(--gold);opacity:0.8}
+.cursor-dot.hovered{width:4px;height:4px;background:var(--gold-bright)}
+
+/* ─── PAGE LOADER ─── */
+.page-loader{
+  position:fixed;inset:0;z-index:99990;
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:24px;
+  transition:opacity 0.8s ease,visibility 0.8s ease;
+}
+.page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo{
+  font-family:'Cormorant',serif;
+  font-size:36px;font-weight:300;color:var(--ivory);
+  letter-spacing:0.12em;
+  opacity:0;animation:loaderFade 0.6s 0.3s forwards;
+}
+.loader-logo span{color:var(--gold)}
+.loader-bar-wrap{
+  width:160px;height:1px;background:rgba(160,120,48,0.2);
+  overflow:hidden;
+  opacity:0;animation:loaderFade 0.6s 0.5s forwards;
+}
+.loader-bar{
+  height:100%;width:0;background:var(--gold);
+  animation:loaderBar 1.2s 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+@keyframes loaderFade{to{opacity:1}}
+@keyframes loaderBar{to{width:100%}}
+
+/* ─── SCROLL REVEALS ─── */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity 1s cubic-bezier(0.22,1,0.36,1),transform 1s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-50px);transition:opacity 1s cubic-bezier(0.22,1,0.36,1),transform 1s cubic-bezier(0.22,1,0.36,1)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(50px);transition:opacity 1s cubic-bezier(0.22,1,0.36,1),transform 1s cubic-bezier(0.22,1,0.36,1)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(0.92);transition:opacity 1s cubic-bezier(0.22,1,0.36,1),transform 1s cubic-bezier(0.22,1,0.36,1)}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+.d1{transition-delay:0.08s}.d2{transition-delay:0.18s}.d3{transition-delay:0.28s}.d4{transition-delay:0.38s}.d5{transition-delay:0.48s}.d6{transition-delay:0.58s}.d7{transition-delay:0.68s}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:0 72px;height:80px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(250,250,248,0.0);
+  backdrop-filter:blur(0px);
+  border-bottom:1px solid transparent;
+  transition:background 0.5s ease,backdrop-filter 0.5s ease,border-color 0.5s ease;
+}
+nav.scrolled{
+  background:rgba(250,250,248,0.94);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--divider);
+}
+.nav-logo{
+  font-family:'Cormorant',serif;
+  font-size:22px;font-weight:500;letter-spacing:0.08em;
+  color:var(--ivory);
+  text-decoration:none;
+  position:relative;
+}
+.nav-logo span{color:var(--gold)}
+.nav-logo::after{
+  content:'';
+  position:absolute;bottom:-3px;left:0;width:0;height:1px;
+  background:var(--gold);
+  transition:width 0.4s ease;
+}
+.nav-logo:hover::after{width:100%}
+.nav-links{display:flex;gap:40px;align-items:center}
+.nav-links a{
+  font-size:11px;font-weight:500;
+  color:var(--ivory-mid);text-decoration:none;
+  letter-spacing:0.16em;text-transform:uppercase;
+  position:relative;transition:color 0.3s;
+}
+.nav-links a.active{color:var(--gold)}
+.nav-links a::after{
+  content:'';
+  position:absolute;bottom:-4px;left:0;width:0;height:1px;
+  background:var(--gold);
+  transition:width 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.nav-links a.active::after{width:100%}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  background:transparent !important;
+  color:var(--gold) !important;
+  border:1px solid var(--gold) !important;
+  font-size:11px !important;padding:10px 26px !important;
+  border-radius:1px;letter-spacing:0.14em !important;
+  text-transform:uppercase;font-weight:600 !important;
+  transition:background 0.3s ease,color 0.3s ease !important;
+  position:relative;overflow:hidden;
+}
+.nav-cta::before{
+  content:'';
+  position:absolute;inset:0;
+  background:var(--gold);
+  transform:translateX(-101%);
+  transition:transform 0.35s cubic-bezier(0.22,1,0.36,1);
+  z-index:-1;
+}
+.nav-cta:hover::before{transform:translateX(0)}
+.nav-cta:hover{color:#FAFAF8 !important}
+.nav-cta::after{display:none !important}
+
+/* ─── BUTTONS ─── */
+.btn-primary{
+  position:relative;overflow:hidden;
+  background:var(--gold);color:#FAFAF8;
+  padding:16px 36px;font-size:12px;border:none;
+  border-radius:1px;cursor:none;
+  letter-spacing:0.14em;text-transform:uppercase;font-weight:700;
+  font-family:'Outfit',sans-serif;
+  transition:color 0.3s ease,box-shadow 0.3s ease;
+}
+.btn-primary::before{
+  content:'';
+  position:absolute;inset:0;
+  background:var(--gold-bright);
+  transform:translateX(-101%);
+  transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.btn-primary:hover::before{transform:translateX(0)}
+.btn-primary:hover{box-shadow:0 20px 60px rgba(160,120,48,0.35)}
+.btn-primary span{position:relative;z-index:1}
+
+.btn-ghost{
+  position:relative;overflow:hidden;
+  background:transparent;color:var(--ivory);
+  padding:16px 36px;font-size:12px;
+  border:1px solid rgba(28,26,20,0.2);
+  border-radius:1px;cursor:none;
+  letter-spacing:0.14em;text-transform:uppercase;font-weight:400;
+  font-family:'Outfit',sans-serif;
+  transition:border-color 0.3s,color 0.3s;
+}
+.btn-ghost::before{
+  content:'';
+  position:absolute;inset:0;
+  background:rgba(28,26,20,0.04);
+  transform:translateX(-101%);
+  transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.btn-ghost:hover::before{transform:translateX(0)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ─── SECTION COMMONS ─── */
+.section-eyebrow{
+  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;
+  display:inline-flex;align-items:center;gap:16px;
+  margin-bottom:20px;
+}
+.section-eyebrow .line{width:28px;height:1px;background:var(--gold)}
+.section-h2{
+  font-family:'Cormorant',serif;
+  font-size:clamp(44px,4.5vw,68px);
+  font-weight:600;line-height:1.05;
+  letter-spacing:-0.02em;margin-bottom:20px;
+}
+
+/* ═══════════════════════════════════════════
+   ABOUT HERO — CINEMATIC SPLIT
+════════════════════════════════════════════ */
+.about-hero{
+  min-height:100vh;
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:55% 45%;
+}
+
+/* ambient layered glow */
+.ah-glow-1{
+  position:absolute;top:-10%;left:30%;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(160,120,48,0.055) 0%,transparent 65%);
+  pointer-events:none;
+  animation:ahGlow1 8s ease-in-out infinite;
+}
+.ah-glow-2{
+  position:absolute;bottom:0;right:0;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(160,120,48,0.04) 0%,transparent 65%);
+  pointer-events:none;
+  animation:ahGlow2 10s ease-in-out infinite 3s;
+}
+@keyframes ahGlow1{0%,100%{transform:scale(1) translate(0,0);opacity:0.7}50%{transform:scale(1.1) translate(20px,-20px);opacity:1}}
+@keyframes ahGlow2{0%,100%{transform:scale(1);opacity:0.5}50%{transform:scale(1.15);opacity:0.9}}
+
+/* left — text column */
+.ah-left{
+  padding:140px 80px 80px 72px;
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;justify-content:center;
+  border-right:1px solid var(--divider);
+}
+
+/* large watermark numeral */
+.ah-left::before{
+  content:'';
+  position:absolute;bottom:-60px;left:-20px;
+  font-family:'Cormorant',serif;
+  font-size:400px;font-weight:700;
+  color:rgba(160,120,48,0.025);
+  line-height:1;
+  pointer-events:none;
+}
+
+.ah-breadcrumb{
+  display:flex;align-items:center;gap:12px;
+  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--ivory-dim);font-weight:400;
+  margin-bottom:56px;
+}
+.ah-breadcrumb a{color:var(--ivory-dim);text-decoration:none;transition:color 0.3s}
+.ah-breadcrumb a:hover{color:var(--gold)}
+.ah-breadcrumb .sep{color:var(--gold);opacity:0.4}
+.ah-breadcrumb .current{color:var(--gold)}
+
+.ah-tag{
+  display:inline-flex;align-items:center;gap:14px;
+  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;margin-bottom:36px;
+}
+.ah-tag .line{width:40px;height:1px;background:var(--gold)}
+
+.ah-h1{
+  font-family:'Cormorant',serif;
+  font-size:clamp(60px,6vw,92px);
+  font-weight:600;line-height:0.98;
+  letter-spacing:-0.025em;
+  margin-bottom:16px;
+  overflow:hidden;
+}
+.ah-h1 .lw{overflow:hidden;display:block}
+.ah-h1 .li{
+  display:block;
+  transform:translateY(110%);
+  transition:transform 1.1s cubic-bezier(0.22,1,0.36,1);
+}
+.ah-h1 .li.visible{transform:translateY(0)}
+.ah-h1 em{font-style:italic;color:var(--orange);font-weight:300}
+
+.ah-tagline{
+  font-family:'Cormorant',serif;
+  font-size:22px;font-weight:400;font-style:italic;
+  color:var(--ivory-mid);
+  letter-spacing:0.04em;
+  margin-bottom:40px;
+  padding-left:20px;
+  border-left:2px solid var(--gold);
+  opacity:0;
+  animation:fadeSlide 0.8s 1.6s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+@keyframes fadeSlide{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+
+.ah-intro{
+  font-size:16px;line-height:1.9;
+  color:var(--ivory-mid);
+  max-width:480px;
+  font-weight:300;
+  margin-bottom:56px;
+  opacity:0;
+  animation:fadeUp 0.8s 1.9s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.ah-btns{
+  display:flex;gap:16px;
+  opacity:0;
+  animation:fadeUp 0.8s 2.1s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+
+/* right — graphic column */
+.ah-right{
+  position:relative;z-index:2;
+  background:var(--bg2);
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
+  padding:80px 60px;
+  overflow:hidden;
+}
+
+/* decorative orbital rings */
+.ah-rings{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.ah-ring{
+  position:absolute;border-radius:50%;border:1px solid var(--divider);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+.ah-ring:nth-child(1){width:300px;height:300px;animation:ahSpin 50s linear infinite;border-color:rgba(160,120,48,0.12)}
+.ah-ring:nth-child(2){width:450px;height:450px;animation:ahSpin 80s linear infinite reverse;border-color:rgba(160,120,48,0.07)}
+.ah-ring:nth-child(3){width:600px;height:600px;animation:ahSpin 110s linear infinite;border-color:rgba(160,120,48,0.04)}
+.ah-ring-dot{position:absolute;top:0;left:50%;transform:translateX(-50%) translateY(-50%);width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+@keyframes ahSpin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* pillars — 3 centered values */
+.ah-pillars{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;gap:1px;
+  width:100%;max-width:360px;
+}
+.ah-pillar{
+  background:rgba(250,250,248,0.85);
+  border:1px solid var(--divider);
+  padding:32px 36px;
+  position:relative;overflow:hidden;
+  backdrop-filter:blur(20px);
+  transition:border-color 0.4s, background 0.4s, transform 0.4s cubic-bezier(0.22,1,0.36,1);
+  cursor:none;
+}
+.ah-pillar::after{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,var(--gold-dark),var(--gold));
+  transform:scaleY(0);transform-origin:bottom;
+  transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.ah-pillar:hover::after{transform:scaleY(1)}
+.ah-pillar:hover{border-color:var(--divider-bright);background:rgba(237,233,226,0.95);transform:translateX(6px)}
+.ah-pillar-num{
+  font-family:'Cormorant',serif;
+  font-size:11px;font-weight:500;color:var(--gold);
+  letter-spacing:0.2em;text-transform:uppercase;
+  margin-bottom:10px;opacity:0.6;display:block;
+  transition:opacity 0.3s;
+}
+.ah-pillar:hover .ah-pillar-num{opacity:1}
+.ah-pillar-title{
+  font-family:'Cormorant',serif;
+  font-size:26px;font-weight:600;color:var(--ivory);
+  margin-bottom:6px;
+  transition:color 0.3s;
+}
+.ah-pillar:hover .ah-pillar-title{color:var(--orange)}
+.ah-pillar-desc{font-size:13px;color:var(--ivory-dim);line-height:1.75;font-weight:300}
+
+/* scroll indicator */
+.ah-scroll{
+  position:absolute;bottom:48px;left:72px;
+  display:flex;align-items:center;gap:16px;
+  font-size:9px;letter-spacing:0.24em;text-transform:uppercase;
+  color:var(--ivory-dim);font-weight:500;
+  opacity:0;animation:fadeUp 0.6s 2.4s forwards;
+}
+.ah-scroll-bar{width:48px;height:1px;background:var(--divider-bright);position:relative;overflow:hidden}
+.ah-scroll-fill{position:absolute;top:0;left:0;height:100%;width:30%;background:var(--gold);animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%{left:-30%;width:30%}50%{width:60%}100%{left:100%;width:30%}}
+
+/* ═══════════════════════════════════════════
+   STORY SECTION — IMMERSIVE TIMELINE
+════════════════════════════════════════════ */
+.story-section{
+  background:var(--bg);
+  padding:160px 0 0;
+  position:relative;overflow:hidden;
+}
+
+/* big watermark text */
+.story-watermark{
+  position:absolute;
+  top:40px;right:-40px;
+  font-family:'Cormorant',serif;
+  font-size:260px;font-weight:700;
+  color:rgba(160,120,48,0.025);
+  letter-spacing:-0.05em;
+  line-height:1;
+  pointer-events:none;
+  white-space:nowrap;
+  user-select:none;
+}
+
+.story-header{
+  padding:0 72px;
+  display:grid;
+  grid-template-columns:1fr 1.4fr;
+  gap:80px;
+  align-items:start;
+  margin-bottom:100px;
+}
+.story-header-left{}
+.story-header-right{
+  padding-top:16px;
+}
+.story-insight{
+  font-family:'Cormorant',serif;
+  font-size:clamp(28px,2.6vw,42px);
+  font-style:italic;font-weight:400;
+  line-height:1.45;
+  color:var(--ivory);
+  border-left:2px solid var(--gold);
+  padding-left:36px;
+  margin-bottom:32px;
+}
+.story-insight strong{color:var(--gold);font-style:normal;font-weight:600}
+.story-body{
+  font-size:16px;color:var(--ivory-mid);line-height:1.9;font-weight:300;
+  margin-bottom:20px;
+}
+
+/* horizontal timeline bar */
+.story-timeline{
+  border-top:1px solid var(--divider);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  position:relative;
+}
+.story-era{
+  padding:60px 48px 80px;
+  border-right:1px solid var(--divider);
+  position:relative;
+  transition:background 0.4s;
+  cursor:none;
+}
+.story-era:last-child{border-right:none}
+.story-era::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(to right,var(--gold-dark),var(--gold));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.story-era:hover::before{transform:scaleX(1)}
+.story-era:hover{background:var(--bg3)}
+.era-year{
+  font-family:'Cormorant',serif;
+  font-size:60px;font-weight:700;
+  color:rgba(160,120,48,0.15);
+  line-height:1;margin-bottom:12px;
+  display:block;
+  transition:color 0.4s;
+}
+.story-era:hover .era-year{color:rgba(160,120,48,0.35)}
+.era-title{
+  font-family:'Cormorant',serif;
+  font-size:22px;font-weight:600;
+  color:var(--ivory);
+  margin-bottom:14px;letter-spacing:0.01em;
+  transition:color 0.3s;
+}
+.story-era:hover .era-title{color:var(--orange)}
+.era-body{font-size:14px;color:var(--ivory-dim);line-height:1.8;font-weight:300}
+.era-institution{
+  display:inline-flex;flex-wrap:wrap;gap:8px;
+  margin-top:20px;
+}
+.era-pill{
+  font-size:9px;letter-spacing:0.16em;text-transform:uppercase;
+  border:1px solid var(--divider-bright);
+  padding:5px 12px;color:var(--ivory-mid);font-weight:500;
+  border-radius:1px;
+  transition:border-color 0.3s, color 0.3s;
+}
+.story-era:hover .era-pill{border-color:var(--gold);color:var(--gold)}
+
+/* ═══════════════════════════════════════════
+   DIRECTOR MESSAGE — PREMIUM FEATURE
+════════════════════════════════════════════ */
+.director-section{
+  background:var(--bg2);
+  position:relative;overflow:hidden;
+}
+.director-section::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;bottom:0;
+  background:
+    radial-gradient(ellipse at 10% 50%,rgba(160,120,48,0.06) 0%,transparent 55%),
+    radial-gradient(ellipse at 90% 50%,rgba(160,120,48,0.04) 0%,transparent 55%);
+  pointer-events:none;
+}
+
+.director-inner{
+  display:grid;
+  grid-template-columns:400px 1fr;
+  min-height:700px;
+  position:relative;
+  z-index:2;
+}
+
+.director-visual{
+  background:var(--bg3);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:60px 52px;
+  border-right:1px solid var(--divider);
+}
+/* placeholder portrait */
+.director-portrait{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,transparent 30%,var(--bg3) 100%),
+    linear-gradient(135deg,rgba(160,120,48,0.06) 0%,transparent 60%);
+  display:flex;align-items:center;justify-content:center;
+}
+.director-avatar-wrap{
+  position:absolute;top:50px;left:50%;transform:translateX(-50%);
+  text-align:center;
+}
+.director-avatar{
+  width:160px;height:160px;border-radius:50%;
+  background:linear-gradient(135deg,var(--bg3),var(--bg2));
+  border:1px solid var(--divider-bright);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant',serif;
+  font-size:72px;font-weight:600;color:var(--gold);
+  margin:0 auto 16px;
+  position:relative;
+  box-shadow:0 0 60px rgba(160,120,48,0.15);
+}
+.director-avatar::before{
+  content:'';
+  position:absolute;inset:-8px;border-radius:50%;
+  border:1px solid rgba(160,120,48,0.2);
+  animation:avatarPulse 3s ease-in-out infinite;
+}
+.director-avatar::after{
+  content:'';
+  position:absolute;inset:-16px;border-radius:50%;
+  border:1px solid rgba(160,120,48,0.08);
+  animation:avatarPulse 3s ease-in-out infinite 1s;
+}
+@keyframes avatarPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.05);opacity:0.6}}
+
+/* CFP badge */
+.cfp-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(160,120,48,0.12);
+  border:1px solid var(--divider-bright);
+  border-radius:2px;
+  padding:8px 16px;
+  font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--gold);font-weight:600;
+  margin-top:12px;
+}
+.cfp-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:cfpPulse 2s ease-in-out infinite}
+@keyframes cfpPulse{0%,100%{box-shadow:0 0 0 0 rgba(160,120,48,0.4)}50%{box-shadow:0 0 0 6px rgba(160,120,48,0)}}
+
+.director-name-block{
+  position:relative;z-index:2;
+}
+.director-name{
+  font-family:'Cormorant',serif;
+  font-size:34px;font-weight:600;
+  color:var(--ivory);letter-spacing:0.01em;
+  margin-bottom:6px;
+}
+.director-title-text{
+  font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ivory-mid);font-weight:500;
+  margin-bottom:20px;
+}
+.director-credentials{
+  display:flex;flex-direction:column;gap:8px;
+}
+.cred-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:13px;color:var(--ivory-dim);font-weight:300;
+}
+.cred-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* message column */
+.director-message{
+  padding:90px 80px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.dir-quote-open{
+  font-family:'Cormorant',serif;
+  font-size:120px;color:var(--gold);
+  line-height:0.6;display:block;
+  opacity:0.18;margin-bottom:20px;
+  font-weight:700;
+  float:left;margin-right:4px;
+}
+.dir-message-text{
+  font-family:'Cormorant',serif;
+  font-size:clamp(22px,2.2vw,34px);
+  font-style:italic;font-weight:400;
+  line-height:1.55;
+  color:var(--ivory);
+  letter-spacing:-0.01em;
+  margin-bottom:40px;
+}
+.dir-message-text strong{
+  font-style:normal;
+  color:var(--gold);
+  font-weight:600;
+}
+.dir-message-body{
+  font-size:16px;color:var(--ivory-mid);
+  line-height:1.9;font-weight:300;
+  margin-bottom:20px;
+}
+.dir-signature{
+  display:flex;align-items:center;gap:28px;
+  margin-top:52px;
+  padding-top:40px;
+  border-top:1px solid var(--divider);
+}
+.dir-sig-line{
+  width:80px;height:1px;background:var(--gold);opacity:0.4;
+}
+.dir-sig-name{
+  font-family:'Cormorant',serif;
+  font-size:28px;font-weight:600;
+  color:var(--ivory);letter-spacing:0.02em;
+}
+.dir-sig-title{
+  font-size:11px;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;margin-top:4px;
+}
+
+/* ═══════════════════════════════════════════
+   PHILOSOPHY — BELIEFS GRID
+════════════════════════════════════════════ */
+.beliefs-section{
+  background:var(--bg);
+  padding:160px 72px;
+  position:relative;overflow:hidden;
+}
+.beliefs-watermark{
+  position:absolute;top:60px;left:-30px;
+  font-family:'Cormorant',serif;
+  font-size:300px;font-weight:700;
+  color:rgba(160,120,48,0.02);
+  letter-spacing:-0.05em;
+  pointer-events:none;
+  line-height:1;
+}
+
+.beliefs-header{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:end;
+  margin-bottom:100px;
+}
+.beliefs-header-right{
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+.beliefs-sub{
+  font-size:16px;color:var(--ivory-mid);line-height:1.9;
+  font-weight:300;margin-bottom:0;
+}
+
+/* 3 belief blocks */
+.beliefs-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--divider);
+}
+.belief-card{
+  background:var(--bg2);
+  padding:64px 52px;
+  position:relative;overflow:hidden;
+  cursor:none;
+  transition:background 0.4s ease, transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.belief-card::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity 0.4s;
+}
+.belief-card:hover::before{opacity:1}
+.belief-card:hover{background:var(--bg3);transform:translateY(-6px)}
+
+.belief-num{
+  font-family:'Cormorant',serif;
+  font-size:80px;font-weight:700;
+  color:rgba(160,120,48,0.06);
+  position:absolute;top:24px;right:36px;
+  line-height:1;
+  transition:color 0.4s;
+  pointer-events:none;
+}
+.belief-card:hover .belief-num{color:rgba(160,120,48,0.12)}
+
+.belief-icon-wrap{
+  width:56px;height:56px;
+  border:1px solid var(--divider);
+  border-radius:2px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:32px;
+  transition:border-color 0.3s,background 0.3s;
+  position:relative;z-index:1;
+}
+.belief-card:hover .belief-icon-wrap{border-color:var(--gold);background:var(--gold-dim)}
+
+.belief-title{
+  font-family:'Cormorant',serif;
+  font-size:30px;font-weight:600;
+  color:var(--ivory);margin-bottom:16px;
+  letter-spacing:-0.01em;
+  line-height:1.15;
+  transition:color 0.3s;
+  position:relative;z-index:1;
+}
+.belief-card:hover .belief-title{color:var(--orange)}
+.belief-body{
+  font-size:14px;color:var(--ivory-dim);
+  line-height:1.85;font-weight:300;
+  position:relative;z-index:1;
+  margin-bottom:28px;
+}
+.belief-principle{
+  font-size:12px;letter-spacing:0.1em;
+  color:var(--gold);font-weight:500;
+  border-top:1px solid var(--divider);
+  padding-top:20px;
+  font-style:italic;
+  position:relative;z-index:1;
+}
+
+/* ═══════════════════════════════════════════
+   HOW WE WORK — PROCESS VISUAL
+════════════════════════════════════════════ */
+.process-section{
+  background:var(--bg2);
+  padding:160px 72px;
+  position:relative;overflow:hidden;
+}
+.process-section::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 80%,rgba(160,120,48,0.04) 0%,transparent 65%);
+  pointer-events:none;
+}
+
+.process-header{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:end;
+  margin-bottom:100px;
+}
+
+/* Understand → Design → Guide */
+.udg-visual{
+  display:flex;align-items:center;justify-content:center;
+  gap:0;
+  margin-bottom:100px;
+  position:relative;
+}
+.udg-item{
+  flex:1;
+  text-align:center;
+  padding:60px 40px;
+  position:relative;
+  cursor:none;
+  transition:background 0.4s;
+}
+.udg-item:hover{background:rgba(160,120,48,0.03)}
+.udg-arrow{
+  font-size:22px;color:var(--gold);opacity:0.3;
+  transition:opacity 0.3s,transform 0.3s;
+  align-self:center;padding:0 8px;
+  flex-shrink:0;
+}
+.udg-item:hover + .udg-arrow{opacity:0.7}
+.udg-num{
+  font-family:'Cormorant',serif;
+  font-size:120px;font-weight:700;
+  color:rgba(160,120,48,0.06);
+  line-height:1;
+  position:absolute;top:20px;left:50%;
+  transform:translateX(-50%);
+  transition:color 0.4s;
+  pointer-events:none;
+}
+.udg-item:hover .udg-num{color:rgba(160,120,48,0.12)}
+.udg-word{
+  font-family:'Cormorant',serif;
+  font-size:52px;font-weight:600;
+  color:var(--ivory);
+  letter-spacing:-0.02em;
+  position:relative;z-index:1;
+  transition:color 0.3s;
+  margin-bottom:14px;
+}
+.udg-item:hover .udg-word{color:var(--orange)}
+.udg-desc{
+  font-size:13px;color:var(--ivory-dim);
+  line-height:1.8;font-weight:300;
+  position:relative;z-index:1;
+  max-width:200px;margin:0 auto;
+}
+
+/* commitment strip */
+.commitment-strip{
+  background:var(--bg3);
+  border:1px solid var(--divider);
+  padding:52px 60px;
+  display:flex;align-items:center;gap:60px;
+  position:relative;overflow:hidden;
+}
+.commitment-strip::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(to bottom,var(--gold-dark),var(--gold),var(--gold-bright));
+}
+.cs-label{
+  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;
+  white-space:nowrap;
+}
+.cs-text{
+  font-family:'Cormorant',serif;
+  font-size:clamp(20px,1.8vw,28px);
+  font-style:italic;
+  color:var(--ivory);font-weight:400;
+  line-height:1.4;
+}
+.cs-text strong{font-style:normal;color:var(--gold);font-weight:600}
+
+/* ═══════════════════════════════════════════
+   SERVICES SPECTRUM
+════════════════════════════════════════════ */
+.spectrum-section{
+  background:var(--bg);
+  padding:160px 72px;
+  position:relative;overflow:hidden;
+}
+.spectrum-section::before{
+  content:'';
+  position:absolute;top:-100px;right:-100px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(160,120,48,0.04) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+.spectrum-header{
+  max-width:720px;margin-bottom:100px;
+}
+
+/* mosaic grid */
+.spectrum-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:auto auto;
+  gap:1px;
+  background:var(--divider);
+  margin-bottom:1px;
+}
+.spec-item{
+  background:var(--bg2);
+  padding:48px 40px;
+  position:relative;overflow:hidden;
+  cursor:none;
+  transition:background 0.4s, transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.spec-item.featured{
+  grid-column:span 2;
+  background:var(--bg3);
+}
+.spec-item::after{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(to right,var(--gold-dark),var(--gold));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.spec-item:hover::after{transform:scaleX(1)}
+.spec-item:hover{background:var(--bg4);transform:translateY(-4px)}
+.spec-num{
+  font-size:9px;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(160,120,48,0.35);font-weight:500;
+  margin-bottom:20px;display:block;
+  transition:color 0.3s;
+}
+.spec-item:hover .spec-num{color:var(--gold)}
+.spec-icon{
+  width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--divider);border-radius:1px;
+  margin-bottom:18px;
+  transition:border-color 0.3s, background 0.3s;
+}
+.spec-item:hover .spec-icon{border-color:var(--gold);background:var(--gold-dim)}
+.spec-title{
+  font-family:'Cormorant',serif;
+  font-size:20px;font-weight:600;color:var(--ivory);
+  margin-bottom:10px;letter-spacing:-0.01em;
+  transition:color 0.3s;
+}
+.spec-item.featured .spec-title{font-size:26px}
+.spec-item:hover .spec-title{color:var(--orange)}
+.spec-desc{font-size:13px;color:var(--ivory-dim);line-height:1.8;font-weight:300}
+.spec-item.featured .spec-desc{font-size:14px;max-width:340px}
+
+.spec-outcome{
+  background:var(--bg2);
+  border:1px solid var(--divider);
+  padding:52px 60px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:relative;overflow:hidden;
+}
+.spec-outcome::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(to right,rgba(160,120,48,0.04),transparent 50%);
+  pointer-events:none;
+}
+.spec-outcome-text{
+  font-family:'Cormorant',serif;
+  font-size:clamp(22px,2vw,32px);
+  font-style:italic;color:var(--ivory);
+  font-weight:400;line-height:1.4;
+  max-width:600px;
+  position:relative;z-index:1;
+}
+.spec-outcome-text strong{color:var(--gold);font-style:normal;font-weight:600}
+
+/* ═══════════════════════════════════════════
+   WHY US — DIFFERENTIATORS
+════════════════════════════════════════════ */
+.why-section{
+  background:var(--bg2);
+  padding:160px 72px;
+  position:relative;overflow:hidden;
+}
+.why-section::before{
+  content:'';
+  position:absolute;bottom:-100px;left:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(160,120,48,0.05) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+.why-header{
+  max-width:600px;margin-bottom:100px;
+}
+
+.why-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:var(--divider);
+  margin-bottom:80px;
+}
+.why-item{
+  background:var(--bg);
+  padding:56px 60px;
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:28px;
+  align-items:start;
+  position:relative;overflow:hidden;
+  cursor:none;
+  transition:background 0.4s;
+}
+.why-item::before{
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,var(--gold),transparent);
+  opacity:0;transition:opacity 0.4s;
+}
+.why-item:hover::before{opacity:1}
+.why-item:hover{background:var(--bg3)}
+.why-icon-box{
+  width:64px;height:64px;
+  border:1px solid var(--divider);
+  border-radius:2px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg2);
+  transition:border-color 0.3s, background 0.3s, transform 0.3s;
+  flex-shrink:0;
+}
+.why-item:hover .why-icon-box{
+  border-color:var(--gold);
+  background:var(--gold-dim);
+  transform:rotate(5deg);
+}
+.why-content{}
+.why-title{
+  font-family:'Cormorant',serif;
+  font-size:24px;font-weight:600;
+  color:var(--ivory);margin-bottom:10px;
+  transition:color 0.3s;
+}
+.why-item:hover .why-title{color:var(--orange)}
+.why-body{font-size:14px;color:var(--ivory-dim);line-height:1.8;font-weight:300}
+
+/* promise statement */
+.promise-block{
+  background:var(--bg3);
+  border:1px solid var(--divider-bright);
+  padding:72px 80px;
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+.promise-block::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(160,120,48,0.05) 0%,transparent 70%);
+  pointer-events:none;
+}
+.promise-eyebrow{
+  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;
+  margin-bottom:28px;
+  display:flex;align-items:center;justify-content:center;gap:16px;
+}
+.promise-eyebrow .line{width:28px;height:1px;background:var(--gold)}
+.promise-text{
+  font-family:'Cormorant',serif;
+  font-size:clamp(32px,3.2vw,52px);
+  font-weight:600;line-height:1.2;
+  color:var(--ivory);letter-spacing:-0.02em;
+  max-width:800px;margin:0 auto;
+  position:relative;z-index:1;
+}
+.promise-text em{font-style:italic;color:var(--orange);font-weight:300}
+
+/* ═══════════════════════════════════════════
+   BELIEF CLOSING — LAYERED STATEMENT
+════════════════════════════════════════════ */
+.closing-section{
+  background:var(--bg);
+  padding:160px 72px;
+  position:relative;overflow:hidden;
+}
+.closing-section::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 60% 50%,rgba(160,120,48,0.05) 0%,transparent 65%);
+  pointer-events:none;
+}
+.closing-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:var(--divider);
+}
+.closing-left{
+  padding:100px 80px;
+  background:var(--bg);
+}
+.closing-chain{
+  display:flex;flex-direction:column;gap:0;
+  margin-top:48px;
+}
+.chain-step{
+  display:flex;align-items:flex-start;gap:24px;
+  padding:28px 0;
+  border-bottom:1px solid var(--divider);
+  position:relative;
+}
+.chain-step:last-child{border-bottom:none}
+.chain-arrow{
+  font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;
+  padding-top:4px;
+  flex-shrink:0;
+  font-family:'Outfit',sans-serif;
+}
+.chain-text{
+  font-family:'Cormorant',serif;
+  font-size:22px;font-weight:500;
+  color:var(--ivory);
+  line-height:1.35;
+}
+.chain-text span{color:var(--ivory-dim);font-size:18px;font-style:italic}
+.closing-right{
+  padding:100px 80px;
+  background:var(--bg2);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.closing-quote{
+  font-family:'Cormorant',serif;
+  font-size:clamp(28px,2.6vw,42px);
+  font-style:italic;font-weight:400;
+  line-height:1.5;
+  color:var(--ivory);
+  margin-bottom:36px;
+}
+.closing-quote strong{font-style:normal;color:var(--gold);font-weight:600}
+.closing-body{
+  font-size:15px;color:var(--ivory-mid);
+  line-height:1.9;font-weight:300;
+  margin-bottom:52px;
+}
+.closing-btns{display:flex;gap:16px}
+
+/* ═══════════════════════════════════════════
+   FINAL CTA
+════════════════════════════════════════════ */
+.final-cta{
+  background:var(--bg2);
+  padding:160px 72px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+/* Orbiting rings CTA */
+.cta-rings{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:0}
+.cta-ring{position:absolute;border-radius:50%;border:1px solid var(--divider);top:50%;left:50%;transform:translate(-50%,-50%)}
+.cta-ring:nth-child(1){width:300px;height:300px;animation:ahSpin 40s linear infinite}
+.cta-ring:nth-child(2){width:500px;height:500px;animation:ahSpin 65s linear infinite reverse;border-color:rgba(160,120,48,0.07)}
+.cta-ring:nth-child(3){width:700px;height:700px;animation:ahSpin 90s linear infinite;border-color:rgba(160,120,48,0.04)}
+.cta-ring:nth-child(4){width:900px;height:900px;animation:ahSpin 120s linear infinite reverse;border-color:rgba(160,120,48,0.025)}
+.cta-eyebrow{
+  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;
+  margin-bottom:28px;position:relative;z-index:2;
+}
+.cta-h2{
+  font-family:'Cormorant',serif;
+  font-size:clamp(48px,5vw,76px);
+  font-weight:600;line-height:1.05;
+  letter-spacing:-0.02em;
+  color:var(--ivory);
+  margin-bottom:28px;
+  position:relative;z-index:2;
+}
+.cta-h2 em{font-style:italic;color:var(--orange);font-weight:300}
+.cta-sub{
+  font-size:16px;color:var(--ivory-mid);
+  line-height:1.85;font-weight:300;
+  max-width:540px;margin:0 auto 60px;
+  position:relative;z-index:2;
+}
+.cta-btns{
+  display:flex;gap:16px;justify-content:center;
+  position:relative;z-index:2;
+  margin-bottom:40px;
+}
+.btn-gold-lg{
+  position:relative;overflow:hidden;
+  background:var(--gold);color:#FAFAF8;
+  padding:20px 52px;font-size:12px;border:none;
+  border-radius:1px;cursor:none;
+  letter-spacing:0.14em;text-transform:uppercase;font-weight:700;
+  font-family:'Outfit',sans-serif;
+  transition:color 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-gold-lg::before{
+  content:'';position:absolute;inset:0;
+  background:var(--gold-bright);
+  transform:translateX(-101%);
+  transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.btn-gold-lg:hover::before{transform:translateX(0)}
+.btn-gold-lg:hover{box-shadow:0 24px 70px rgba(160,120,48,0.4)}
+.btn-gold-lg span{position:relative;z-index:1}
+.btn-outline-lg{
+  background:transparent;color:var(--ivory);
+  padding:20px 52px;font-size:12px;
+  border:1px solid rgba(28,26,20,0.25);
+  border-radius:1px;cursor:none;
+  letter-spacing:0.14em;text-transform:uppercase;font-weight:400;
+  font-family:'Outfit',sans-serif;
+  transition:border-color 0.3s, color 0.3s;
+}
+.btn-outline-lg:hover{border-color:var(--gold);color:var(--gold)}
+.cta-note{
+  font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--ivory-dim);font-weight:400;
+  position:relative;z-index:2;
+}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--bg);
+  border-top:1px solid var(--divider);
+  padding:52px 72px;
+  display:flex;flex-direction:column;gap:20px;
+}
+.footer-row{
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-logo{
+  font-family:'Cormorant',serif;
+  font-size:22px;font-weight:500;letter-spacing:0.08em;
+  color:var(--ivory);
+}
+.footer-logo span{color:var(--gold)}
+.footer-links{
+  display:flex;gap:32px;
+}
+.footer-links a{
+  font-size:11px;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--ivory-dim);text-decoration:none;font-weight:400;
+  transition:color 0.3s;
+}
+.footer-links a:hover{color:var(--gold)}
+.footer-disc{
+  font-size:11px;color:rgba(244,239,230,0.22);
+  line-height:1.7;font-weight:300;
+  max-width:700px;
+}
+
+/* ─── SVG ICONS ─── */
+svg.ico{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- LOADER -->
+<div class="page-loader" id="pageLoader">
+  <div class="loader-logo">Nivedshri <span>Wealth</span></div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">Nivedshri <span>Wealth</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="#">Services</a>
+    <a href="#">Process</a>
+    <a href="#">Contact</a>
+    <a href="#" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- ═══ ABOUT HERO ═══ -->
+<section class="about-hero">
+  <div class="ah-glow-1"></div>
+  <div class="ah-glow-2"></div>
+
+  <div class="ah-left">
+    <div class="ah-breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">—</span>
+      <span class="current">About Us</span>
+    </div>
+
+    <div class="ah-tag">
+      <span class="line"></span>
+      Our Story &amp; Philosophy
+    </div>
+
+    <h1 class="ah-h1">
+      <span class="lw"><span class="li">Clarity.</span></span>
+      <span class="lw"><span class="li" style="transition-delay:0.12s">Discipline.</span></span>
+      <span class="lw"><span class="li" style="transition-delay:0.24s"><em>Long-Term</em></span></span>
+      <span class="lw"><span class="li" style="transition-delay:0.36s">Trust.</span></span>
+    </h1>
+
+    <p class="ah-tagline">Managing money should not feel complicated.</p>
+
+    <p class="ah-intro">Ladco Crest Wealth was built on a simple belief — managing money should feel clear, structured, and aligned with real life goals. We work with individuals and families who want more than just investment advice.</p>
+
+    <div class="ah-btns">
+      <button class="btn-primary"><span>Our Approach</span></button>
+      <button class="btn-ghost">Meet the Director</button>
+    </div>
+  </div>
+
+  <div class="ah-right">
+    <div class="ah-rings">
+      <div class="ah-ring"><div class="ah-ring-dot"></div></div>
+      <div class="ah-ring"><div class="ah-ring-dot"></div></div>
+      <div class="ah-ring"></div>
+    </div>
+
+    <div class="ah-pillars">
+      <div class="ah-pillar reveal d1">
+        <span class="ah-pillar-num">01 — Pillar</span>
+        <div class="ah-pillar-title">Clarity</div>
+        <div class="ah-pillar-desc">Every decision, explained simply. No jargon, no confusion — just clear direction aligned with your life.</div>
+      </div>
+      <div class="ah-pillar reveal d2">
+        <span class="ah-pillar-num">02 — Pillar</span>
+        <div class="ah-pillar-title">Discipline</div>
+        <div class="ah-pillar-desc">We build financial systems designed to stay steady through market cycles, not react to them.</div>
+      </div>
+      <div class="ah-pillar reveal d3">
+        <span class="ah-pillar-num">03 — Pillar</span>
+        <div class="ah-pillar-title">Long-Term Trust</div>
+        <div class="ah-pillar-desc">We are not here for transactions. We are here as your long-term financial partner — through every stage.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ah-scroll">
+    <div class="ah-scroll-bar"><div class="ah-scroll-fill"></div></div>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- ═══ OUR STORY ═══ -->
+<section class="story-section">
+  <div class="story-watermark">Story</div>
+
+  <div class="story-header">
+    <div class="story-header-left">
+      <div class="section-eyebrow reveal"><span class="line"></span>Our Story</div>
+      <h2 class="section-h2 reveal d1">18 Years of<br><em style="font-style:italic;color:var(--orange);font-weight:300">Real Experience</em></h2>
+    </div>
+    <div class="story-header-right reveal d2">
+      <div class="story-insight">
+        Most people don't struggle because they don't earn enough. They struggle because <strong>their money doesn't have a clear structure.</strong>
+      </div>
+      <p class="story-body">With over 18 years of experience across leading financial institutions, our journey has been shaped by real client interactions across different stages of wealth creation. One pattern became very clear — and that insight led to the creation of Nivedshri Wealth in 2017.</p>
+      <p class="story-body">The goal was simple: move away from product-driven conversations and focus entirely on goal-based, long-term financial planning.</p>
+    </div>
+  </div>
+
+  <!-- Era Timeline -->
+  <div class="story-timeline">
+    <div class="story-era reveal d1">
+      <span class="era-year">2006</span>
+      <div class="era-title">The Foundation Years</div>
+      <p class="era-body">Began career in financial services, learning the discipline of institutional wealth management from the ground up.</p>
+      <div class="era-institution">
+        <span class="era-pill">HSBC</span>
+        <span class="era-pill">HDFC Bank</span>
+      </div>
+    </div>
+    <div class="story-era reveal d2">
+      <span class="era-year">2010</span>
+      <div class="era-title">Deepening Expertise</div>
+      <p class="era-body">Expanded across insurance, investment products and multi-family advisory, serving HNI and mass affluent segments.</p>
+      <div class="era-institution">
+        <span class="era-pill">ICICI Prudential</span>
+        <span class="era-pill">Tata AIG</span>
+      </div>
+    </div>
+    <div class="story-era reveal d3">
+      <span class="era-year">2015</span>
+      <div class="era-title">The Turning Point</div>
+      <p class="era-body">Observed a persistent gap: clients with good incomes but fragmented, purposeless financial structures. The conviction to change this grew stronger.</p>
+      <div class="era-institution">
+        <span class="era-pill">Independent Advisory</span>
+      </div>
+    </div>
+    <div class="story-era reveal d4">
+      <span class="era-year">2017</span>
+      <div class="era-title">Nivedshri Wealth Born</div>
+      <p class="era-body">Founded with a single mission — goal-based, long-term financial clarity. Built around trust, not transactions.</p>
+      <div class="era-institution">
+        <span class="era-pill">500+ Families</span>
+        <span class="era-pill">Pan India</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DIRECTOR MESSAGE ═══ -->
+<section class="director-section">
+  <div class="director-inner">
+
+    <div class="director-visual reveal-left">
+      <div class="director-portrait"></div>
+      <div class="director-avatar-wrap">
+        <div class="director-avatar">N</div>
+        <div class="cfp-badge">
+          <span class="cfp-dot"></span>
+          Certified Financial Planner
+        </div>
+      </div>
+      <div class="director-name-block">
+        <div class="director-name">Nitesh Tara</div>
+        <div class="director-title-text">Founder & Director · Nivedshri Wealth</div>
+        <div class="director-credentials">
+          <div class="cred-item"><span class="cred-dot"></span>18+ Years Financial Advisory</div>
+          <div class="cred-item"><span class="cred-dot"></span>HSBC · HDFC · ICICI Pru · Tata AIG</div>
+          <div class="cred-item"><span class="cred-dot"></span>AMFI Registered Distributor</div>
+          <div class="cred-item"><span class="cred-dot"></span>500+ Families Guided</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="director-message reveal-right">
+      <div class="section-eyebrow" style="margin-bottom:36px"><span class="line"></span>A Message from the Director</div>
+      <span class="dir-quote-open">&ldquo;</span>
+      <p class="dir-message-text">
+        Over 18 years in financial services taught me one fundamental truth:<br>
+        <strong>wealth is not built through products — it is built through purpose.</strong>
+      </p>
+      <p class="dir-message-body">I have sat across the table with thousands of clients — business owners, salaried professionals, retirees, young families. And regardless of their income or background, the ones who truly built wealth were not the ones who picked the best stocks or chased the highest returns.</p>
+      <p class="dir-message-body">They were the ones who had <em style="font-style:italic;color:var(--orange)">clarity</em>. They knew what their money was working toward. They had a structure that held steady when markets moved and life changed.</p>
+      <p class="dir-message-body">That is what Nivedshri Wealth is built around. Not transactions. Not short-term movement. But long-term, disciplined, goal-aligned financial thinking — delivered with honesty and without jargon.</p>
+      <p class="dir-message-body">When your money has direction, everything feels calmer. And calm is where good decisions are made.</p>
+      <div class="dir-signature">
+        <div class="dir-sig-line"></div>
+        <div>
+          <div class="dir-sig-name">Nitesh Tara</div>
+          <div class="dir-sig-title">Founder &amp; Director · CFP</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ BELIEFS / PHILOSOPHY ═══ -->
+<section class="beliefs-section">
+  <div class="beliefs-watermark">Belief</div>
+
+  <div class="beliefs-header">
+    <div>
+      <div class="section-eyebrow reveal"><span class="line"></span>What We Believe</div>
+      <h2 class="section-h2 reveal d1">Our Philosophy,<br><em style="font-style:italic;color:var(--orange);font-weight:300">Our Foundation</em></h2>
+    </div>
+    <div class="beliefs-header-right reveal d2">
+      <p class="beliefs-sub">We don't believe in reacting to markets. We believe in building financial systems that stay steady through them. Our philosophy is grounded in three principles that govern every client relationship.</p>
+    </div>
+  </div>
+
+  <div class="beliefs-grid">
+    <div class="belief-card reveal d1">
+      <span class="belief-num">01</span>
+      <div class="belief-icon-wrap">
+        <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg>
+      </div>
+      <div class="belief-title">Life-First Financial Decisions</div>
+      <p class="belief-body">Financial decisions must always be anchored to life goals — not market movements, product cycles, or short-term sentiment. We always start with the life you want to build.</p>
+      <div class="belief-principle">Keep financial decisions aligned with life goals</div>
+    </div>
+    <div class="belief-card reveal d2">
+      <span class="belief-num">02</span>
+      <div class="belief-icon-wrap">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="belief-title">Simplicity Over Complexity</div>
+      <p class="belief-body">The best financial plan is the one you can actually follow. We deliberately avoid unnecessary complexity — because clarity of structure leads to consistency of behavior.</p>
+      <div class="belief-principle">Avoid unnecessary complexity in planning</div>
+    </div>
+    <div class="belief-card reveal d3">
+      <span class="belief-num">03</span>
+      <div class="belief-icon-wrap">
+        <svg class="ico" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div class="belief-title">Discipline Over Movement</div>
+      <p class="belief-body">Wealth, for us, is not about activity. It is about direction. Long-term discipline — staying the course when emotions fluctuate — is what separates lasting wealth from temporary gains.</p>
+      <div class="belief-principle">Long-term discipline over short-term movement</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW WE WORK ═══ -->
+<section class="process-section">
+  <div class="process-header">
+    <div>
+      <div class="section-eyebrow reveal"><span class="line"></span>How We Work</div>
+      <h2 class="section-h2 reveal d1">Our Process,<br><em style="font-style:italic;color:var(--orange);font-weight:300">Simply Put</em></h2>
+    </div>
+    <div class="reveal d2" style="display:flex;flex-direction:column;justify-content:flex-end">
+      <p style="font-size:16px;color:var(--ivory-mid);line-height:1.9;font-weight:300">Every client relationship starts with understanding, not products. We take time to understand your goals, responsibilities, and future plans. Based on that, we design a financial structure that is practical, disciplined, and easy to follow.</p>
+    </div>
+  </div>
+
+  <!-- UDG Visual -->
+  <div class="udg-visual">
+    <div class="udg-item reveal d1">
+      <span class="udg-num">01</span>
+      <div class="udg-word">Understand</div>
+      <p class="udg-desc">Deep listening. Your goals, your life, your responsibilities — we start here, not with products.</p>
+    </div>
+    <div class="udg-arrow reveal">→</div>
+    <div class="udg-item reveal d2">
+      <span class="udg-num">02</span>
+      <div class="udg-word">Design</div>
+      <p class="udg-desc">A structured financial plan built around your life — practical, disciplined, and easy to follow.</p>
+    </div>
+    <div class="udg-arrow reveal">→</div>
+    <div class="udg-item reveal d3">
+      <span class="udg-num">03</span>
+      <div class="udg-word">Guide</div>
+      <p class="udg-desc">We stay with you — through market shifts, life changes, and every stage of your wealth journey.</p>
+    </div>
+  </div>
+
+  <div class="commitment-strip reveal">
+    <span class="cs-label">Our Commitment</span>
+    <p class="cs-text">We help you stay consistent when markets change and emotions fluctuate — because <strong>consistency is where wealth is truly built.</strong></p>
+  </div>
+</section>
+
+<!-- ═══ SERVICES SPECTRUM ═══ -->
+<section class="spectrum-section">
+  <div class="spectrum-header">
+    <div class="section-eyebrow reveal"><span class="line"></span>What We Help With</div>
+    <h2 class="section-h2 reveal d1">The Full Spectrum of<br><em style="font-style:italic;color:var(--orange);font-weight:300">Long-Term Wealth Planning</em></h2>
+    <p class="reveal d2" style="font-size:16px;color:var(--ivory-mid);line-height:1.9;font-weight:300;max-width:560px;margin-top:16px">Our advisory covers everything connected to one outcome — long-term financial clarity.</p>
+  </div>
+
+  <div class="spectrum-grid">
+    <div class="spec-item featured reveal d1">
+      <span class="spec-num">01 — Core</span>
+      <div class="spec-icon">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="spec-title">Goal-Based Financial Planning</div>
+      <p class="spec-desc">Everything connected to a goal. Retirement, education, lifestyle, legacy — your financial structure is designed around what matters most to you, not around products.</p>
+    </div>
+    <div class="spec-item reveal d2">
+      <span class="spec-num">02</span>
+      <div class="spec-icon">
+        <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="spec-title">Retirement & Income Planning</div>
+      <p class="spec-desc">Build a corpus that lasts a lifetime with sustainable income strategies.</p>
+    </div>
+    <div class="spec-item reveal d3">
+      <span class="spec-num">03</span>
+      <div class="spec-icon">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="spec-title">Children's Education</div>
+      <p class="spec-desc">Long-term, structured planning for your child's education milestones.</p>
+    </div>
+    <div class="spec-item reveal d4">
+      <span class="spec-num">04</span>
+      <div class="spec-icon">
+        <svg class="ico" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
+      <div class="spec-title">Portfolio Structuring</div>
+      <p class="spec-desc">Asset allocation designed around your risk profile and timeline.</p>
+    </div>
+    <div class="spec-item reveal d1">
+      <span class="spec-num">05</span>
+      <div class="spec-icon">
+        <svg class="ico" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div class="spec-title">Mutual Fund Strategy</div>
+      <p class="spec-desc">Curated fund selection tied to your specific goals and horizon.</p>
+    </div>
+    <div class="spec-item featured reveal d2">
+      <span class="spec-num">06 — Protection</span>
+      <div class="spec-icon">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="spec-title">Insurance & Wealth Protection</div>
+      <p class="spec-desc">Comprehensive protection planning — life, health, and wealth protection integrated into your overall financial structure. Because true wealth planning includes safeguarding what you've built.</p>
+    </div>
+    <div class="spec-item reveal d3">
+      <span class="spec-num">07</span>
+      <div class="spec-icon">
+        <svg class="ico" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+      </div>
+      <div class="spec-title">Tax-Efficient Planning</div>
+      <p class="spec-desc">Smart, legally sound strategies that keep more of your wealth working for you.</p>
+    </div>
+  </div>
+
+  <div class="spec-outcome reveal" style="margin-top:1px">
+    <p class="spec-outcome-text">Everything we do is connected to one outcome:<br><strong>Long-term financial clarity.</strong></p>
+    <button class="btn-primary"><span>Explore Our Services</span></button>
+  </div>
+</section>
+
+<!-- ═══ WHY US ═══ -->
+<section class="why-section">
+  <div class="why-header">
+    <div class="section-eyebrow reveal"><span class="line"></span>Why Clients Work With Us</div>
+    <h2 class="section-h2 reveal d1">Chosen for<br><em style="font-style:italic;color:var(--orange);font-weight:300">Consistency</em></h2>
+    <p class="reveal d2" style="font-size:16px;color:var(--ivory-mid);line-height:1.9;font-weight:300;margin-top:16px">Clients don't come to us for products. They come for clarity. And they stay because of consistency.</p>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-item reveal d1">
+      <div class="why-icon-box">
+        <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <div class="why-content">
+        <div class="why-title">Calm, Structured Approach</div>
+        <p class="why-body">We bring structure to complex financial situations. No panic, no noise — just a steady, disciplined framework that holds through every market cycle.</p>
+      </div>
+    </div>
+    <div class="why-item reveal d2">
+      <div class="why-icon-box">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <div class="why-content">
+        <div class="why-title">Honest, Long-Term Advisory</div>
+        <p class="why-body">We say what needs to be said, not what sounds good. Our relationships are built on honesty and genuine alignment with your interests — always.</p>
+      </div>
+    </div>
+    <div class="why-item reveal d3">
+      <div class="why-icon-box">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M2 20h.01M7 20v-4"/><path d="M12 20V10"/><path d="M17 20V4"/><path d="M22 20v-8"/></svg>
+      </div>
+      <div class="why-content">
+        <div class="why-title">Deep Market Cycle Experience</div>
+        <p class="why-body">18+ years means we've navigated multiple crashes, rallies, and everything in between. That experience shapes every recommendation we make.</p>
+      </div>
+    </div>
+    <div class="why-item reveal d4">
+      <div class="why-icon-box">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div class="why-content">
+        <div class="why-title">Clear Communication, No Jargon</div>
+        <p class="why-body">Finance doesn't have to be complicated. We translate complexity into clarity — so you always understand exactly what's happening and why.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="promise-block reveal">
+    <div class="promise-eyebrow"><span class="line"></span>Our Promise<span class="line"></span></div>
+    <p class="promise-text">We don't promise quick results.<br>We focus on <em>sustainable progress.</em></p>
+  </div>
+</section>
+
+<!-- ═══ CLOSING BELIEF ═══ -->
+<section class="closing-section">
+  <div class="closing-grid">
+    <div class="closing-left reveal-left">
+      <div class="section-eyebrow"><span class="line"></span>The Chain of Clarity</div>
+      <div class="closing-chain">
+        <div class="chain-step">
+          <span class="chain-arrow">When</span>
+          <div class="chain-text">Your money has <strong style="color:var(--gold)">structure</strong><span style="display:block;margin-top:4px">decisions become easier</span></div>
+        </div>
+        <div class="chain-step">
+          <span class="chain-arrow">When</span>
+          <div class="chain-text">Decisions become <strong style="color:var(--gold)">easier</strong><span style="display:block;margin-top:4px">confidence increases</span></div>
+        </div>
+        <div class="chain-step">
+          <span class="chain-arrow">When</span>
+          <div class="chain-text">Confidence <strong style="color:var(--gold)">increases</strong><span style="display:block;margin-top:4px">wealth becomes stable</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="closing-right reveal-right">
+      <div class="section-eyebrow"><span class="line"></span>Closing Thought</div>
+      <p class="closing-quote">Nivedshri Wealth is not built around transactions. It is built around <strong>trust, clarity, and long-term thinking.</strong></p>
+      <p class="closing-body">We are here to help you make better financial decisions — calmly, consistently, and with purpose. Because when your finances have direction, life feels clearer.</p>
+      <div class="closing-btns">
+        <button class="btn-primary"><span>Begin Your Journey</span></button>
+        <button class="btn-ghost">Talk to Us</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="final-cta">
+  <div class="cta-rings">
+    <div class="cta-ring"></div>
+    <div class="cta-ring"></div>
+    <div class="cta-ring"></div>
+    <div class="cta-ring"></div>
+  </div>
+  <div class="cta-eyebrow reveal">Begin Your Journey</div>
+  <h2 class="cta-h2 reveal d1">Ready to bring <em>clarity</em><br>to your financial future?</h2>
+  <p class="cta-sub reveal d2">A calm, structured conversation focused entirely on your goals. No sales pitch. No pressure. No jargon.</p>
+  <div class="cta-btns reveal d3">
+    <button class="btn-gold-lg"><span>Book a Free Consultation</span></button>
+    <button class="btn-outline-lg">Talk to a Wealth Advisor</button>
+  </div>
+  <p class="cta-note reveal d4">Pan India · Digital-First · Confidential</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-row">
+    <div class="footer-logo">Nivedshri <span>Wealth</span></div>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Process</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="footer-disc">Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not a guarantee of future results. Nivedshri Wealth | AMFI Registered Mutual Fund Distributor. © 2024 Nivedshri Wealth. All rights reserved.</div>
+</footer>
+
+<script>
+/* ── PAGE LOADER ── */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('pageLoader').classList.add('hidden');
+    document.querySelectorAll('.ah-h1 .li').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), 200 + i * 130);
+    });
+  }, 1600);
+});
+
+/* ── CUSTOM CURSOR ── */
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+function animCursor(){
+  rx+=(mx-rx)*0.14;ry+=(my-ry)*0.14;
+  dot.style.left=mx+'px';dot.style.top=my+'px';
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+document.querySelectorAll('a,button,.ah-pillar,.story-era,.belief-card,.spec-item,.why-item,.udg-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{dot.classList.add('hovered');ring.classList.add('hovered')});
+  el.addEventListener('mouseleave',()=>{dot.classList.remove('hovered');ring.classList.remove('hovered')});
+});
+
+/* ── NAV SCROLL ── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>60);
+});
+
+/* ── SCROLL REVEAL ── */
+const revealAll = document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale');
+const revIO = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');revIO.unobserve(e.target)}
+  });
+},{threshold:0.08});
+revealAll.forEach(el=>revIO.observe(el));
+
+/* ── MAGNETIC BUTTONS ── */
+document.querySelectorAll('.btn-primary,.btn-gold-lg').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    const x=e.clientX-r.left-r.width/2;
+    const y=e.clientY-r.top-r.height/2;
+    btn.style.transform=`translate(${x*0.15}px,${y*0.25}px)`;
+  });
+  btn.addEventListener('mouseleave',()=>{btn.style.transform=''});
+});
+
+/* ── PARALLAX GLOW ── */
+document.addEventListener('mousemove',e=>{
+  const glows=document.querySelectorAll('.ah-glow-1,.ah-glow-2');
+  const xPct=(e.clientX/window.innerWidth-0.5)*24;
+  const yPct=(e.clientY/window.innerHeight-0.5)*24;
+  glows.forEach((g,i)=>{
+    g.style.transform=`translate(${xPct*(i?-0.5:1)}px,${yPct*(i?-0.5:1)}px)`;
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Stories — Nivedshri Wealth | Real Journeys. Real Clarity.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET ─── */
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --gold:#A07830;
+  --gold-light:#B8924A;
+  --gold-bright:#C9A96E;
+  --gold-dark:#7A5C20;
+  --gold-dim:rgba(160,120,48,0.12);
+  --gold-faint:rgba(160,120,48,0.06);
+  --orange:#D4530A;
+  --orange-light:#E8703A;
+  --orange-dim:rgba(212,83,10,0.1);
+  --bg:#FAFAF8;
+  --bg2:#F4F2EE;
+  --bg3:#EDE9E2;
+  --bg4:#E4DFD6;
+  --ivory:#1C1A14;
+  --ivory-mid:#6B6050;
+  --ivory-dim:rgba(28,26,20,0.5);
+  --ivory-faint:rgba(28,26,20,0.08);
+  --divider:rgba(160,120,48,0.15);
+  --divider-bright:rgba(160,120,48,0.35);
+}
+
+html{scroll-behavior:smooth;cursor:none}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--bg);
+  color:var(--ivory);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ─── NOISE TEXTURE ─── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;opacity:1;
+}
+
+/* ─── CURSOR ─── */
+.cursor-dot{
+  width:6px;height:6px;
+  background:var(--gold);border-radius:50%;
+  position:fixed;z-index:99999;pointer-events:none;
+  transform:translate(-50%,-50%);
+  transition:transform 0.1s,width 0.3s,height 0.3s,background 0.3s;
+  mix-blend-mode:difference;
+  box-shadow:0 0 20px rgba(160,120,48,0.3);
+}
+.cursor-ring{
+  width:36px;height:36px;
+  border:1px solid rgba(160,120,48,0.6);border-radius:50%;
+  position:fixed;z-index:99998;pointer-events:none;
+  transform:translate(-50%,-50%);
+  transition:transform 0.18s cubic-bezier(0.22,1,0.36,1),width 0.3s,height 0.3s,border-color 0.3s,opacity 0.3s;
+  backdrop-filter:blur(1px);
+}
+.cursor-ring.hovered{width:56px;height:56px;border-color:var(--orange);opacity:0.8;box-shadow:0 0 30px rgba(212,83,10,0.2)}
+.cursor-dot.hovered{width:4px;height:4px;background:var(--orange);box-shadow:0 0 25px rgba(212,83,10,0.4)}
+
+/* ─── LOADER ─── */
+.page-loader{
+  position:fixed;inset:0;z-index:99990;
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:24px;
+  transition:opacity 0.8s,visibility 0.8s;
+}
+.page-loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo{
+  font-family:'Cormorant',serif;font-size:36px;font-weight:300;color:var(--ivory);
+  letter-spacing:0.12em;
+  opacity:0;animation:loaderFade 0.6s 0.3s forwards;
+}
+.loader-logo span{color:var(--gold)}
+.loader-bar-wrap{width:160px;height:1px;background:rgba(160,120,48,0.2);overflow:hidden;opacity:0;animation:loaderFade 0.6s 0.5s forwards;}
+.loader-bar{height:100%;width:0;background:var(--gold);animation:loaderBar 1.4s 0.7s cubic-bezier(0.22,1,0.36,1) forwards;}
+@keyframes loaderFade{to{opacity:1}}
+@keyframes loaderBar{to{width:100%}}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:24px 56px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background 0.5s,backdrop-filter 0.5s,border-color 0.5s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled{background:rgba(250,250,248,0.94);backdrop-filter:blur(20px);border-color:var(--divider)}
+.nav-logo{
+  font-family:'Cormorant',serif;font-size:22px;font-weight:500;
+  color:var(--ivory);text-decoration:none;letter-spacing:0.06em;
+  cursor:none;
+}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:40px;align-items:center}
+.nav-links a{
+  font-size:13px;font-weight:400;color:var(--ivory-mid);
+  text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;
+  position:relative;cursor:none;
+  transition:color 0.3s;
+}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s}
+.nav-links a.active{color:var(--gold)}
+.nav-links a.active::after,.nav-links a:hover::after{width:100%}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{
+  color:var(--gold)!important;
+  border:1px solid var(--gold)!important;
+  padding:9px 22px;border-radius:2px;
+  overflow:hidden;position:relative;
+  transition:background 0.3s,color 0.3s!important;
+}
+.nav-cta::before{content:'';position:absolute;inset:0;background:var(--gold);transform:translateX(-101%);transition:transform 0.3s cubic-bezier(0.22,1,0.36,1)}
+.nav-cta:hover{color:#FAFAF8!important}
+.nav-cta:hover::before{transform:translateX(0)}
+.nav-cta span{position:relative;z-index:1}
+
+/* ─── REVEAL SYSTEM ─── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s cubic-bezier(0.22,1,0.36,1),transform 0.9s cubic-bezier(0.22,1,0.36,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-32px);transition:opacity 0.9s cubic-bezier(0.22,1,0.36,1),transform 0.9s cubic-bezier(0.22,1,0.36,1)}
+.reveal-left.visible{opacity:1;transform:none}
+.reveal-right{opacity:0;transform:translateX(32px);transition:opacity 0.9s cubic-bezier(0.22,1,0.36,1),transform 0.9s cubic-bezier(0.22,1,0.36,1)}
+.reveal-right.visible{opacity:1;transform:none}
+.d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}.d4{transition-delay:0.4s}.d5{transition-delay:0.5s}
+
+/* ─── HERO ─── */
+.sh-hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 56px 80px;
+  position:relative;overflow:hidden;
+}
+.sh-hero-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 50% at 60% 40%, rgba(160,120,48,0.08) 0%, transparent 65%),
+             radial-gradient(ellipse 40% 60% at 20% 70%, rgba(160,120,48,0.04) 0%, transparent 60%);
+  animation:heroFloat 20s ease-in-out infinite;
+}
+@keyframes heroFloat{
+  0%,100%{transform:scale(1) rotate(0deg)}
+  33%{transform:scale(1.05) rotate(0.5deg)}
+  66%{transform:scale(0.98) rotate(-0.3deg)}
+}
+/* Large decorative number */
+.sh-hero-num{
+  position:absolute;
+  right:-20px;top:50%;transform:translateY(-50%);
+  font-family:'Cormorant',serif;
+  font-size:clamp(200px, 28vw, 380px);
+  font-weight:300;
+  color:rgba(160,120,48,0.04);
+  line-height:1;
+  letter-spacing:-0.04em;
+  user-select:none;pointer-events:none;
+  white-space:nowrap;
+}
+/* Vertical text */
+.sh-vert{
+  position:absolute;right:56px;top:50%;transform:translateY(-50%) rotate(90deg);
+  transform-origin:center center;
+  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--ivory-dim);font-weight:300;
+  white-space:nowrap;
+}
+.sh-eyebrow{
+  display:flex;align-items:center;gap:16px;
+  font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);
+  font-weight:400;margin-bottom:32px;
+}
+.sh-eyebrow .line{width:40px;height:1px;background:var(--gold)}
+.sh-h1{
+  font-family:'Cormorant',serif;
+  font-size:clamp(52px,8vw,110px);
+  font-weight:300;line-height:0.95;
+  letter-spacing:-0.02em;
+  max-width:900px;
+  overflow:hidden;
+}
+.sh-h1 .li{
+  display:block;
+  transform:translateY(110%);
+  opacity:0;
+  transition:transform 1s cubic-bezier(0.22,1,0.36,1), opacity 0.6s ease;
+  position:relative;
+}
+.sh-h1 .li.visible{transform:translateY(0);opacity:1}
+.sh-h1 em{
+  font-style:italic;
+  color:var(--orange);
+  position:relative;
+  background:linear-gradient(135deg,var(--orange),var(--orange-light));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  text-shadow:0 0 30px rgba(212,83,10,0.2);
+}
+.sh-h1 em::after{
+  content:'';
+  position:absolute;bottom:-2px;left:0;width:100%;height:2px;
+  background:linear-gradient(90deg,var(--orange),var(--orange-light),transparent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+.sh-h1 em:hover::after{transform:scaleX(1)}
+.sh-sub{
+  font-size:17px;color:var(--ivory-mid);line-height:1.85;
+  max-width:560px;font-weight:300;
+  margin-top:36px;margin-bottom:56px;
+}
+.sh-intro-grid{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:1px;background:var(--divider);
+  border-top:1px solid var(--divider);
+  margin-top:0;
+}
+.sh-intro-item{
+  background:var(--bg);padding:28px 0;
+  display:flex;flex-direction:column;gap:6px;
+}
+.sh-intro-item:not(:first-child){padding-left:32px}
+.sh-intro-num{font-family:'Cormorant',serif;font-size:36px;font-weight:300;color:var(--gold)}
+.sh-intro-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ivory-dim);font-weight:300}
+
+/* ─── SCROLL INDICATOR ─── */
+.sh-scroll{
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ivory-dim);
+}
+.sh-scroll-line{
+  width:1px;height:48px;background:var(--divider);overflow:hidden;position:relative;
+}
+.sh-scroll-line::after{
+  content:'';position:absolute;top:-100%;left:0;right:0;height:100%;
+  background:var(--gold);
+  animation:scrollDrop 2s ease-in-out infinite;
+}
+@keyframes scrollDrop{0%{top:-100%}50%,100%{top:100%}}
+
+/* ─── MARQUEE QUOTE ─── */
+.quote-marquee{
+  background:var(--bg2);
+  padding:28px 0;border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);
+  overflow:hidden;white-space:nowrap;
+}
+.quote-inner{display:inline-flex;gap:0;animation:marquee 30s linear infinite}
+.quote-item{
+  font-family:'Cormorant',serif;
+  font-size:22px;font-weight:300;font-style:italic;
+  color:var(--ivory-dim);
+  padding:0 64px;white-space:nowrap;
+  position:relative;
+}
+.quote-item .dot{color:var(--gold);font-style:normal;font-size:10px;vertical-align:middle;margin:0 8px}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ─── STORIES SECTION HEADER ─── */
+.stories-section{padding:120px 56px 0}
+.stories-head{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;
+  margin-bottom:96px;padding-bottom:64px;border-bottom:1px solid var(--divider);
+}
+.section-eyebrow{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:24px}
+.section-eyebrow .line{width:28px;height:1px;background:var(--gold)}
+.section-h2{font-family:'Cormorant',serif;font-size:clamp(40px,5vw,64px);font-weight:300;line-height:1.08;letter-spacing:-0.015em}
+.section-h2 em{font-style:italic;color:var(--orange)}
+.stories-intro p{font-size:16px;color:var(--ivory-mid);line-height:1.9;font-weight:300;max-width:480px;margin-bottom:20px}
+
+/* ─── FEATURED STORY (LARGE CARD) ─── */
+.featured-story{
+  margin-bottom:2px;
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:580px;
+  border:1px solid var(--divider);
+  position:relative;overflow:hidden;
+  cursor:none;
+  transition:all 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.featured-story::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(212,83,10,0.03) 0%,transparent 60%);
+  opacity:0;
+  transition:opacity 0.6s;
+  z-index:1;
+}
+.featured-story:hover::before{opacity:1}
+.featured-story:hover .fs-overlay{opacity:1}
+.featured-story:hover .fs-img-inner{transform:scale(1.06) rotate(1deg)}
+.featured-story:hover .fs-name{color:var(--orange)}
+.featured-story:hover .fs-avatar{
+  transform:scale(1.15) rotate(-3deg);
+  border-color:var(--orange);
+  box-shadow:0 0 30px rgba(212,83,10,0.3);
+}
+.fs-img{background:var(--bg3);position:relative;overflow:hidden}
+.fs-img-inner{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,#EDE9E2 0%,#E4DFD6 60%,#D8D2C8 100%);
+  transition:transform 1.2s cubic-bezier(0.22,1,0.36,1);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.fs-img-inner img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0.6}
+/* Decorative SVG chart for image area */
+.fs-chart-art{
+  width:60%;max-width:280px;opacity:0.35;
+}
+.fs-overlay{
+  position:absolute;inset:0;background:linear-gradient(135deg,rgba(160,120,48,0.12) 0%,transparent 60%);
+  opacity:0;transition:opacity 0.5s;
+}
+.fs-tag{
+  position:absolute;top:24px;left:24px;
+  background:var(--gold);color:var(--bg);
+  font-size:10px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;
+  padding:6px 14px;
+}
+.fs-content{
+  padding:56px 56px 56px 64px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  background:var(--bg3);
+}
+.fs-profile{display:flex;align-items:center;gap:16px;margin-bottom:40px}
+.fs-avatar{
+  width:56px;height:56px;border-radius:50%;
+  border:1px solid var(--gold-dim);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant',serif;font-size:22px;font-weight:500;
+  color:var(--gold);background:var(--gold-faint);
+  flex-shrink:0;
+  transition:all 0.5s cubic-bezier(0.22,1,0.36,1);
+  position:relative;z-index:2;
+}
+.fs-name{font-size:17px;font-weight:500;color:var(--ivory);letter-spacing:0.01em}
+.fs-role{font-size:13px;color:var(--ivory-dim);margin-top:3px;font-weight:300}
+.fs-city{font-size:12px;color:var(--gold);margin-top:2px;font-weight:300;letter-spacing:0.04em}
+.fs-quote{
+  font-family:'Cormorant',serif;
+  font-size:clamp(22px,2.5vw,30px);
+  font-style:italic;font-weight:300;
+  line-height:1.55;color:var(--ivory);
+  flex:1;margin-bottom:32px;
+  position:relative;padding-top:16px;
+}
+.fs-quote::before{
+  content:'\201C';
+  font-size:80px;color:var(--gold);opacity:0.2;
+  position:absolute;top:-20px;left:-8px;line-height:1;
+  font-style:normal;
+}
+.fs-transformation{
+  display:flex;align-items:center;gap:0;
+  background:var(--bg4);padding:18px 20px;margin-bottom:28px;
+}
+.fs-trans-from,.fs-trans-to{font-size:12px;font-weight:300;line-height:1.5;flex:1}
+.fs-trans-from{color:var(--ivory-dim)}
+.fs-trans-to{color:var(--gold-light);text-align:right}
+.fs-trans-label{font-size:9px;text-transform:uppercase;letter-spacing:0.1em;opacity:0.6;display:block;margin-bottom:3px}
+.fs-trans-arrow{
+  width:40px;text-align:center;flex-shrink:0;
+  color:var(--gold);font-size:18px;
+}
+.fs-metrics{display:flex;gap:32px}
+.fs-metric-num{font-family:'Cormorant',serif;font-size:32px;font-weight:300;color:var(--gold);line-height:1}
+.fs-metric-num sup{font-size:16px}
+.fs-metric-label{font-size:11px;color:var(--ivory-dim);margin-top:4px;font-weight:300;letter-spacing:0.04em;line-height:1.4}
+
+/* ─── STORY GRID ─── */
+.stories-grid{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:1px;background:var(--divider);
+  margin-bottom:2px;
+}
+.story-card{
+  background:var(--bg2);
+  padding:40px 36px;
+  position:relative;overflow:hidden;
+  cursor:none;
+  transition:all 0.5s cubic-bezier(0.22,1,0.36,1);
+  transform-style:preserve-3d;
+}
+.story-card::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(212,83,10,0.02) 0%,transparent 50%);
+  opacity:0;
+  transition:opacity 0.5s;
+  z-index:1;
+}
+.story-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--orange),var(--orange-light),var(--gold));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.6s cubic-bezier(0.22,1,0.36,1);
+  box-shadow:0 0 20px rgba(212,83,10,0.3);
+}
+.story-card:hover{
+  background:var(--bg3);
+  transform:translateY(-8px) rotateX(2deg);
+  box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+.story-card:hover::before{opacity:1}
+.story-card:hover::after{transform:scaleX(1)}
+.story-card:hover .sc-name{color:var(--orange)}
+.story-card:hover .sc-avatar{
+  transform:scale(1.1) rotate(5deg);
+  border-color:var(--orange);
+  box-shadow:0 0 25px rgba(212,83,10,0.2);
+}
+.sc-num{
+  font-family:'Cormorant',serif;font-size:11px;
+  color:var(--ivory-dim);letter-spacing:0.1em;font-weight:300;
+  margin-bottom:24px;display:block;
+}
+.sc-avatar{
+  width:48px;height:48px;border-radius:50%;
+  border:1px solid var(--divider-bright);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant',serif;font-size:20px;font-weight:400;
+  color:var(--gold);background:var(--gold-faint);
+  margin-bottom:20px;
+  transition:all 0.4s cubic-bezier(0.22,1,0.36,1);
+  position:relative;z-index:2;
+}
+.sc-name{font-size:16px;font-weight:500;color:var(--ivory);margin-bottom:4px;letter-spacing:0.01em}
+.sc-role{font-size:12px;color:var(--ivory-dim);font-weight:300;margin-bottom:4px}
+.sc-city{font-size:11px;color:var(--gold);font-weight:300;letter-spacing:0.04em;margin-bottom:24px}
+.sc-quote{
+  font-family:'Cormorant',serif;
+  font-size:19px;font-style:italic;font-weight:300;
+  line-height:1.6;color:var(--ivory-mid);
+  margin-bottom:28px;flex:1;
+}
+.sc-divider{height:1px;background:var(--divider);margin:0 0 24px}
+.sc-before-after{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.sc-ba-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;font-weight:300;line-height:1.5}
+.sc-ba-icon{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.sc-ba-before .sc-ba-icon{background:rgba(28,26,20,0.2)}
+.sc-ba-before{color:var(--ivory-dim)}
+.sc-ba-after .sc-ba-icon{background:var(--gold)}
+.sc-ba-after{color:var(--ivory-mid)}
+.sc-metric{
+  display:inline-flex;align-items:baseline;gap:4px;
+  background:var(--gold-faint);border:1px solid var(--gold-dim);
+  padding:8px 14px;margin-top:4px;
+}
+.sc-metric-num{font-family:'Cormorant',serif;font-size:26px;font-weight:300;color:var(--gold);line-height:1}
+.sc-metric-label{font-size:10px;color:var(--ivory-dim);letter-spacing:0.08em;text-transform:uppercase;font-weight:300}
+.sc-stars{color:var(--gold);font-size:12px;letter-spacing:2px;margin-top:16px;display:block}
+
+/* ─── WIDE STORY (2-col span) ─── */
+.story-card.wide{
+  grid-column:span 2;
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+  padding:48px;
+}
+.wide-left{display:flex;flex-direction:column}
+.wide-right{display:flex;flex-direction:column;justify-content:flex-end}
+.wide-timeline{margin-bottom:28px}
+.wt-label{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ivory-dim);font-weight:300;margin-bottom:14px}
+.wt-steps{display:flex;flex-direction:column;gap:0}
+.wt-step{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:12px 0;
+  border-bottom:1px solid var(--divider);
+}
+.wt-step:last-child{border-bottom:none}
+.wt-dot{width:8px;height:8px;border-radius:50%;background:var(--gold-dim);border:1px solid var(--gold);flex-shrink:0;margin-top:5px}
+.wt-step.active .wt-dot{background:var(--gold)}
+.wt-step-text{font-size:13px;color:var(--ivory-dim);font-weight:300;line-height:1.5}
+.wt-step.active .wt-step-text{color:var(--ivory-mid)}
+.wt-step-time{font-size:10px;color:var(--gold);letter-spacing:0.06em;margin-bottom:2px}
+
+/* ─── PHILOSOPHY INTERLUDE ─── */
+.phil-break{
+  background:var(--bg2);
+  padding:96px 56px;
+  text-align:center;
+  border-top:1px solid var(--divider);
+  border-bottom:1px solid var(--divider);
+  position:relative;overflow:hidden;
+}
+.phil-break-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 50% 50%, rgba(160,120,48,0.05) 0%, transparent 65%);
+  pointer-events:none;
+}
+.phil-break blockquote{
+  font-family:'Cormorant',serif;
+  font-size:clamp(28px,4vw,52px);
+  font-weight:300;font-style:italic;
+  line-height:1.35;color:var(--ivory);
+  max-width:800px;margin:0 auto 32px;
+  position:relative;z-index:1;
+}
+.phil-break blockquote em{color:var(--orange);font-style:normal}
+.phil-break cite{
+  font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ivory-dim);font-weight:300;font-style:normal;
+  position:relative;z-index:1;
+}
+.phil-break cite::before{content:'— ';color:var(--gold)}
+
+/* ─── TRANSFORMATION METRICS BAR ─── */
+.metrics-bar{
+  background:var(--bg3);
+  padding:64px 56px;
+  border-bottom:1px solid var(--divider);
+}
+.metrics-bar-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--divider)}
+.mb-item{
+  background:var(--bg3);
+  padding:40px 32px;
+  position:relative;
+  overflow:hidden;
+}
+.mb-item::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity 0.5s;
+}
+.mb-item:hover::before{opacity:1}
+.mb-eyebrow{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.mb-eyebrow::before{content:'';width:16px;height:1px;background:var(--gold)}
+.mb-num{font-family:'Cormorant',serif;font-size:clamp(44px,4vw,64px);font-weight:300;color:var(--ivory);line-height:1;margin-bottom:8px}
+.mb-num span{color:var(--gold)}
+.mb-label{font-size:13px;color:var(--ivory-dim);font-weight:300;line-height:1.6}
+
+/* ─── STORY VIDEO CTA AREA ─── */
+.story-video-cta{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:400px;border-bottom:1px solid var(--divider);
+}
+.svc-left{
+  background:var(--bg3);
+  padding:72px 56px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.svc-right{
+  background:var(--bg2);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  border-left:1px solid var(--divider);
+}
+.svc-play{
+  width:80px;height:80px;border-radius:50%;
+  border:1px solid var(--gold-dim);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);cursor:none;
+  position:relative;z-index:1;
+  transition:border-color 0.3s,transform 0.3s;
+}
+.svc-play:hover{border-color:var(--gold);transform:scale(1.08)}
+.svc-play svg{width:24px;height:24px;fill:var(--gold);margin-left:4px}
+.svc-play-rings{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.svc-ring{
+  position:absolute;border-radius:50%;border:1px solid rgba(160,120,48,0.08);
+  animation:ringExpand 3s linear infinite;
+}
+.svc-ring:nth-child(1){width:140px;height:140px;animation-delay:0s}
+.svc-ring:nth-child(2){width:220px;height:220px;animation-delay:1s}
+.svc-ring:nth-child(3){width:300px;height:300px;animation-delay:2s}
+@keyframes ringExpand{0%{opacity:0;transform:scale(0.8)}50%{opacity:1}100%{opacity:0;transform:scale(1.2)}}
+.svc-text{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ivory-dim);margin-top:20px;font-weight:300;text-align:center;position:relative;z-index:1}
+
+/* ─── FINAL CTA ─── */
+.final-cta{
+  padding:120px 56px;text-align:center;
+  position:relative;overflow:hidden;
+  background:var(--bg);
+}
+.cta-rings{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.cta-ring{
+  position:absolute;border-radius:50%;border:1px solid var(--divider);
+  transform:translate(-50%,-50%);
+}
+.cta-ring:nth-child(1){width:300px;height:300px}
+.cta-ring:nth-child(2){width:500px;height:500px;border-color:rgba(160,120,48,0.07)}
+.cta-ring:nth-child(3){width:700px;height:700px;border-color:rgba(160,120,48,0.04)}
+.cta-ring:nth-child(4){width:900px;height:900px;border-color:rgba(160,120,48,0.02)}
+.cta-eyebrow{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:400;position:relative;z-index:1}
+.cta-h2{
+  font-family:'Cormorant',serif;
+  font-size:clamp(40px,6vw,76px);font-weight:300;
+  color:var(--ivory);line-height:1.1;margin-bottom:16px;
+  letter-spacing:-0.02em;position:relative;z-index:1;
+}
+.cta-h2 em{font-style:italic;color:var(--orange)}
+.cta-sub{font-size:16px;color:var(--ivory-mid);margin-bottom:48px;font-weight:300;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.8;position:relative;z-index:1}
+.cta-btns{display:flex;gap:14px;justify-content:center;position:relative;z-index:1}
+.btn-gold-lg{
+  background:linear-gradient(135deg,var(--gold),var(--gold-bright));
+  color:var(--bg);
+  padding:16px 36px;font-size:13px;border:none;border-radius:2px;cursor:none;
+  letter-spacing:0.08em;text-transform:uppercase;font-weight:600;font-family:'Outfit',sans-serif;
+  position:relative;overflow:hidden;transition:all 0.4s cubic-bezier(0.22,1,0.36,1);
+  box-shadow:0 4px 15px rgba(160,120,48,0.2);
+}
+.btn-gold-lg span{position:relative;z-index:1}
+.btn-gold-lg::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--orange),var(--orange-light));
+  transform:translateX(-101%);transition:transform 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.btn-gold-lg:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(160,120,48,0.3);
+}
+.btn-gold-lg:hover::before{transform:translateX(0)}
+.btn-outline-lg{
+  background:transparent;color:var(--ivory);
+  padding:16px 36px;font-size:13px;
+  border:1px solid rgba(28,26,20,0.2);border-radius:2px;cursor:none;
+  letter-spacing:0.08em;text-transform:uppercase;font-weight:400;font-family:'Outfit',sans-serif;
+  transition:border-color 0.3s,color 0.3s;
+}
+.btn-outline-lg:hover{border-color:var(--gold);color:var(--gold)}
+.cta-note{font-size:11px;color:rgba(28,26,20,0.2);margin-top:28px;letter-spacing:0.1em;text-transform:uppercase;position:relative;z-index:1}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--bg2);
+  border-top:1px solid var(--divider);
+  padding:40px 56px;
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:40px;
+  flex-wrap:wrap;
+}
+.footer-logo{font-family:'Cormorant',serif;font-size:20px;font-weight:400;color:var(--ivory);letter-spacing:0.06em;flex-shrink:0}
+.footer-logo span{color:var(--gold)}
+.footer-links{display:flex;gap:32px;align-items:center}
+.footer-links a{font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ivory-dim);text-decoration:none;cursor:none;transition:color 0.3s}
+.footer-links a:hover{color:var(--gold)}
+.footer-disc{font-size:11px;color:rgba(28,26,20,0.2);line-height:1.75;font-weight:300;width:100%;border-top:1px solid var(--divider);padding-top:20px;margin-top:12px}
+
+/* ─── BUTTONS (general) ─── */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--gold);color:var(--bg);
+  padding:13px 28px;font-size:13px;border:none;border-radius:2px;cursor:none;
+  letter-spacing:0.08em;text-transform:uppercase;font-weight:600;font-family:'Outfit',sans-serif;
+  position:relative;overflow:hidden;transition:background 0.3s;
+}
+.btn-primary span{position:relative;z-index:1}
+.btn-primary::before{content:'';position:absolute;inset:0;background:var(--gold-bright);transform:translateX(-101%);transition:transform 0.4s cubic-bezier(0.22,1,0.36,1)}
+.btn-primary:hover::before{transform:translateX(0)}
+.btn-ghost{
+  display:inline-flex;align-items:center;
+  background:transparent;color:var(--ivory);
+  padding:13px 28px;font-size:13px;
+  border:1px solid rgba(28,26,20,0.2);border-radius:2px;cursor:none;
+  letter-spacing:0.08em;text-transform:uppercase;font-weight:400;font-family:'Outfit',sans-serif;
+  transition:border-color 0.3s,color 0.3s;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ─── HORIZONTAL STORY BAR ─── */
+.hstory-bar{
+  background:var(--bg2);
+  border-top:1px solid var(--divider);
+  border-bottom:1px solid var(--divider);
+  padding:56px;
+  display:grid;grid-template-columns:200px 1fr 240px;gap:48px;align-items:center;
+  cursor:none;
+  transition:all 0.4s cubic-bezier(0.22,1,0.36,1);
+  position:relative;overflow:hidden;
+}
+.hstory-bar::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;width:0;
+  background:linear-gradient(to bottom,var(--orange),var(--orange-light));
+  transition:width 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.hstory-bar:hover{background:var(--bg3);transform:translateX(8px)}
+.hstory-bar:hover::before{width:3px}
+.hstory-bar:hover .hb-name{color:var(--orange)}
+.hstory-bar:hover .hb-avatar{
+  transform:scale(1.1) rotate(-2deg);
+  border-color:var(--orange);
+  box-shadow:0 0 20px rgba(212,83,10,0.25);
+}
+.hstory-bar+.hstory-bar{border-top:none}
+.hb-profile{display:flex;flex-direction:column;gap:8px}
+.hb-avatar{
+  width:64px;height:64px;border-radius:50%;
+  border:1px solid var(--divider-bright);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant',serif;font-size:26px;font-weight:300;
+  color:var(--gold);background:var(--gold-faint);
+  margin-bottom:12px;
+  transition:all 0.4s cubic-bezier(0.22,1,0.36,1);
+  position:relative;z-index:2;
+}
+.hb-name{font-size:16px;font-weight:500;color:var(--ivory)}
+.hb-role{font-size:12px;color:var(--ivory-dim);font-weight:300}
+.hb-city{font-size:11px;color:var(--gold);font-weight:300;letter-spacing:0.04em}
+.hb-quote{
+  font-family:'Cormorant',serif;
+  font-size:clamp(20px,2.2vw,26px);font-style:italic;font-weight:300;
+  line-height:1.6;color:var(--ivory-mid);
+  position:relative;padding-left:24px;
+}
+.hb-quote::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:2px;background:var(--gold-dim)}
+.hb-metrics{display:flex;flex-direction:column;gap:16px;align-items:flex-end}
+.hb-metric{text-align:right}
+.hb-metric-num{font-family:'Cormorant',serif;font-size:32px;font-weight:300;color:var(--gold);line-height:1}
+.hb-metric-label{font-size:10px;color:var(--ivory-dim);letter-spacing:0.08em;text-transform:uppercase;font-weight:300;margin-top:3px}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<div class="page-loader" id="pageLoader">
+  <div class="loader-logo">Nivedshri <span>Wealth</span></div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">Nivedshri <span>Wealth</span></a>
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="stories.html" class="active">Stories</a>
+    <a href="insights.html">Insights</a>
+    <a href="contact.html" class="nav-cta"><span>Book a Call</span></a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="sh-hero">
+  <div class="sh-hero-bg"></div>
+  <div class="sh-hero-num">Stories</div>
+  <div class="sh-vert">Real Journeys · Real Clarity · 2024</div>
+
+  <div class="sh-eyebrow reveal">
+    <span class="line"></span>
+    Client Stories
+  </div>
+
+  <h1 class="sh-h1">
+    <span class="li">Not just <em>clients.</em></span>
+    <span class="li">Transformed</span>
+    <span class="li">perspectives.</span>
+  </h1>
+
+  <p class="sh-sub reveal d2">
+    Our clients don't just invest — they change how they think about money. What starts as uncertainty and scattered decisions becomes clarity, structure, and a sense of direction.
+  </p>
+
+  <div class="sh-intro-grid">
+    <div class="sh-intro-item reveal d1">
+      <span class="sh-intro-num">500+</span>
+      <span class="sh-intro-label">Families Guided</span>
+    </div>
+    <div class="sh-intro-item reveal d2">
+      <span class="sh-intro-num">18+</span>
+      <span class="sh-intro-label">Years of Experience</span>
+    </div>
+    <div class="sh-intro-item reveal d3">
+      <span class="sh-intro-num">100%</span>
+      <span class="sh-intro-label">Goal-Based Approach</span>
+    </div>
+  </div>
+
+  <div class="sh-scroll">
+    <span>Scroll</span>
+    <div class="sh-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE QUOTE ═══ -->
+<div class="quote-marquee">
+  <div class="quote-inner">
+    <span class="quote-item">These journeys are not about quick wins<span class="dot">◆</span></span>
+    <span class="quote-item">They're about building discipline, staying consistent<span class="dot">◆</span></span>
+    <span class="quote-item">Making better financial choices over the long term<span class="dot">◆</span></span>
+    <span class="quote-item">When the right guidance meets patience and intent<span class="dot">◆</span></span>
+    <span class="quote-item">These journeys are not about quick wins<span class="dot">◆</span></span>
+    <span class="quote-item">They're about building discipline, staying consistent<span class="dot">◆</span></span>
+    <span class="quote-item">Making better financial choices over the long term<span class="dot">◆</span></span>
+    <span class="quote-item">When the right guidance meets patience and intent<span class="dot">◆</span></span>
+  </div>
+</div>
+
+<!-- ═══ STORIES SECTION ═══ -->
+<section class="stories-section">
+  <div class="stories-head">
+    <div>
+      <div class="section-eyebrow reveal"><span class="line"></span>Real Transformations</div>
+      <h2 class="section-h2 reveal d1">Every story<br>begins with<br><em>confusion.</em></h2>
+    </div>
+    <div class="stories-intro">
+      <p class="reveal d2">Over time, we see a clear shift. What starts as uncertainty and scattered decisions becomes clarity, structure, and a sense of direction.</p>
+      <p class="reveal d3">Each story reflects what happens when the right guidance meets patience and intent.</p>
+    </div>
+  </div>
+
+  <!-- FEATURED STORY -->
+  <div class="featured-story reveal">
+    <div class="fs-img">
+      <div class="fs-img-inner">
+        <svg class="fs-chart-art" viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 160 L60 130 L90 140 L120 100 L150 90 L180 60 L210 40 L260 20" stroke="#A07830" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 160 L60 130 L90 140 L120 100 L150 90 L180 60 L210 40 L260 20 L260 180 L20 180 Z" fill="rgba(160,120,48,0.06)"/>
+          <line x1="20" y1="180" x2="260" y2="180" stroke="rgba(160,120,48,0.2)" stroke-width="0.5"/>
+          <line x1="20" y1="140" x2="260" y2="140" stroke="rgba(160,120,48,0.08)" stroke-width="0.5" stroke-dasharray="4 4"/>
+          <line x1="20" y1="100" x2="260" y2="100" stroke="rgba(160,120,48,0.08)" stroke-width="0.5" stroke-dasharray="4 4"/>
+          <line x1="20" y1="60" x2="260" y2="60" stroke="rgba(160,120,48,0.08)" stroke-width="0.5" stroke-dasharray="4 4"/>
+          <circle cx="260" cy="20" r="4" fill="#A07830"/>
+          <circle cx="180" cy="60" r="3" fill="#A07830" opacity="0.7"/>
+          <circle cx="120" cy="100" r="3" fill="#A07830" opacity="0.5"/>
+        </svg>
+      </div>
+      <div class="fs-overlay"></div>
+      <span class="fs-tag">Featured Story</span>
+    </div>
+    <div class="fs-content">
+      <div>
+        <div class="fs-profile">
+          <div class="fs-avatar">R</div>
+          <div>
+            <div class="fs-name">Rajesh & Priya Mehta</div>
+            <div class="fs-role">Business Owner &amp; Homemaker</div>
+            <div class="fs-city">📍 Mumbai, Maharashtra</div>
+          </div>
+        </div>
+        <blockquote class="fs-quote">
+          "We had been investing for 10 years but had no idea where we actually stood. Nivedshri Wealth didn't just restructure our portfolio — they gave us a map of our entire financial life. For the first time, we felt in control."
+        </blockquote>
+        <div class="fs-transformation">
+          <div class="fs-trans-from">
+            <span class="fs-trans-label">Before</span>
+            Scattered investments across 12+ products. No clarity on goals. Anxiety during every market dip.
+          </div>
+          <div class="fs-trans-arrow">→</div>
+          <div class="fs-trans-to">
+            <span class="fs-trans-label">After</span>
+            Structured plan across 4 goals. Monthly SIP discipline. Calm through 2022 correction.
+          </div>
+        </div>
+      </div>
+      <div class="fs-metrics">
+        <div>
+          <div class="fs-metric-num">3<sup>yrs</sup></div>
+          <div class="fs-metric-label">Client Since<br>2021</div>
+        </div>
+        <div>
+          <div class="fs-metric-num">4</div>
+          <div class="fs-metric-label">Goals<br>Structured</div>
+        </div>
+        <div>
+          <div class="fs-metric-num">₹2Cr<sup>+</sup></div>
+          <div class="fs-metric-label">Portfolio<br>Organised</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY GRID: 3 cards -->
+  <div class="stories-grid">
+
+    <!-- Story Card 1 -->
+    <div class="story-card reveal d1">
+      <span class="sc-num">Story / 02</span>
+      <div class="sc-avatar">A</div>
+      <div class="sc-name">Ankit Sharma</div>
+      <div class="sc-role">Senior IT Professional</div>
+      <div class="sc-city">📍 Pune, Maharashtra</div>
+      <blockquote class="sc-quote">"I was earning well but saving without direction. Now every rupee has a purpose."</blockquote>
+      <div class="sc-divider"></div>
+      <div class="sc-before-after">
+        <div class="sc-ba-item sc-ba-before">
+          <span class="sc-ba-icon"></span>
+          <span>High income, low clarity. Multiple funds with overlapping mandates.</span>
+        </div>
+        <div class="sc-ba-item sc-ba-after">
+          <span class="sc-ba-icon"></span>
+          <span>Clean 3-goal structure: retirement at 50, child's education, emergency fund.</span>
+        </div>
+      </div>
+      <div class="sc-metric">
+        <span class="sc-metric-num">50</span>
+        <span class="sc-metric-label">Retirement goal<br>planned</span>
+      </div>
+      <span class="sc-stars">★★★★★</span>
+    </div>
+
+    <!-- Story Card 2 -->
+    <div class="story-card reveal d2">
+      <span class="sc-num">Story / 03</span>
+      <div class="sc-avatar">S</div>
+      <div class="sc-name">Sunita Kapoor</div>
+      <div class="sc-role">School Principal</div>
+      <div class="sc-city">📍 Delhi, NCR</div>
+      <blockquote class="sc-quote">"After my husband's passing, I had no idea what to do with our finances. Nivedshri gave me confidence and a clear path forward."</blockquote>
+      <div class="sc-divider"></div>
+      <div class="sc-before-after">
+        <div class="sc-ba-item sc-ba-before">
+          <span class="sc-ba-icon"></span>
+          <span>Overwhelming paperwork, unclear assets, emotional decision-making.</span>
+        </div>
+        <div class="sc-ba-item sc-ba-after">
+          <span class="sc-ba-icon"></span>
+          <span>Consolidated plan with income protection, retirement corpus &amp; children's future secured.</span>
+        </div>
+      </div>
+      <div class="sc-metric">
+        <span class="sc-metric-num">5<sup>+</sup></span>
+        <span class="sc-metric-label">Years of<br>partnership</span>
+      </div>
+      <span class="sc-stars">★★★★★</span>
+    </div>
+
+    <!-- Story Card 3 (Wide) -->
+    <div class="story-card reveal d3">
+      <span class="sc-num">Story / 04</span>
+      <div class="sc-avatar">V</div>
+      <div class="sc-name">Vikram Nair</div>
+      <div class="sc-role">Entrepreneur · Founder</div>
+      <div class="sc-city">📍 Bengaluru, Karnataka</div>
+      <blockquote class="sc-quote">"As a business owner, I always mixed personal and business finances. That clarity alone changed everything."</blockquote>
+      <div class="sc-divider"></div>
+      <div class="sc-before-after">
+        <div class="sc-ba-item sc-ba-before">
+          <span class="sc-ba-icon"></span>
+          <span>Business income reinvested without personal wealth building.</span>
+        </div>
+        <div class="sc-ba-item sc-ba-after">
+          <span class="sc-ba-icon"></span>
+          <span>Separated business cash flow from personal wealth strategy.</span>
+        </div>
+      </div>
+      <div class="sc-metric">
+        <span class="sc-metric-num">₹75L<sup>+</sup></span>
+        <span class="sc-metric-label">Personal SIP<br>corpus built</span>
+      </div>
+      <span class="sc-stars">★★★★★</span>
+    </div>
+
+    <!-- Wide story card -->
+    <div class="story-card wide reveal">
+      <div class="wide-left">
+        <span class="sc-num">Story / 05 · Deep Dive</span>
+        <div class="sc-avatar" style="width:56px;height:56px">P</div>
+        <div class="sc-name" style="font-size:19px">Pradeep & Meena Iyer</div>
+        <div class="sc-role">Software Architect &amp; Doctor</div>
+        <div class="sc-city" style="margin-bottom:28px">📍 Chennai, Tamil Nadu</div>
+        <blockquote class="sc-quote">"We were both high earners who thought we were doing fine. The review session revealed we had no plan for the next 20 years. That conversation changed our trajectory."</blockquote>
+        <span class="sc-stars" style="margin-top:20px">★★★★★</span>
+      </div>
+      <div class="wide-right">
+        <div class="wide-timeline">
+          <div class="wt-label">Their Journey with Nivedshri Wealth</div>
+          <div class="wt-steps">
+            <div class="wt-step active">
+              <div class="wt-dot"></div>
+              <div>
+                <div class="wt-step-time">Month 1</div>
+                <div class="wt-step-text">Comprehensive financial audit — 14 investments, 3 insurance policies, 0 clear goals identified.</div>
+              </div>
+            </div>
+            <div class="wt-step active">
+              <div class="wt-dot"></div>
+              <div>
+                <div class="wt-step-time">Month 3</div>
+                <div class="wt-step-text">Restructured into 5 goal buckets. Retirement, children's education, home upgrade, emergency, wealth.</div>
+              </div>
+            </div>
+            <div class="wt-step active">
+              <div class="wt-dot"></div>
+              <div>
+                <div class="wt-step-time">Year 1</div>
+                <div class="wt-step-text">Maintained discipline through market volatility. First annual review showed 23% portfolio clean-up.</div>
+              </div>
+            </div>
+            <div class="wt-step">
+              <div class="wt-dot"></div>
+              <div>
+                <div class="wt-step-time">Today · Year 4</div>
+                <div class="wt-step-text">On track for early retirement at 52. Children's education fully funded. Zero financial anxiety.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px">
+          <div class="sc-metric">
+            <span class="sc-metric-num">4<sup>yrs</sup></span>
+            <span class="sc-metric-label">Active client<br>relationship</span>
+          </div>
+          <div class="sc-metric">
+            <span class="sc-metric-num">52</span>
+            <span class="sc-metric-label">Target retirement<br>age (on track)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end stories-grid -->
+</section>
+
+<!-- ═══ PHILOSOPHY INTERLUDE ═══ -->
+<div class="phil-break">
+  <div class="phil-break-bg"></div>
+  <blockquote class="reveal">
+    "These journeys are not about quick wins.<br>They are about building <em>discipline</em>,<br>staying consistent, and making better<br>financial choices over the long term."
+  </blockquote>
+  <cite class="reveal d2">Nitesh Tara, Founder — Nivedshri Wealth</cite>
+</div>
+
+<!-- ═══ METRICS BAR ═══ -->
+<div class="metrics-bar">
+  <div class="section-eyebrow reveal" style="margin-bottom:40px"><span class="line"></span>The Collective Impact</div>
+  <div class="metrics-bar-inner">
+    <div class="mb-item reveal d1">
+      <div class="mb-eyebrow">Clients Served</div>
+      <div class="mb-num">500<span>+</span></div>
+      <div class="mb-label">Families and individuals guided toward financial clarity across India</div>
+    </div>
+    <div class="mb-item reveal d2">
+      <div class="mb-eyebrow">Avg. Relationship</div>
+      <div class="mb-num">4.<span>2</span><span style="font-size:28px;color:var(--ivory-mid)"> yrs</span></div>
+      <div class="mb-label">Clients don't just come once — they stay for the long term</div>
+    </div>
+    <div class="mb-item reveal d3">
+      <div class="mb-eyebrow">Goals Structured</div>
+      <div class="mb-num">2<span>K</span><span style="font-size:28px;color:var(--ivory-mid)">+</span></div>
+      <div class="mb-label">Life goals converted into actionable financial roadmaps</div>
+    </div>
+    <div class="mb-item reveal d4">
+      <div class="mb-eyebrow">Satisfaction</div>
+      <div class="mb-num">98<span>%</span></div>
+      <div class="mb-label">Of clients report increased financial confidence within 6 months</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ HORIZONTAL STORY BARS ═══ -->
+<div class="hstory-bar reveal">
+  <div class="hb-profile">
+    <div class="hb-avatar">D</div>
+    <div class="hb-name">Deepa Rajan</div>
+    <div class="hb-role">Chartered Accountant</div>
+    <div class="hb-city">📍 Hyderabad</div>
+  </div>
+  <blockquote class="hb-quote">"I advise clients on their taxes but never had a proper financial plan for myself. The irony wasn't lost on me. Nivedshri helped me practice what I preach — and now my personal wealth is as structured as my professional work."</blockquote>
+  <div class="hb-metrics">
+    <div class="hb-metric">
+      <div class="hb-metric-num">₹1.2Cr</div>
+      <div class="hb-metric-label">Portfolio Structured</div>
+    </div>
+    <div class="hb-metric">
+      <div class="hb-metric-num">★★★★★</div>
+      <div class="hb-metric-label">5-Star Review</div>
+    </div>
+  </div>
+</div>
+
+<div class="hstory-bar reveal">
+  <div class="hb-profile">
+    <div class="hb-avatar">M</div>
+    <div class="hb-name">Manish Gupta</div>
+    <div class="hb-role">Sales Director · MNC</div>
+    <div class="hb-city">📍 Mumbai</div>
+  </div>
+  <blockquote class="hb-quote">"Variable income made planning feel impossible. I thought financial planning was only for people with stable salaries. Nivedshri showed me how to build a system that works regardless of how my income fluctuates month to month."</blockquote>
+  <div class="hb-metrics">
+    <div class="hb-metric">
+      <div class="hb-metric-num">3 yrs</div>
+      <div class="hb-metric-label">Client Partnership</div>
+    </div>
+    <div class="hb-metric">
+      <div class="hb-metric-num">★★★★★</div>
+      <div class="hb-metric-label">5-Star Review</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ VIDEO CTA ═══ -->
+<div class="story-video-cta">
+  <div class="svc-left">
+    <div class="section-eyebrow reveal"><span class="line"></span>Watch Their Story</div>
+    <h2 class="section-h2 reveal d1" style="font-size:clamp(32px,4vw,52px)">Hear it in<br>their own <em>words.</em></h2>
+    <p class="reveal d2" style="font-size:15px;color:var(--ivory-mid);line-height:1.85;font-weight:300;margin-top:20px;max-width:380px">A short 2-minute film on how Rajesh &amp; Priya found financial clarity. Real people. Real numbers. Real change.</p>
+    <div class="reveal d3" style="margin-top:32px">
+      <button class="btn-primary"><span>Watch the Film</span></button>
+    </div>
+  </div>
+  <div class="svc-right">
+    <div class="svc-play-rings">
+      <div class="svc-ring"></div>
+      <div class="svc-ring"></div>
+      <div class="svc-ring"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;position:relative;z-index:1">
+      <div class="svc-play">
+        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      </div>
+      <span class="svc-text">Play — 2 min</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="final-cta">
+  <div class="cta-rings">
+    <div class="cta-ring"></div>
+    <div class="cta-ring"></div>
+    <div class="cta-ring"></div>
+    <div class="cta-ring"></div>
+  </div>
+  <div class="cta-eyebrow reveal">Begin Your Journey</div>
+  <h2 class="cta-h2 reveal d1">Your story<br>starts with a <em>conversation.</em></h2>
+  <p class="cta-sub reveal d2">No sales pitch. No pressure. Just a calm, structured conversation focused entirely on your financial goals.</p>
+  <div class="cta-btns reveal d3">
+    <button class="btn-gold-lg"><span>Book a Free Consultation</span></button>
+    <button class="btn-outline-lg">Talk to a Wealth Advisor</button>
+  </div>
+  <p class="cta-note reveal d4">Pan India · Digital-First · Confidential</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Nivedshri <span>Wealth</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="stories.html">Stories</a>
+    <a href="insights.html">Insights</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-disc">Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not a guarantee of future results. Nivedshri Wealth | AMFI Registered Mutual Fund Distributor. © 2025 Nivedshri Wealth. All rights reserved.</div>
+</footer>
+
+<script>
+/* PAGE LOADER */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('pageLoader').classList.add('hidden');
+    document.querySelectorAll('.sh-h1 .li').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), 300 + i * 160);
+    });
+  }, 1700);
+});
+
+/* CUSTOM CURSOR */
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let mx=0, my=0, rx=0, ry=0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animCursor() {
+  rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14;
+  dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+document.querySelectorAll('a,button,.featured-story,.story-card,.hstory-bar,.svc-play,.svc-right').forEach(el => {
+  el.addEventListener('mouseenter', () => { dot.classList.add('hovered'); ring.classList.add('hovered'); });
+  el.addEventListener('mouseleave', () => { dot.classList.remove('hovered'); ring.classList.remove('hovered'); });
+});
+
+/* NAV SCROLL */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* SCROLL REVEAL */
+const revealEls = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const revIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revIO.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+revealEls.forEach(el => revIO.observe(el));
+
+/* MAGNETIC BUTTONS */
+document.querySelectorAll('.btn-primary,.btn-gold-lg').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r = btn.getBoundingClientRect();
+    const x = e.clientX - r.left - r.width / 2;
+    const y = e.clientY - r.top - r.height / 2;
+    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.25}px)`;
+  });
+  btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+});
+
+/* PARALLAX on hero bg number */
+document.addEventListener('mousemove', e => {
+  const num = document.querySelector('.sh-hero-num');
+  if (!num) return;
+  const xPct = (e.clientX / window.innerWidth - 0.5) * 20;
+  const yPct = (e.clientY / window.innerHeight - 0.5) * 10;
+  num.style.transform = `translateY(calc(-50% + ${yPct}px)) translateX(${xPct * 0.5}px)`;
+});
+
+/* COUNTER ANIMATION for metrics */
+function animateCounter(el, target, suffix='') {
+  const dur = 2000;
+  const start = performance.now();
+  const isFloat = String(target).includes('.');
+  function frame(now) {
+    const t = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    const val = isFloat ? (ease * target).toFixed(1) : Math.round(ease * target);
+    el.textContent = val + suffix;
+    if (t < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+const counterIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const nums = e.target.querySelectorAll('.mb-num');
+      nums.forEach(n => {
+        const raw = n.textContent.replace(/[^0-9.]/g,'');
+        const suffix = n.innerHTML.replace(/[0-9.]/g,'').replace(/<[^>]+>/g,'');
+        if (raw) animateCounter(n, parseFloat(raw), suffix.trim());
+      });
+      counterIO.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.metrics-bar-inner').forEach(el => counterIO.observe(el));
+</script>
+</body>
+</html>

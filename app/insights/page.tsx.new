@@ -1,0 +1,44 @@
+// Complete articles data
+  const allArticles = [
+    {
+      id: 1,
+      category: 'Planning',
+      categoryColor: 'orange',
+      title: 'Why your SIP at 25 is worth more than 3× the amount at 35. The math that changes decisions.',
+      excerpt: 'Time is a multiplier that no product can match. Here\'s a side-by-side comparison of two investors — same amount, different start dates — and what 10 years does to the outcome.',
+      readTime: 'March 2025 · 6 min',
+      type: 'regular',
+      visual: 'svg',
+      svgContent: `<svg viewBox="0 0 280 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:70%;max-width:260px">
+          <rect x="20" y="140" width="24" height="30" fill="rgba(160,120,48,0.25)" rx="1"/>
+          <rect x="56" y="120" width="24" height="50" fill="rgba(160,120,48,0.3)" rx="1"/>
+          <rect x="92" y="100" width="24" height="70" fill="rgba(160,120,48,0.4)" rx="1"/>
+          <rect x="128" y="76" width="24" height="94" fill="rgba(160,120,48,0.5)" rx="1"/>
+          <rect x="164" y="48" width="24" height="122" fill="rgba(160,120,48,0.65)" rx="1"/>
+          <rect x="200" y="20" width="24" height="150" fill="rgba(212,83,10,0.8)" rx="1"/>
+          <rect x="236" y="4" width="24" height="166" fill="#D4530A" rx="1"/>
+          <line x1="10" y1="170" x2="270" y2="170" stroke="rgba(28,26,20,0.1)" stroke-width="0.5"/>
+          <text x="10" y="185" font-family="Outfit,sans-serif" font-size="8" fill="rgba(28,26,20,0.25)" letter-spacing="0.5">YEAR 1</text>
+          <text x="240" y="185" font-family="Outfit,sans-serif" font-size="8" fill="#D4530A" letter-spacing="0.5">YEAR 7</text>
+        </svg>`
+      )
+    },
+    {
+      id: 2,
+      category: 'Fundamentals',
+      categoryColor: 'gold',
+      title: 'Inflation is a silent tax on <em>idle money.</em> Here\'s how much it\'s costing you.',
+      excerpt: '₹10 lakhs today won\'t buy the same things in 10 years. Understanding this is the first step toward building wealth that actually keeps pace with life.',
+      readTime: 'Feb 2025 · 4 min',
+      type: 'regular',
+      visual: 'svg',
+      svgContent: `<svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:70%;max-width:180px">
+  <text x="100" y="55" font-family="Cormorant,serif" font-size="32" fill="#A07830" font-weight="300" text-anchor="middle">₹10L</text>
+  <text x="100" y="78" font-family="Outfit,sans-serif" font-size="9" fill="rgba(28,26,20,0.35)" letter-spacing="1" text-anchor="middle">TODAY</text>
+  <line x1="60" y1="92" x2="140" y2="92" stroke="rgba(212,83,10,0.3)" stroke-width="1"/>
+  <text x="100" y="110" font-family="Cormorant,serif" font-size="24" fill="#D4530A" font-weight="300" text-anchor="middle">₹6.7L</text>
+  <text x="100" y="128" font-family="Outfit,sans-serif" font-size="9" fill="rgba(212,83,10,0.6)" letter-spacing="1" text-anchor="middle">IN 10 YEARS</text>
+        </svg>`
+      )
+    }
+  ]

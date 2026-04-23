@@ -1,7 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Outfit:wght@200;300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* NVS Wealth Color Palette */
+  --cream: #FAF3E1;
+  --cream2: #F5EDD4;
+  --cream3: #EDE3C8;
+  --gold: #CBB077;
+  --gold-light: #DFC999;
+  --gold-bright: #EDD98A;
+  --gold-dark: #8B6B35;
+  --gold-dim: rgba(203,176,119,0.15);
+  --gold-faint: rgba(203,176,119,0.07);
+  --orange: #FF6600;
+  --orange-light: #FF8533;
+  --orange-dark: #CC5200;
+  --orange-dim: rgba(255,102,0,0.10);
+  --orange-faint: rgba(255,102,0,0.05);
+  --ink: #222222;
+  --ink-mid: #555444;
+  --ink-dim: rgba(34,34,34,0.55);
+  --ink-faint: rgba(34,34,34,0.12);
+  --divider: rgba(203,176,119,0.22);
+  --divider-ink: rgba(34,34,34,0.10);
+  --h-bg: #0C0B09;
+  --h-bg2: #161410;
+  --h-div: rgba(203,176,119,0.14);
+  --h-div-b: rgba(203,176,119,0.32);
+  
+  /* HTML Reference Variables */
+  --bg: #FAFAF8;
+  --bg2: #F4F2EE;
+  --bg3: #EDE9E2;
+  --bg4: #E4DFD6;
+  --ivory: #1C1A14;
+  --ivory-mid: #6B6050;
+  --ivory-dim: rgba(28,26,20,0.5);
+  --ivory-faint: rgba(28,26,20,0.08);
+  --divider-bright: rgba(160,120,48,0.35);
 }
+
+/* Font Families */
+.font-cormorant {
+  font-family: 'Cormorant', serif;
+}
+
+.font-outfit {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  cursor: auto !important;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.022'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Animations */
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bar-fill {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s 0.3s forwards;
+}
+
+.animate-fade-in-delayed {
+  animation: fade-in 0.6s 0.5s forwards;
+}
+
+.animate-fade-in-late {
+  animation: fade-in 0.6s 1s forwards;
+}
+
+.animate-bar-fill {
+  animation: bar-fill 1.3s 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-scroll {
+  animation: scroll 28s linear infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Reveal Animations - Component specific styles handled in components */
+
+
+.d1 { transition-delay: 0.08s; }
+.d2 { transition-delay: 0.18s; }
+.d3 { transition-delay: 0.28s; }
+.d4 { transition-delay: 0.38s; }
+.d5 { transition-delay: 0.48s; }
+.d6 { transition-delay: 0.58s; }
+.d7 { transition-delay: 0.68s; }
 
 @media (prefers-color-scheme: dark) {
   :root {

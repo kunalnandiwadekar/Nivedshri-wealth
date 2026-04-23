@@ -126,15 +126,22 @@ export default function Footer() {
             </div>
             <div style={{ height: '1px', background: 'linear-gradient(90deg, #CBB077, transparent)', width: 'clamp(32px, 6vw, 40px)', marginBottom: 'clamp(16px, 3vw, 20px)', marginTop: '-12px' }} />
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(10px, 2vw, 14px)' }}>
-              {['Home', 'About Us', 'Services', 'Insights', 'Stories', 'Contact'].map((item, i) => (
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'About Us', href: '/about' },
+                { label: 'Services', href: '/services' },
+                { label: 'Insights', href: '/insights' },
+                { label: 'Stories', href: '/stories' },
+                { label: 'Contact', href: '/contact' }
+              ].map((item, i) => (
                 <Link
                   key={i}
-                  href={`/${item.toLowerCase().replace(' ', '-')}`}
+                  href={item.href}
                   style={{ fontSize: 'clamp(15px, 3.5vw, 17px)', fontWeight: 300, color: 'rgba(250,243,225,0.85)', textDecoration: 'none', letterSpacing: '0.03em', fontFamily: "'Cormorant Garamond', Georgia, serif", transition: 'color 0.3s' }}
                   onMouseEnter={e => (e.target as HTMLElement).style.color = '#CBB077'}
                   onMouseLeave={e => (e.target as HTMLElement).style.color = 'rgba(250,243,225,0.85)'}
                 >
-                  {item}
+                  {item.label}
                 </Link>
               ))}
             </div>

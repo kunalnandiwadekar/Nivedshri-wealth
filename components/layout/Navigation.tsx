@@ -22,7 +22,7 @@ export default function Navigation() {
     <>
             
       <nav
-        className="fixed top-0 left-0 right-0 z-[1000] h-[100px] flex items-center justify-between border-b transition-all duration-500 bg-[#ebe2bb] border-transparent
+        className="fixed top-0 left-0 right-0 z-[1000] h-[100px] flex items-center justify-between border-b transition-all duration-500 bg-[var(--cream)] border-transparent
           px-4
           sm:px-6
           md:px-10
@@ -142,7 +142,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed top-[100px] left-0 right-0 bg-[#ebe2bb] backdrop-blur-[20px] px-6 py-8 gap-6 flex flex-col border-b border-transparent shadow-xl
+        <div className="lg:hidden fixed top-[100px] left-0 right-0 bg-[var(--cream)] backdrop-blur-[20px] px-6 py-8 gap-6 flex flex-col border-b border-transparent shadow-xl
           sm:px-8 sm:py-10 sm:gap-8
           md:px-10 md:py-12 md:gap-10">
           <Link

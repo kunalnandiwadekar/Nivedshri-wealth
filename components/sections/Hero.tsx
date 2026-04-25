@@ -84,7 +84,7 @@ export default function Hero() {
         px-5 pt-[120px] pb-20
         gap-10
         /* Tablet (md): slightly more padding */
-        md:px-10 md:py-24 md:gap-12
+        md:px-10 md:pt-[140px] md:pb-24 md:gap-12
         /* Desktop (lg): original 2-col layout */
         lg:grid-cols-2 lg:items-center lg:px-[72px] lg:py-[120px_100px] lg:gap-[60px]
       "
@@ -145,7 +145,7 @@ export default function Hero() {
             marginBottom: '36px',
           }}
           /* Scale down eyebrow text on mobile */
-          className="hero-eyebrow !text-[13px] md:!text-[16px] lg:!text-[20px] !mb-5 md:!mb-7 lg:!mb-9"
+          className="hero-eyebrow !text-[13px] md:!text-[16px] lg:!text-[20px] !mb-5 md:!mb-7 lg:!mb-9 whitespace-nowrap"
         >
           <span style={{ width: '40px', height: '1px', background: 'var(--gold)', flexShrink: 0 }} />
           Wealth Advisory · Est. 2017

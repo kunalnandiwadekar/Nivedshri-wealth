@@ -153,21 +153,83 @@ export default function InsightsPage() {
         .insights-eyebrow {
           display: flex;
           align-items: center;
-          gap: 16px;
-          font-size: 20px;
-          letter-spacing: 0.16em;
+          gap: 12px;
+          font-size: 12px;
+          letter-spacing: 0.22em;
           text-transform: uppercase;
           color: var(--orange);
           font-weight: 500;
-          margin-bottom: 28px;
+          margin-top: 56px;
+          margin-bottom: 22px;
           position: relative;
           z-index: 2;
+        }
+
+        @media (min-width: 768px) {
+          .insights-eyebrow { 
+            font-size: 15px; 
+            gap: 14px; 
+            margin-bottom: 28px; 
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .insights-eyebrow { 
+            font-size: 20px; 
+            margin-top: 62px;
+            margin-bottom: 10px; 
+          }
         }
 
         .insights-eyebrow .line {
           width: 40px;
           height: 1px;
           background: var(--orange);
+        }
+
+        .insights-breadcrumb {
+          position: absolute;
+          top: 140px;
+          left: 56px;
+          font-size: 11px;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          font-weight: 400;
+          z-index: 10;
+        }
+
+        @media (min-width: 768px) {
+          .insights-breadcrumb { 
+            font-size: 13px; 
+            left: 40px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .insights-breadcrumb { 
+            font-size: 20px; 
+            left: 56px;
+          }
+        }
+
+        .insights-breadcrumb a {
+          color: var(--ivory-dim);
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+
+        .insights-breadcrumb a:hover {
+          color: var(--ivory);
+        }
+
+        .insights-breadcrumb .sep {
+          margin: 0 8px;
+          color: var(--gold);
+          opacity: 0.4;
+        }
+
+        .insights-breadcrumb .cur {
+          color: var(--gold);
         }
 
         .insights-h1 {
@@ -1379,6 +1441,20 @@ export default function InsightsPage() {
           .insights-bottom-bar {
             margin-top: 40px;
           }
+
+          .insights-breadcrumb { 
+            top: 140px; 
+            left: 24px; 
+            font-size: 11px; 
+          }
+        }
+
+        /* Laptop fix — navbar clearance */
+        @media (max-width: 1440px) and (min-width: 768px) {
+          .insights-hero {
+            padding-top: 140px;
+            justify-content: flex-start;
+          }
         }
 
         /* Reveal animations */
@@ -1463,6 +1539,10 @@ export default function InsightsPage() {
         <div className="insights-orb"></div>
         <div className="insights-orb2"></div>
         <div className="insights-ghost-word">Insights</div>
+
+        <div className="insights-breadcrumb">
+          <Link href="/">Home</Link><span className="sep">—</span><span className="cur">Insights</span>
+        </div>
 
         <div className="insights-eyebrow">
           <span className="line"></span>

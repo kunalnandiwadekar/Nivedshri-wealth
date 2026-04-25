@@ -1606,7 +1606,20 @@ export default function InsightsPage() {
             >
               <div className="art-card-thumb">
                 <div className="art-card-thumb-inner">
-                  <div dangerouslySetInnerHTML={{ __html: typeof article.svgContent === 'string' ? article.svgContent : '' }} />
+                  {article.visual === 'image' && article.imageSrc ? (
+                    <img
+                      src={article.imageSrc}
+                      alt={article.title.replace(/<[^>]+>/g, '')}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        display: 'block',
+                      }}
+                    />
+                  ) : (
+                    <div dangerouslySetInnerHTML={{ __html: (article as any).svgContent && typeof (article as any).svgContent === 'string' ? (article as any).svgContent : '' }} />
+                  )}
                 </div>
               </div>
               <div className="art-card-body">

@@ -75,7 +75,7 @@ const testimonials = [
     image: '/testimonials/lekha-bharathan.jpeg'
   },
   {
-    name: 'Mr SDKhandekar',
+    name: 'Mr SD Khandekar',
     role: 'Retired Sr. Accounts Officer, Mumbai Port Authority',
     content: 'Nitesh is a professional portfolio adviser. He is hard working and updated in his field. He has insight in his subject and the capability to keep investors satisfied not only by offering prompt services but by achieving optimum returns on their portfolios.',
     rating: 5,
@@ -89,56 +89,56 @@ const testimonials = [
     image: '/testimonials/sadhana-khandekar.jpeg'
   },
   {
-    name: 'Mrs Gauri',
+    name: 'Mrs Gauri Paralikar',
     role: 'Investor',
     content: 'I have been investing in mutual funds for almost 10 years. Nitesh was the one who guided me through this entire process in depth. With his accurate knowledge, commitment and determination he has proven to be the best Financial Advisor. One can be totally worry free about their financial future with Nitesh as their planner.',
     rating: 5,
     image: '/testimonials/gauri.jpeg'
   },
   {
-    name: 'Prasad',
+    name: 'Prasad Shetty',
     role: 'AVP - IndusInd Bank',
     content: "I have been investing in Mutual Funds through Nitesh for the past 15 years. His exceptional advice and services have helped me and my relatives achieve significant growth. Nitesh embodies the qualities of a truly professional Financial Adviser — passion, knowledge, and commitment to his clients.",
     rating: 5,
     image: '/testimonials/prasad.jpeg'
   },
   {
-    name: 'Miss Pallavi',
+    name: 'Miss Pallavi Alva',
     role: 'Sr. Quality and Process Improvement Analyst - Morningstar India',
     content: 'Nitesh has been extremely helpful and supportive. He explains everything clearly and is always available when I need assistance. I truly appreciate his prompt and detailed guidance.',
     rating: 5,
     image: '/testimonials/pallavi.jpeg'
   },
   {
-    name: 'Mrs Utkarsha',
+    name: 'Mrs Utkarsha Nijap',
     role: 'Senior Operations Analyst - Morningstar',
     content: "Nitesh has been instrumental in helping me organize and grow my finances. His deep understanding of financial planning, combined with his patient and practical approach, made me feel confident about my future. He doesn't just advise — he truly listens and tailors strategies to suit individual needs.",
     rating: 5,
     image: '/testimonials/utkarsha.jpeg'
   },
   {
-    name: 'Mrs Sujitha',
+    name: 'Mrs Sujitha Nair',
     role: 'Trust and Safety Advisor - Accenture Ltd',
     content: 'Nitesh has always placed his clients interest first. He always explains about risks, fees and other information critical to their decision making. You have helped me in many ways and I am glad that you are someone reputable and well-established. Thank you!',
     rating: 4,
     image: '/testimonials/sujitha.jpeg'
   },
   {
-    name: 'शुभांगी',
+    name: 'शुभांगी जोशी',
     role: 'संगीत शिक्षिका – Naad Sangeet Vidyalaya',
     content: 'नमस्कार, मी ३ वर्षांपूर्वी दीर्घकालीन गुंतवणूक वाढ आणि नियमित उत्पन्न योजना या उद्देशाने गुंतवणूक केली होती. त्याचा मला खूप चांगला फायदा झाला आहे. नितेश प्रत्येक क्लायंटला आपलंच मानतो आणि गुंतवणुकीसंबंधी प्रामाणिक, विचारपूर्वक आणि मार्गदर्शक भूमिका घेतो.',
     rating: 5,
     image: '/testimonials/shubhangi.jpeg'
   },
   {
-    name: 'Ankit',
+    name: 'Ankit Kamat',
     role: 'AVP - Citicorp Services India Pvt Ltd',
     content: 'Nitesh is passionate for his work and a very good advisor. Special thanks to him for assisting me build a customized MF portfolio based on my requirements and his market expertise. Together as a team our objective is to achieve capital appreciation, income generation and risk diversification.',
     rating: 5,
     image: '/testimonials/Ankit.jpeg'
   },
   {
-    name: 'Mr Shirish',
+    name: 'Mr Shirish Gurjar',
     role: 'Professional',
     content: "Mr. Nitesh has a sound knowledge of mutual funds. Since I was unaware of what to do with my savings, he has guided me with proper investment plans and has made me a secured investor. He studies the market thoroughly and guides his clients accordingly. His advices are really a matter of trust.",
     rating: 4,

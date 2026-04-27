@@ -308,20 +308,20 @@ export default function StoriesPage() {
         .sh-breadcrumb .sep { margin: 0 8px; color: var(--gold); opacity: 0.4; }
         .sh-breadcrumb .cur { color: var(--gold); }
         .sh-eyebrow {
-          display: flex; align-items: center; gap: 12px;
-          font-size: 12px; letter-spacing: 0.22em;
+          display: flex; align-items: center; gap: 14px;
+          font-size: 14px; letter-spacing: 0.28em;
           text-transform: uppercase; color: var(--orange);
-          font-weight: 500; margin-top: 56px; margin-bottom: 22px;
+          font-weight: 600; margin-top: 56px; margin-bottom: 26px;
         }
-        @media (min-width: 768px) { .sh-eyebrow { font-size: 15px; gap: 14px; margin-bottom: 28px; } }
-        @media (min-width: 1024px) { .sh-eyebrow { font-size: 20px; margin-top: 0; margin-bottom: 10px; } }
+        @media (min-width: 768px) { .sh-eyebrow { font-size: 17px; gap: 16px; margin-bottom: 32px; } }
+        @media (min-width: 1024px) { .sh-eyebrow { font-size: 22px; margin-top: 0; margin-bottom: 14px; } }
         .sh-eyebrow .line { width: 40px; height: 1px; background: var(--gold); }
         .sh-h1 {
           font-family: 'Cormorant', serif;
-          font-size: clamp(60px, 10vw, 130px);
-          font-weight: 300; line-height: 0.95;
-          letter-spacing: -0.02em; max-width: 900px;
-          overflow: hidden; color: #000000; padding-bottom: 10px;
+          font-size: clamp(68px, 11vw, 150px);
+          font-weight: 300; line-height: 0.92;
+          letter-spacing: -0.03em; max-width: 950px;
+          overflow: hidden; color: #000000; padding-bottom: 12px;
         }
         .sh-h1 .li {
           display: block; transform: translateY(110%); opacity: 0;
@@ -335,8 +335,8 @@ export default function StoriesPage() {
           -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
         .sh-sub {
-          font-size: 20px; color: var(--ivory-mid); line-height: 1.85;
-          max-width: 560px; font-weight: 300; margin-top: 36px; margin-bottom: 56px;
+          font-size: 22px; color: var(--ivory-mid); line-height: 1.75;
+          max-width: 600px; font-weight: 300; margin-top: 40px; margin-bottom: 60px;
         }
         .sh-intro-grid {
           display: grid; grid-template-columns: 1fr 1fr 1fr;
@@ -347,8 +347,8 @@ export default function StoriesPage() {
           display: flex; flex-direction: column; gap: 6px;
         }
         .sh-intro-item:not(:first-child) { padding-left: 32px; }
-        .sh-intro-num { font-family: 'Cormorant', serif; font-size: 36px; font-weight: 300; color: var(--gold); }
-        .sh-intro-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ivory-dim); font-weight: 300; }
+        .sh-intro-num { font-family: 'Cormorant', serif; font-size: 42px; font-weight: 300; color: var(--gold); letter-spacing: -0.01em; }
+        .sh-intro-label { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ivory-dim); font-weight: 400; }
         .sh-scroll {
           position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
           display: flex; flex-direction: column; align-items: center;
@@ -370,9 +370,9 @@ export default function StoriesPage() {
         }
         .quote-inner { display: inline-flex; gap: 0; animation: marquee 30s linear infinite; }
         .quote-item {
-          font-family: 'Cormorant', serif; font-size: 24px;
+          font-family: 'Cormorant', serif; font-size: 28px;
           font-weight: 300; font-style: italic; color: var(--ivory-dim);
-          padding: 0 48px; white-space: nowrap;
+          padding: 0 48px; white-space: nowrap; letter-spacing: 0.01em;
         }
         .quote-item .dot { color: var(--gold); font-style: normal; font-size: 10px; vertical-align: middle; margin: 0 8px; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -381,18 +381,18 @@ export default function StoriesPage() {
         .stories-section { padding: 120px 56px 0; }
         .stories-head { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-bottom: 64px; }
         .section-eyebrow {
-          display: flex; align-items: center; gap: 12px;
-          font-size: 11px; letter-spacing: 0.14em;
+          display: flex; align-items: center; gap: 14px;
+          font-size: 13px; letter-spacing: 0.18em;
           text-transform: uppercase; color: var(--gold);
-          font-weight: 400; margin-bottom: 24px;
+          font-weight: 500; margin-bottom: 28px;
         }
         .section-eyebrow .line { width: 28px; height: 1px; background: var(--gold); }
         .section-h2 {
-          font-family: 'Cormorant', serif; font-size: clamp(48px, 7vw, 80px);
-          font-weight: 300; line-height: 1.08; letter-spacing: -0.015em;
+          font-family: 'Cormorant', serif; font-size: clamp(56px, 8vw, 96px);
+          font-weight: 300; line-height: 1.05; letter-spacing: -0.02em;
         }
         .section-h2 em { font-style: italic; color: var(--orange); }
-        .stories-intro p { font-size: 20px; color: var(--ivory-mid); line-height: 1.9; font-weight: 300; max-width: 480px; margin-bottom: 20px; }
+        .stories-intro p { font-size: 22px; color: var(--ivory-mid); line-height: 1.75; font-weight: 300; max-width: 540px; margin-bottom: 24px; }
 
         /* ── Featured Story ── KEY CHANGE: left panel is now dark typewriter */
         .featured-story {
@@ -425,38 +425,39 @@ export default function StoriesPage() {
           color: var(--gold); background: var(--gold-faint); flex-shrink: 0;
           transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
         }
-        .fs-name { font-size: 17px; font-weight: 500; color: var(--ivory); letter-spacing: 0.01em; transition: color 0.3s; }
-        .fs-role { font-size: 15px; color: var(--ivory-dim); margin-top: 3px; font-weight: 300; line-height: 1.5; }
+        .fs-name { font-size: 19px; font-weight: 500; color: var(--ivory); letter-spacing: 0.02em; transition: color 0.3s; }
+        .fs-role { font-size: 16px; color: var(--ivory-dim); margin-top: 4px; font-weight: 300; line-height: 1.6; letter-spacing: 0.01em; }
         .fs-tag {
           position: absolute; top: 24px; left: 24px; z-index: 10;
           background: var(--gold); color: var(--bg);
-          font-size: 10px; letter-spacing: 0.12em;
-          text-transform: uppercase; font-weight: 600; padding: 6px 14px;
+          font-size: 11px; letter-spacing: 0.14em;
+          text-transform: uppercase; font-weight: 600; padding: 8px 16px;
         }
         .fs-quote {
           font-family: 'Cormorant', serif;
-          font-size: clamp(22px, 3.2vw, 36px);
-          font-style: italic; font-weight: 300; line-height: 1.55;
-          color: var(--ivory); flex: 1; margin-bottom: 32px;
-          position: relative; padding-top: 16px;
+          font-size: clamp(24px, 3.4vw, 40px);
+          font-style: italic; font-weight: 300; line-height: 1.5;
+          color: var(--ivory); flex: 1; margin-bottom: 36px;
+          position: relative; padding-top: 20px;
+          letter-spacing: 0.01em;
         }
         .fs-quote::before {
-          content: '\\201C'; font-size: 80px; color: var(--gold); opacity: 0.2;
-          position: absolute; top: -20px; left: -8px; line-height: 1; font-style: normal;
+          content: '\\201C'; font-size: 90px; color: var(--gold); opacity: 0.2;
+          position: absolute; top: -24px; left: -10px; line-height: 1; font-style: normal;
         }
         .fs-transformation {
           display: flex; align-items: stretch; gap: 0;
           background: var(--bg4); padding: 18px 20px; margin-bottom: 28px;
         }
-        .fs-trans-from, .fs-trans-to { font-size: 16px; font-weight: 300; line-height: 1.5; flex: 1; }
+        .fs-trans-from, .fs-trans-to { font-size: 17px; font-weight: 300; line-height: 1.6; flex: 1; letter-spacing: 0.01em; }
         .fs-trans-from { color: var(--ivory-dim); }
         .fs-trans-to { color: var(--gold-light); text-align: right; }
-        .fs-trans-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; display: block; margin-bottom: 3px; }
+        .fs-trans-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.7; display: block; margin-bottom: 4px; font-weight: 500; }
         .fs-trans-arrow { width: 40px; text-align: center; flex-shrink: 0; color: var(--gold); font-size: 18px; display: flex; align-items: center; justify-content: center; }
-        .fs-metrics { display: flex; gap: 32px; flex-wrap: wrap; }
-        .fs-metric-num { font-family: 'Cormorant', serif; font-size: 32px; font-weight: 300; color: var(--gold); line-height: 1; }
-        .fs-metric-num sup { font-size: 16px; }
-        .fs-metric-label { font-size: 12px; color: var(--ivory); margin-top: 4px; font-weight: 300; letter-spacing: 0.04em; line-height: 1.4; }
+        .fs-metrics { display: flex; gap: 36px; flex-wrap: wrap; }
+        .fs-metric-num { font-family: 'Cormorant', serif; font-size: 36px; font-weight: 300; color: var(--gold); line-height: 1; letter-spacing: -0.01em; }
+        .fs-metric-num sup { font-size: 18px; }
+        .fs-metric-label { font-size: 13px; color: var(--ivory); margin-top: 6px; font-weight: 300; letter-spacing: 0.06em; line-height: 1.5; }
 
         /* ── Story Grid ── */
         .stories-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--divider); margin-bottom: 2px; }
@@ -475,32 +476,32 @@ export default function StoriesPage() {
         .story-card:hover { background: var(--bg3); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
         .story-card:hover::after { transform: scaleX(1); }
         .story-card:hover .sc-name { color: var(--orange); }
-        .sc-num { font-family: 'Cormorant', serif; font-size: 11px; color: var(--ivory-dim); letter-spacing: 0.1em; font-weight: 300; margin-bottom: 24px; display: block; position: relative; z-index: 1; }
+        .sc-num { font-family: 'Cormorant', serif; font-size: 12px; color: var(--ivory-dim); letter-spacing: 0.12em; font-weight: 400; margin-bottom: 24px; display: block; position: relative; z-index: 1; }
         .sc-avatar {
-          width: 72px; height: 72px; border-radius: 50%;
+          width: 76px; height: 76px; border-radius: 50%;
           border: 1px solid var(--divider-bright);
           display: flex; align-items: center; justify-content: center;
-          font-family: 'Cormorant', serif; font-size: 24px; font-weight: 400;
-          color: var(--gold); background: var(--gold-faint); margin-bottom: 20px;
+          font-family: 'Cormorant', serif; font-size: 26px; font-weight: 400;
+          color: var(--gold); background: var(--gold-faint); margin-bottom: 22px;
           transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
           position: relative; z-index: 1; flex-shrink: 0;
         }
-        .sc-name { font-size: 16px; font-weight: 500; color: var(--ivory); margin-bottom: 4px; letter-spacing: 0.01em; position: relative; z-index: 1; transition: color 0.3s; }
-        .sc-role { font-size: 12px; color: var(--ivory-dim); font-weight: 300; margin-bottom: 4px; position: relative; z-index: 1; }
-        .sc-city { font-size: 11px; color: var(--gold); font-weight: 300; letter-spacing: 0.04em; margin-bottom: 24px; position: relative; z-index: 1; }
-        .sc-quote { font-family: 'Cormorant', serif; font-size: 20px; font-style: italic; font-weight: 300; line-height: 1.6; color: var(--ivory-mid); margin-bottom: 28px; flex: 1; position: relative; z-index: 1; }
+        .sc-name { font-size: 18px; font-weight: 500; color: var(--ivory); margin-bottom: 5px; letter-spacing: 0.02em; position: relative; z-index: 1; transition: color 0.3s; }
+        .sc-role { font-size: 13px; color: var(--ivory-dim); font-weight: 300; margin-bottom: 5px; position: relative; z-index: 1; line-height: 1.45; }
+        .sc-city { font-size: 12px; color: var(--gold); font-weight: 300; letter-spacing: 0.05em; margin-bottom: 24px; position: relative; z-index: 1; }
+        .sc-quote { font-family: 'Cormorant', serif; font-size: 22px; font-style: italic; font-weight: 300; line-height: 1.55; color: var(--ivory-mid); margin-bottom: 30px; flex: 1; position: relative; z-index: 1; letter-spacing: 0.01em; }
         .sc-divider { height: 1px; background: var(--divider); margin: 0 0 24px; position: relative; z-index: 1; }
         .sc-before-after { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; position: relative; z-index: 1; }
-        .sc-ba-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; font-weight: 300; line-height: 1.5; }
+        .sc-ba-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; font-weight: 300; line-height: 1.55; letter-spacing: 0.01em; }
         .sc-ba-icon { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
         .sc-ba-before .sc-ba-icon { background: rgba(28,26,20,0.2); }
         .sc-ba-before { color: var(--ivory-dim); }
         .sc-ba-after .sc-ba-icon { background: var(--gold); }
         .sc-ba-after { color: var(--ivory-mid); }
         .sc-metric { display: inline-flex; align-items: baseline; gap: 4px; background: var(--gold-faint); border: 1px solid var(--gold-dim); padding: 8px 14px; margin-top: 4px; position: relative; z-index: 1; }
-        .sc-metric-num { font-family: 'Cormorant', serif; font-size: 30px; font-weight: 300; color: var(--gold); line-height: 1; }
-        .sc-metric-label { font-size: 10px; color: var(--ivory-dim); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 300; }
-        .sc-stars { color: var(--gold); font-size: 12px; letter-spacing: 2px; margin-top: 16px; display: block; position: relative; z-index: 1; }
+        .sc-metric-num { font-family: 'Cormorant', serif; font-size: 32px; font-weight: 300; color: var(--gold); line-height: 1; letter-spacing: -0.01em; }
+        .sc-metric-label { font-size: 11px; color: var(--ivory-dim); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 400; }
+        .sc-stars { color: var(--gold); font-size: 13px; letter-spacing: 3px; margin-top: 18px; display: block; position: relative; z-index: 1; }
 
         /* ── Horizontal Story Bar ── */
         .hstory-bar {
@@ -523,22 +524,22 @@ export default function StoriesPage() {
         .hstory-bar + .hstory-bar { border-top: none; }
         .hb-profile { display: flex; flex-direction: column; gap: 8px; }
         .hb-avatar {
-          width: 80px; height: 80px; border-radius: 50%;
+          width: 84px; height: 84px; border-radius: 50%;
           border: 1px solid var(--divider-bright);
           display: flex; align-items: center; justify-content: center;
-          font-family: 'Cormorant', serif; font-size: 28px; font-weight: 400;
+          font-family: 'Cormorant', serif; font-size: 30px; font-weight: 400;
           color: var(--gold); background: var(--gold-faint);
           transition: all 0.4s cubic-bezier(0.22,1,0.36,1); flex-shrink: 0;
         }
         .hstory-bar:hover .hb-avatar { transform: scale(1.1); border-color: var(--orange); box-shadow: 0 0 20px rgba(212,83,10,0.25); }
-        .hb-name { font-size: 16px; font-weight: 500; color: var(--ivory); letter-spacing: 0.01em; transition: color 0.3s; }
-        .hb-role { font-size: 12px; color: var(--ivory-dim); font-weight: 300; line-height: 1.4; }
-        .hb-city { font-size: 11px; color: var(--gold); font-weight: 300; letter-spacing: 0.04em; }
-        .hb-quote { font-family: 'Cormorant', serif; font-size: 20px; font-style: italic; font-weight: 300; line-height: 1.6; color: var(--ivory-mid); }
+        .hb-name { font-size: 18px; font-weight: 500; color: var(--ivory); letter-spacing: 0.02em; transition: color 0.3s; }
+        .hb-role { font-size: 13px; color: var(--ivory-dim); font-weight: 300; line-height: 1.5; }
+        .hb-city { font-size: 12px; color: var(--gold); font-weight: 300; letter-spacing: 0.05em; }
+        .hb-quote { font-family: 'Cormorant', serif; font-size: 22px; font-style: italic; font-weight: 300; line-height: 1.55; color: var(--ivory-mid); letter-spacing: 0.01em; }
         .hb-metrics { display: flex; gap: 24px; justify-content: flex-end; }
         .hb-metric { text-align: right; }
-        .hb-metric-num { font-family: 'Cormorant', serif; font-size: 28px; font-weight: 300; color: var(--gold); line-height: 1; }
-        .hb-metric-label { font-size: 10px; color: var(--ivory-dim); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 300; }
+        .hb-metric-num { font-family: 'Cormorant', serif; font-size: 32px; font-weight: 300; color: var(--gold); line-height: 1; letter-spacing: -0.01em; }
+        .hb-metric-label { font-size: 11px; color: var(--ivory-dim); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 400; }
 
         /* ── Final CTA ── */
         .final-cta { padding: 120px 56px; text-align: center; position: relative; overflow: hidden; background: var(--bg); }
@@ -548,15 +549,15 @@ export default function StoriesPage() {
         .cta-ring:nth-child(2) { width: 500px; height: 500px; border-color: rgba(160,120,48,0.07); }
         .cta-ring:nth-child(3) { width: 700px; height: 700px; border-color: rgba(160,120,48,0.04); }
         .cta-ring:nth-child(4) { width: 900px; height: 900px; border-color: rgba(160,120,48,0.02); }
-        .cta-eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-weight: 400; position: relative; z-index: 1; }
-        .cta-h2 { font-family: 'Cormorant', serif; font-size: clamp(48px, 8vw, 92px); font-weight: 300; color: var(--ivory); line-height: 1.1; margin-bottom: 16px; letter-spacing: -0.02em; position: relative; z-index: 1; }
+        .cta-eyebrow { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; font-weight: 500; position: relative; z-index: 1; }
+        .cta-h2 { font-family: 'Cormorant', serif; font-size: clamp(56px, 9vw, 104px); font-weight: 300; color: var(--ivory); line-height: 1.05; margin-bottom: 20px; letter-spacing: -0.02em; position: relative; z-index: 1; }
         .cta-h2 em { font-style: italic; color: var(--orange); }
-        .cta-sub { font-size: 18px; color: var(--ivory-mid); margin-bottom: 48px; font-weight: 300; max-width: 460px; margin-left: auto; margin-right: auto; line-height: 1.8; position: relative; z-index: 1; }
+        .cta-sub { font-size: 20px; color: var(--ivory-mid); margin-bottom: 52px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7; position: relative; z-index: 1; }
         .cta-btns { display: flex; gap: 14px; justify-content: center; position: relative; z-index: 1; flex-wrap: wrap; }
         .btn-gold-lg {
           background: linear-gradient(135deg, var(--gold), var(--gold-bright));
-          color: var(--bg); padding: 16px 36px; font-size: 13px;
-          border: none; border-radius: 2px; cursor: pointer; letter-spacing: 0.08em;
+          color: var(--bg); padding: 18px 40px; font-size: 14px;
+          border: none; border-radius: 2px; cursor: pointer; letter-spacing: 0.1em;
           text-transform: uppercase; font-weight: 600; font-family: 'Outfit', sans-serif;
           position: relative; overflow: hidden;
           transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
@@ -572,9 +573,9 @@ export default function StoriesPage() {
         .btn-gold-lg:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(160,120,48,0.3); }
         .btn-gold-lg:hover::before { transform: translateX(0); }
         .btn-outline-lg {
-          background: transparent; color: var(--ivory); padding: 16px 36px; font-size: 13px;
+          background: transparent; color: var(--ivory); padding: 18px 40px; font-size: 14px;
           border: 1px solid rgba(28,26,20,0.2); border-radius: 2px; cursor: pointer;
-          letter-spacing: 0.08em; text-transform: uppercase; font-weight: 400;
+          letter-spacing: 0.1em; text-transform: uppercase; font-weight: 400;
           font-family: 'Outfit', sans-serif; transition: border-color 0.3s, color 0.3s;
           text-decoration: none; display: inline-block;
         }
@@ -606,45 +607,45 @@ export default function StoriesPage() {
           .sh-hero-num { font-size: clamp(80px, 22vw, 120px); right: -8px; top: 40%; }
           .sh-vert { display: none; }
           .sh-breadcrumb { top: 88px; left: 20px; font-size: 10px; }
-          .sh-eyebrow { font-size: 10px; gap: 10px; margin-top: 48px; margin-bottom: 16px; }
-          .sh-h1 { font-size: clamp(42px, 12vw, 64px); line-height: 1; padding-bottom: 8px; }
-          .sh-sub { font-size: 15px; line-height: 1.7; margin-top: 16px; margin-bottom: 32px; max-width: 100%; }
+          .sh-eyebrow { font-size: 11px; gap: 10px; margin-top: 48px; margin-bottom: 18px; }
+          .sh-h1 { font-size: clamp(44px, 12vw, 68px); line-height: 1; padding-bottom: 8px; }
+          .sh-sub { font-size: 16px; line-height: 1.75; margin-top: 18px; margin-bottom: 36px; max-width: 100%; }
           .sh-intro-grid { grid-template-columns: 1fr; border-top: 1px solid var(--divider); }
           .sh-intro-item { padding: 18px 0 !important; border-bottom: 1px solid var(--divider); }
           .sh-intro-item:last-child { border-bottom: none; }
           .sh-intro-item:not(:first-child) { padding-left: 0 !important; }
           .sh-scroll { display: none; }
-          .quote-item { font-size: 16px; padding: 0 28px; }
+          .quote-item { font-size: 18px; padding: 0 28px; }
           .stories-section { padding: 56px 20px 0; }
           .stories-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 36px; }
-          .section-h2 { font-size: clamp(34px, 9vw, 48px); }
-          .stories-intro p { font-size: 15px; max-width: 100%; margin-bottom: 10px; }
+          .section-h2 { font-size: clamp(38px, 9vw, 52px); }
+          .stories-intro p { font-size: 16px; max-width: 100%; margin-bottom: 12px; }
           .featured-story { grid-template-columns: 1fr; min-height: auto; border-left: none; border-right: none; }
           .fs-left-panel { min-height: 320px; }
-          .fs-tag { top: 14px; left: 14px; font-size: 9px; padding: 4px 10px; }
+          .fs-tag { top: 14px; left: 14px; font-size: 10px; padding: 5px 12px; }
           .fs-content { padding: 24px 20px 28px; }
           .fs-profile { flex-direction: row; align-items: flex-start; gap: 12px; margin-bottom: 20px; }
           .fs-avatar { width: 44px; height: 44px; font-size: 16px; flex-shrink: 0; }
-          .fs-name { font-size: 14px; }
-          .fs-role { font-size: 12px; line-height: 1.4; }
-          .fs-quote { font-size: clamp(15px, 4vw, 18px); margin-bottom: 20px; padding-top: 12px; }
+          .fs-name { font-size: 15px; }
+          .fs-role { font-size: 13px; line-height: 1.45; }
+          .fs-quote { font-size: clamp(16px, 4vw, 19px); margin-bottom: 22px; padding-top: 14px; }
           .fs-transformation { flex-direction: column; gap: 12px; padding: 14px 16px; margin-bottom: 18px; }
           .fs-trans-to { text-align: left; }
           .fs-trans-arrow { display: none; }
-          .fs-metrics { gap: 18px; }
-          .fs-metric-num { font-size: 24px; }
+          .fs-metrics { gap: 20px; }
+          .fs-metric-num { font-size: 26px; }
           .stories-grid { grid-template-columns: 1fr; }
-          .story-card { padding: 24px 20px; }
+          .story-card { padding: 28px 22px; }
           .hstory-bar { grid-template-columns: 1fr; gap: 16px; padding: 24px 20px; }
           .hb-profile { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto auto; column-gap: 14px; row-gap: 2px; align-items: start; }
-          .hb-avatar { width: 52px; height: 52px; font-size: 18px; flex-shrink: 0; grid-row: span 3; }
+          .hb-avatar { width: 56px; height: 56px; font-size: 20px; flex-shrink: 0; grid-row: span 3; }
           .hb-metrics { display: flex; justify-content: flex-start; gap: 20px; }
           .hb-metric { text-align: left; }
           .final-cta { padding: 64px 20px; }
-          .cta-h2 { font-size: clamp(30px, 9vw, 44px) !important; line-height: 1.15; }
-          .cta-sub { font-size: 14px; max-width: 100%; margin-bottom: 32px; }
+          .cta-h2 { font-size: clamp(34px, 9vw, 48px) !important; line-height: 1.15; }
+          .cta-sub { font-size: 15px; max-width: 100%; margin-bottom: 36px; }
           .cta-btns { flex-direction: column; align-items: stretch; gap: 10px; }
-          .btn-gold-lg, .btn-outline-lg { width: 100%; text-align: center; padding: 14px 20px; }
+          .btn-gold-lg, .btn-outline-lg { width: 100%; text-align: center; padding: 16px 24px; font-size: 13px; }
         }
 
         @media (max-width: 400px) {
@@ -801,14 +802,14 @@ export default function StoriesPage() {
             { num: 'Story 05', img: '/testimonials/mrs-priyanka-shetty.png', name: 'Mrs Priyanka Shetty', role: 'Head of Accounting, Nynas Naphthenics pvt ltd.', quote: '"Nitesh is an exceptional investor and financial advisor who has consistently demonstrated a deep understanding of financial markets. His expertise and guidance have been invaluable to me."', before: 'Uncertain investment choices', after: 'Informed decision making', metric: 'Expert', metricLabel: 'Market<br/>Knowledge', delay: '' },
             { num: 'Story 06', img: '/testimonials/mr-rigved-phadke.png', name: 'Mr Rigved Phadke', role: 'Actor, director, producer of Vedh Production', quote: '"Nitesh has been an incredible guide in my investment journey. He\'s honest, transparent, and always puts long-term growth first. He never pushes unnecessary options."', before: 'Product-pushing advisors', after: 'Client-first approach', metric: 'Trustworthy', metricLabel: 'Long-term<br/>Partnership', delay: 'd2' },
             { num: 'Story 07', img: '/testimonials/shraddha-kadam-jain.png', name: 'Mrs Shraddha Kadam', role: 'Soul Coach & Grief Support Guide - Healer', quote: '"Nitesh is a game-changer for financial planning. For the last 7 years, he has been managing my funds. I can attest to his expertise, patience, and personalized approach."', before: 'Scattered investment approach', after: 'Strategic wealth building', metric: 'Patient', metricLabel: 'Personalized<br/>Service', delay: 'd3' },
-            { num: 'Story 08', img: '/testimonials/gauri.jpeg', name: 'Mrs Gauri', role: 'Investor', quote: '"I have been investing in mutual funds for almost 10 years. Nitesh was the one who guided me through this entire process in depth. He has proven to be the best Financial Advisor."', before: 'DIY investing struggles', after: 'Expert guidance and peace of mind', metric: 'Experienced', metricLabel: '10+ Years<br/>Partnership', delay: 'd4' },
-            { num: 'Story 09', img: '/testimonials/prasad.jpeg', name: 'Prasad', role: 'AVP - IndusInd Bank', quote: '"I have been investing in Mutual Funds through Nitesh for the past 15 years. His exceptional advice and services have helped me and my relatives achieve significant growth."', before: 'Limited investment knowledge', after: 'Professional wealth management', metric: 'Dedicated', metricLabel: '15+ Years<br/>Relationship', delay: '' },
-            { num: 'Story 10', img: '/testimonials/pallavi.jpeg', name: 'Miss Pallavi', role: 'Sr. Quality and Process Improvement Analyst - Morningstar India', quote: '"Nitesh has been extremely helpful and supportive. He explains everything clearly and is always available when I need assistance. I truly appreciate his prompt and detailed guidance."', before: 'Unclear financial communication', after: 'Clear, responsive guidance', metric: 'Supportive', metricLabel: 'Always<br/>Available', delay: 'd2' },
-            { num: 'Story 11', img: '/testimonials/utkarsha.jpeg', name: 'Mrs Utkarsha', role: 'Senior Operations Analyst - Morningstar', quote: '"Nitesh has been instrumental in helping me organize and grow my finances. His deep understanding of financial planning, combined with his patient and practical approach, made me feel confident."', before: 'Disorganized financial structure', after: 'Well-organized financial plan', metric: 'Structured', metricLabel: 'Financial<br/>Organization', delay: 'd3' },
-            { num: 'Story 12', img: '/testimonials/sujitha.jpeg', name: 'Mrs Sujitha', role: 'Trust and Safety Advisor - Accenture Ltd', quote: '"Nitesh has always placed his clients interest first. He always explains about risks, fees and other information critical to their decision making. I am glad that you are someone reputable."', before: 'Hidden fees and unclear risks', after: 'Transparent, client-first advice', metric: 'Transparent', metricLabel: 'Ethical<br/>Practices', delay: 'd4' },
-            { num: 'Story 13', img: '/testimonials/shubhangi.jpeg', name: 'शुभांगी', role: 'संगीत शिक्षिका – Naad Sangeet Vidyalaya', quote: 'नमस्कार, मी ३ वर्षांपूर्वी दीर्घकालीन गुंतवणूक वाढ आणि नियमित उत्पन्न योजना या उद्देशाने गुंतवणूक केली होती. त्याचा मला खूप चांगला फायदा झाला आहे.', before: 'गुंतवणुकीबद्दल अनिश्चितता', after: 'दीर्घकालीन वाढ आणि स्थिर उत्पन्न', metric: 'लाभदायक', metricLabel: 'गुंतवणूक<br/>योजना', delay: '' },
-            { num: 'Story 14', img: '/testimonials/Ankit.jpeg', name: 'Ankit', role: 'AVP - Citicorp Services India Pvt Ltd', quote: '"Nitesh is passionate for his work and a very good advisor. Special thanks to him for assisting me build a customized MF portfolio based on my requirements and his market expertise."', before: 'Generic portfolio approach', after: 'Customized investment strategy', metric: 'Expert', metricLabel: 'Customized<br/>Solutions', delay: 'd2' },
-            { num: 'Story 15', img: '/testimonials/Shirish.jpeg', name: 'Mr Shirish', role: 'Professional', quote: '"Mr. Nitesh has a sound knowledge of mutual funds. Since I was unaware of what to do with my savings, he has guided me with proper investment plans and has made me a secured investor."', before: 'Savings without direction', after: 'Secure investment planning', metric: 'Secured', metricLabel: 'Investment<br/>Safety', delay: 'd3' },
+            { num: 'Story 08', img: '/testimonials/gauri.jpeg', name: 'Mrs Gauri Paralikar', role: 'Investor', quote: '"I have been investing in mutual funds for almost 10 years. Nitesh was the one who guided me through this entire process in depth. He has proven to be the best Financial Advisor."', before: 'DIY investing struggles', after: 'Expert guidance and peace of mind', metric: 'Experienced', metricLabel: '10+ Years<br/>Partnership', delay: 'd4' },
+            { num: 'Story 09', img: '/testimonials/prasad.jpeg', name: 'Prasad shetty', role: 'AVP - IndusInd Bank', quote: '"I have been investing in Mutual Funds through Nitesh for the past 15 years. His exceptional advice and services have helped me and my relatives achieve significant growth."', before: 'Limited investment knowledge', after: 'Professional wealth management', metric: 'Dedicated', metricLabel: '15+ Years<br/>Relationship', delay: '' },
+            { num: 'Story 10', img: '/testimonials/pallavi.jpeg', name: 'Miss Pallavi Alva', role: 'Sr. Quality and Process Improvement Analyst - Morningstar India', quote: '"Nitesh has been extremely helpful and supportive. He explains everything clearly and is always available when I need assistance. I truly appreciate his prompt and detailed guidance."', before: 'Unclear financial communication', after: 'Clear, responsive guidance', metric: 'Supportive', metricLabel: 'Always<br/>Available', delay: 'd2' },
+            { num: 'Story 11', img: '/testimonials/utkarsha.jpeg', name: 'Mrs Utkarsha Nijap', role: 'Senior Operations Analyst - Morningstar', quote: '"Nitesh has been instrumental in helping me organize and grow my finances. His deep understanding of financial planning, combined with his patient and practical approach, made me feel confident."', before: 'Disorganized financial structure', after: 'Well-organized financial plan', metric: 'Structured', metricLabel: 'Financial<br/>Organization', delay: 'd3' },
+            { num: 'Story 12', img: '/testimonials/sujitha.jpeg', name: 'Mrs Sujitha Nair', role: 'Trust and Safety Advisor - Accenture Ltd', quote: '"Nitesh has always placed his clients interest first. He always explains about risks, fees and other information critical to their decision making. I am glad that you are someone reputable."', before: 'Hidden fees and unclear risks', after: 'Transparent, client-first advice', metric: 'Transparent', metricLabel: 'Ethical<br/>Practices', delay: 'd4' },
+            { num: 'Story 13', img: '/testimonials/shubhangi.jpeg', name: 'शुभांगी जोशी', role: 'संगीत शिक्षिका – Naad Sangeet Vidyalaya', quote: 'नमस्कार, मी ३ वर्षांपूर्वी दीर्घकालीन गुंतवणूक वाढ आणि नियमित उत्पन्न योजना या उद्देशाने गुंतवणूक केली होती. त्याचा मला खूप चांगला फायदा झाला आहे.', before: 'गुंतवणुकीबद्दल अनिश्चितता', after: 'दीर्घकालीन वाढ आणि स्थिर उत्पन्न', metric: 'लाभदायक', metricLabel: 'गुंतवणूक<br/>योजना', delay: '' },
+            { num: 'Story 14', img: '/testimonials/Ankit.jpeg', name: 'Ankit Kamat', role: 'AVP - Citicorp Services India Pvt Ltd', quote: '"Nitesh is passionate for his work and a very good advisor. Special thanks to him for assisting me build a customized MF portfolio based on my requirements and his market expertise."', before: 'Generic portfolio approach', after: 'Customized investment strategy', metric: 'Expert', metricLabel: 'Customized<br/>Solutions', delay: 'd2' },
+            { num: 'Story 15', img: '/testimonials/Shirish.jpeg', name: 'Mr Shirish Gurjar', role: 'Professional', quote: '"Mr. Nitesh has a sound knowledge of mutual funds. Since I was unaware of what to do with my savings, he has guided me with proper investment plans and has made me a secured investor."', before: 'Savings without direction', after: 'Secure investment planning', metric: 'Secured', metricLabel: 'Investment<br/>Safety', delay: 'd3' },
           ].map((card) => (
             <div key={card.num} className={`story-card reveal ${card.delay}`}>
               <span className="sc-num">{card.num}</span>

@@ -103,7 +103,7 @@ export default function About() {
               display: 'inline-block', transform: 'translateY(100%)', opacity: '0',
               animation: 'fadeInUpText 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1.2s forwards'
             }}>
-              Ladco Crest Wealth was built on a simple belief — managing money should feel clear, structured, and aligned with real life goals. We work with individuals and families who want more than just investment advice.
+              Ladco Wealth was built on a simple belief — managing money should feel clear, structured, and aligned with real life goals. We work with individuals and families who want more than just investment advice.
             </span>
           </p>
 

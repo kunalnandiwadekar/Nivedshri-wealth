@@ -148,7 +148,7 @@ export default function Hero() {
           className="hero-eyebrow !text-[13px] md:!text-[16px] lg:!text-[20px] !mb-5 md:!mb-7 lg:!mb-9 whitespace-nowrap"
         >
           <span style={{ width: '40px', height: '1px', background: 'var(--gold)', flexShrink: 0 }} />
-          Wealth Advisory · Est. 2017
+          18+ Years of Experience
           <span style={{ width: '40px', height: '1px', background: 'var(--gold)', flexShrink: 0 }} />
         </motion.div>
 
@@ -445,10 +445,10 @@ export default function Hero() {
             </div>
             <div>
               <div className="font-cormorant text-[17px] lg:text-[20px] font-semibold text-[var(--cream)] tracking-[0.02em]">
-                Nitesh Tara, CFP
+                Nitesh Tara-Founder & Chief Executive Officer Nivedshri Wealth
               </div>
               <div className="text-[9px] lg:text-[10px] text-[var(--gold)] tracking-[0.16em] uppercase font-medium mt-1">
-                Chief Financial Planner
+                Mutual Fund Distributor
               </div>
             </div>
             <div className="ml-auto text-right flex-shrink-0">
@@ -474,12 +474,11 @@ export default function Hero() {
             whileHover={{ borderColor: 'var(--gold)', y: -5 }}
           >
             <span className="font-cormorant font-semibold text-[var(--gold)] leading-[1] block text-[16px] lg:text-[26px]">
-              ₹500Cr<sup style={{ fontSize: '46%', color: 'var(--orange)' }}>+</sup>
+              500+<sup style={{ fontSize: '46%', color: 'var(--orange)' }}></sup>
             </span>
             <span className="text-[8px] lg:text-[9px] tracking-[0.16em] uppercase text-[rgba(250,243,225,0.5)] mt-1 block font-medium">
-              AUM
               <br />
-              Managed
+              families
             </span>
           </motion.div>
         </div>

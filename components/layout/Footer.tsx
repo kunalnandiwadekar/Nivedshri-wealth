@@ -153,18 +153,52 @@ export default function Footer() {
               Services
             </div>
             <div style={{ height: '1px', background: 'linear-gradient(90deg, #CBB077, transparent)', width: 'clamp(32px, 6vw, 40px)', marginBottom: 'clamp(16px, 3vw, 20px)', marginTop: '-12px' }} />
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(10px, 2vw, 14px)' }}>
-              {['Mutual Fund Advisory', 'SIP Planning', 'Portfolio Review', 'Goal-Based Planning', 'Tax-Efficient Investing', 'Retirement Planning'].map((item, i) => (
-                <Link
-                  key={i}
-                  href="/services"
-                  style={{ fontSize: 'clamp(15px, 3.5vw, 17px)', fontWeight: 300, color: 'rgba(250,243,225,0.85)', textDecoration: 'none', letterSpacing: '0.03em', fontFamily: "'Cormorant Garamond', Georgia, serif", transition: 'color 0.3s' }}
-                  onMouseEnter={e => (e.target as HTMLElement).style.color = '#CBB077'}
-                  onMouseLeave={e => (e.target as HTMLElement).style.color = 'rgba(250,243,225,0.85)'}
-                >
-                  {item}
-                </Link>
-              ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: 'clamp(10px, 2vw, 14px)' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(10px, 2vw, 14px)' }}>
+                {[
+                  'Mutual Fund Advisory',
+                  'SIP Planning',
+                  'Portfolio Review',
+                  'Goal-Based Planning',
+                  'Tax-Efficient Investing',
+                  'Retirement Planning',
+                  'PMS',
+                  'SIF'
+                ].map((item, i) => (
+                  <Link
+                    key={i}
+                    href="/services"
+                    style={{ fontSize: 'clamp(15px, 3.5vw, 17px)', fontWeight: 300, color: 'rgba(250,243,225,0.85)', textDecoration: 'none', letterSpacing: '0.03em', fontFamily: "'Cormorant Garamond', Georgia, serif", transition: 'color 0.3s' }}
+                    onMouseEnter={e => (e.target as HTMLElement).style.color = '#CBB077'}
+                    onMouseLeave={e => (e.target as HTMLElement).style.color = 'rgba(250,243,225,0.85)'}
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(10px, 2vw, 14px)' }}>
+                {[
+                  'Corporate Fixed Deposits',
+                  'NCDs',
+                  'Health Insurance',
+                  'Term Insurance',
+                  'Real estate',
+                  'LAS',
+                  'Loans',
+                  'Small Cases',
+                  'SIF'
+                ].map((item, i) => (
+                  <Link
+                    key={i}
+                    href="/services"
+                    style={{ fontSize: 'clamp(15px, 3.5vw, 17px)', fontWeight: 300, color: 'rgba(250,243,225,0.85)', textDecoration: 'none', letterSpacing: '0.03em', fontFamily: "'Cormorant Garamond', Georgia, serif", transition: 'color 0.3s' }}
+                    onMouseEnter={e => (e.target as HTMLElement).style.color = '#CBB077'}
+                    onMouseLeave={e => (e.target as HTMLElement).style.color = 'rgba(250,243,225,0.85)'}
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 

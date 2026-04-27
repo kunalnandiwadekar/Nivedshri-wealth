@@ -1,13 +1,13 @@
 export default function MarqueeStrip() {
   const items = [
-    'Mutual Funds',
-    'Goal-Based Planning',
-    'SIP Management',
-    'Portfolio Review',
-    'Tax-Efficient Investing',
-    'Retirement Planning',
-    'Wealth Creation',
-    'Risk Profiling',
+    'Health Insurance',
+    'Term Insurance',
+    'Fixed Deposits',
+    'NCDs',
+    'Small Cases',
+    'Loans',
+    'LAS',
+    'Real Estate',
   ]
 
   return (
@@ -22,7 +22,7 @@ export default function MarqueeStrip() {
           <span
             key={index}
             className="
-              text-[12px] md:text-[15px]
+              text-[15px] md:text-[18px]
               tracking-[0.2em] uppercase font-medium text-black
               flex-shrink-0
               px-8 md:px-14

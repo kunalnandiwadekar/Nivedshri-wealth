@@ -35,8 +35,8 @@ export default function Intro() {
         const before = btn.querySelector('.btn-before') as HTMLElement
         if (before) before.style.transform = 'translateX(0)'
       } else if (btn.classList.contains('btn-ghost')) {
-        btn.style.borderColor = 'var(--orange)'
-        btn.style.color = 'var(--orange)'
+        btn.style.borderColor = 'rgba(255,255,255,0.8)'
+        btn.style.color = '#fff'
         const before = btn.querySelector('.btn-before') as HTMLElement
         if (before) before.style.transform = 'translateX(0)'
       }
@@ -49,8 +49,8 @@ export default function Intro() {
         const before = btn.querySelector('.btn-before') as HTMLElement
         if (before) before.style.transform = 'translateX(-101%)'
       } else if (btn.classList.contains('btn-ghost')) {
-        btn.style.borderColor = 'var(--divider-ink)'
-        btn.style.color = 'var(--ink)'
+        btn.style.borderColor = 'rgba(255,255,255,0.45)'
+        btn.style.color = 'rgba(255,255,255,0.85)'
         const before = btn.querySelector('.btn-before') as HTMLElement
         if (before) before.style.transform = 'translateX(-101%)'
       }
@@ -74,12 +74,9 @@ export default function Intro() {
     <section
       className="
         relative overflow-hidden intro-section bg-[var(--cream)]
-        /* Mobile: single col, tight padding */
-        px-5 py-16 flex flex-col gap-12
-        /* Tablet */
+        px-5 py-16 flex flex-col gap-8
         md:px-10 md:py-24 md:gap-16
-        /* Desktop: original 2-col grid */
-        lg:grid lg:grid-cols-2 lg:gap-[120px] lg:items-center lg:px-[72px] lg:py-[140px]
+        lg:grid lg:grid-cols-2 lg:gap-[80px] lg:items-center lg:px-[72px] lg:py-[120px]
       "
     >
       {/* Vertical divider — desktop only */}
@@ -88,105 +85,161 @@ export default function Intro() {
         style={{ background: 'rgba(203,176,119,0.22)' }}
       />
 
-      {/* ── LEFT CONTENT ── */}
-      <div className="intro-left">
-        {/* Eyebrow */}
-        <div
-          className="intro-eyebrow reveal flex items-center gap-[14px] font-semibold uppercase tracking-[0.24em] text-[var(--orange)] mb-7
-            text-[13px] md:text-[16px] lg:text-[20px]"
-        >
-          <span className="w-7 h-px bg-[var(--orange)] flex-shrink-0" />
-          Our Philosophy
-        </div>
+      {/* ── LEFT CONTENT — image card with content inside ── */}
+      <div
+        className="intro-left"
+        style={{
+          position: 'relative',
+          borderRadius: '16px',
+          overflow: 'hidden',
+          /* Space from all sides — the card sits inset within the column */
+          margin: '0',
+          minHeight: '520px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-end',
+          /* Subtle outer glow to lift card off cream bg */
+          boxShadow: '0 32px 80px rgba(139,94,26,0.18), 0 8px 24px rgba(139,94,26,0.10)',
+        }}
+      >
+        {/* Background image layer */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'url(/journey.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 40%',
+          /* Lighter treatment — readable but image shows through beautifully */
+          filter: 'blur(0px) brightness(0.62) saturate(1.1)',
+          transform: 'scale(1.02)',
+          zIndex: 0,
+          borderRadius: '16px',
+        }} />
 
-        {/* Headline */}
-        <h2
-          className="intro-h2 reveal d1 font-cormorant font-semibold leading-[1.02] tracking-[-0.025em] text-[#222222] mb-8
-            text-[clamp(40px,10vw,64px)]
-            md:text-[clamp(48px,7vw,72px)]
-            lg:text-[clamp(52px,5.5vw,88px)]"
-        >
-          Wealth is a<br />
-          <em className="italic font-light text-[var(--gold)]">journey,</em><br />
-          not an event.
-        </h2>
+        {/* Gradient overlay — dark at bottom for text, transparent at top to show image */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(to bottom, rgba(20,12,0,0.15) 0%, rgba(20,12,0,0.35) 40%, rgba(20,12,0,0.82) 100%)',
+          zIndex: 1,
+          borderRadius: '16px',
+        }} />
 
-        {/* Body */}
-        <p
-          className="intro-desc reveal d2 font-light leading-[1.85] text-[#555444] mb-10
-            text-[15px] max-w-full
-            md:text-[17px] md:max-w-[480px]
-            lg:text-[19px] lg:mb-12"
-        >
-          At NVS Wealth, we believe the most powerful force in investing is{' '}
-          <strong className="text-[#222222] font-semibold">time and consistency</strong>. We don't
-          chase market highs. We don't react to market lows. We plan, we invest, and we{' '}
-          <strong className="text-[#222222] font-semibold">stay disciplined</strong>.
-        </p>
+        {/* Subtle gold top border accent */}
+        <div style={{
+          position: 'absolute',
+          top: 0, left: 0, right: 0,
+          height: '2px',
+          background: 'linear-gradient(to right, transparent, rgba(212,168,67,0.7), transparent)',
+          zIndex: 2,
+        }} />
 
-        {/* Buttons */}
-        <div className="intro-btns reveal d3 flex gap-3 flex-wrap">
-          <Link href="/services">
-            <button
-              className="btn-orange relative overflow-hidden w-full sm:w-auto"
-              onMouseMove={(e) => {
-                const btn = e.currentTarget
-                const r = btn.getBoundingClientRect()
-                btn.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.14}px, ${(e.clientY - r.top - r.height / 2) * 0.2}px)`
-              }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = '' }}
-              style={{
-                position: 'relative', overflow: 'hidden',
-                background: 'var(--orange)', color: '#fff',
-                padding: '17px 40px', fontSize: '12px', border: 'none',
-                borderRadius: '1px', cursor: 'pointer', letterSpacing: '0.16em',
-                textTransform: 'uppercase', fontWeight: '700',
-                fontFamily: "'Outfit', sans-serif", transition: 'box-shadow 0.3s',
-                display: 'inline-block'
-              }}
-            >
-              <span style={{ position: 'relative', zIndex: 10 }}>Our Approach</span>
-              <span
-                className="btn-before"
-                style={{
-                  position: 'absolute', inset: '0', background: 'var(--orange-light)',
-                  transform: 'translateX(-101%)',
-                  transition: 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)'
+        {/* Content — sits above both layers */}
+        <div style={{ position: 'relative', zIndex: 3, padding: '40px 44px 44px' }}>
+
+          {/* Eyebrow */}
+          <div
+            className="intro-eyebrow reveal flex items-center gap-[14px] font-semibold uppercase tracking-[0.24em] mb-6"
+            style={{ color: '#D4A843', fontSize: '13px' }}
+          >
+            <span style={{ width: '28px', height: '1px', background: '#D4A843', flexShrink: 0 }} />
+            Our Philosophy
+          </div>
+
+          {/* Headline */}
+          <h2
+            className="intro-h2 reveal d1 font-cormorant font-semibold leading-[1.02] tracking-[-0.025em] mb-7"
+            style={{
+              color: '#FFFFFF',
+              fontSize: 'clamp(40px, 5.5vw, 72px)',
+              textShadow: '0 2px 20px rgba(0,0,0,0.3)',
+            }}
+          >
+            Wealth is a<br />
+            <em className="italic font-light" style={{ color: '#E2B94A' }}>journey,</em><br />
+            not an event.
+          </h2>
+
+          {/* Body */}
+          <p
+            className="intro-desc reveal d2 font-light leading-[1.8] mb-10"
+            style={{
+              color: 'rgba(255,245,225,0.82)',
+              fontSize: 'clamp(14px, 1.6vw, 17px)',
+              maxWidth: '420px',
+            }}
+          >
+            At NVS Wealth, we believe the most powerful force in investing is{' '}
+            <strong style={{ color: '#fff', fontWeight: 600 }}>time and consistency</strong>. We don't
+            chase market highs. We don't react to market lows. We plan, we invest, and we{' '}
+            <strong style={{ color: '#fff', fontWeight: 600 }}>stay disciplined</strong>.
+          </p>
+
+          {/* Buttons */}
+          <div className="intro-btns reveal d3 flex gap-3 flex-wrap">
+            <Link href="/services">
+              <button
+                className="btn-orange relative overflow-hidden"
+                onMouseMove={(e) => {
+                  const btn = e.currentTarget
+                  const r = btn.getBoundingClientRect()
+                  btn.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.14}px, ${(e.clientY - r.top - r.height / 2) * 0.2}px)`
                 }}
-              />
-            </button>
-          </Link>
-          <Link href="/about">
-            <button
-              className="btn-ghost relative overflow-hidden w-full sm:w-auto"
-              onMouseMove={(e) => {
-                const btn = e.currentTarget
-                const r = btn.getBoundingClientRect()
-                btn.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.14}px, ${(e.clientY - r.top - r.height / 2) * 0.2}px)`
-              }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = '' }}
-              style={{
-                position: 'relative', overflow: 'hidden',
-                background: 'transparent', color: 'var(--ink)',
-                padding: '17px 40px', fontSize: '12px',
-                border: '1.5px solid var(--divider-ink)',
-                borderRadius: '1px', cursor: 'pointer', letterSpacing: '0.16em',
-                textTransform: 'uppercase', fontWeight: '400',
-                fontFamily: "'Outfit', sans-serif",
-                transition: 'border-color 0.3s, color 0.3s', display: 'inline-block'
-              }}
-            >
-              <span style={{ position: 'relative', zIndex: 10 }}>Meet Team</span>
-              <span
-                className="btn-before"
+                onMouseLeave={(e) => { e.currentTarget.style.transform = '' }}
                 style={{
-                  position: 'absolute', inset: '0', background: 'var(--orange-faint)',
-                  transform: 'translateX(-101%)',
-                  transition: 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)'
+                  position: 'relative', overflow: 'hidden',
+                  background: 'var(--orange)', color: '#fff',
+                  padding: '15px 36px', fontSize: '11px', border: 'none',
+                  borderRadius: '2px', cursor: 'pointer', letterSpacing: '0.18em',
+                  textTransform: 'uppercase', fontWeight: '700',
+                  fontFamily: "'Outfit', sans-serif", transition: 'box-shadow 0.3s',
+                  display: 'inline-block'
                 }}
-              />
-            </button>
-          </Link>
+              >
+                <span style={{ position: 'relative', zIndex: 10 }}>Our Approach</span>
+                <span
+                  className="btn-before"
+                  style={{
+                    position: 'absolute', inset: '0', background: 'var(--orange-light)',
+                    transform: 'translateX(-101%)',
+                    transition: 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)'
+                  }}
+                />
+              </button>
+            </Link>
+            <Link href="/about">
+              <button
+                className="btn-ghost relative overflow-hidden"
+                onMouseMove={(e) => {
+                  const btn = e.currentTarget
+                  const r = btn.getBoundingClientRect()
+                  btn.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.14}px, ${(e.clientY - r.top - r.height / 2) * 0.2}px)`
+                }}
+                onMouseLeave={(e) => { e.currentTarget.style.transform = '' }}
+                style={{
+                  position: 'relative', overflow: 'hidden',
+                  background: 'transparent',
+                  color: 'rgba(255,255,255,0.85)',
+                  padding: '15px 36px', fontSize: '11px',
+                  border: '1.5px solid rgba(255,255,255,0.45)',
+                  borderRadius: '2px', cursor: 'pointer', letterSpacing: '0.18em',
+                  textTransform: 'uppercase', fontWeight: '400',
+                  fontFamily: "'Outfit', sans-serif",
+                  transition: 'border-color 0.3s, color 0.3s', display: 'inline-block'
+                }}
+              >
+                <span style={{ position: 'relative', zIndex: 10 }}>Meet Team</span>
+                <span
+                  className="btn-before"
+                  style={{
+                    position: 'absolute', inset: '0', background: 'rgba(255,255,255,0.08)',
+                    transform: 'translateX(-101%)',
+                    transition: 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)'
+                  }}
+                />
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
 

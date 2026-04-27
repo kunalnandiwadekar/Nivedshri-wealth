@@ -1,9 +1,198 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Layout from '@/components/layout/Layout'
 
+// ─────────────────────────────────────────────
+// Typewriter Quote — goes in featured story LEFT panel
+// ─────────────────────────────────────────────
+const QUOTE = "Every great financial story begins with one decision — to stop drifting and start planning."
+const AUTHOR = "Nitesh Tara"
+const ROLE = "Founder & Director, NVS Wealth"
+const TYPING_SPEED = 58
+
+function TypewriterQuote() {
+  const [displayed, setDisplayed] = useState('')
+  const [cursorVisible, setCursorVisible] = useState(true)
+  const [showAuthor, setShowAuthor] = useState(false)
+  const [goldLine, setGoldLine] = useState(false)
+  const indexRef = useRef(0)
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    const lineTimer = setTimeout(() => setGoldLine(true), 400)
+    const startTimer = setTimeout(() => {
+      function typeNext() {
+        if (indexRef.current <= QUOTE.length) {
+          setDisplayed(QUOTE.slice(0, indexRef.current))
+          indexRef.current++
+          timerRef.current = setTimeout(typeNext, TYPING_SPEED)
+        } else {
+          setTimeout(() => setCursorVisible(false), 700)
+          setTimeout(() => setShowAuthor(true), 1000)
+        }
+      }
+      typeNext()
+    }, 900)
+
+    const blinkInterval = setInterval(() => {
+      setCursorVisible(prev => !prev)
+    }, 530)
+
+    return () => {
+      clearTimeout(lineTimer)
+      clearTimeout(startTimer)
+      if (timerRef.current) clearTimeout(timerRef.current)
+      clearInterval(blinkInterval)
+    }
+  }, [])
+
+  return (
+    <div style={{
+      background: '#1C1400',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      padding: '56px 52px',
+      position: 'relative',
+      overflow: 'hidden',
+      width: '100%',
+      height: '100%',
+      minHeight: '580px',
+    }}>
+      {/* Giant watermark quote mark */}
+      <div style={{
+        position: 'absolute',
+        top: '-24px', left: '20px',
+        fontFamily: 'Cormorant Garamond, Georgia, serif',
+        fontSize: '240px',
+        lineHeight: 1,
+        color: 'rgba(212,168,67,0.06)',
+        pointerEvents: 'none',
+        userSelect: 'none',
+        zIndex: 0,
+      }}>"</div>
+
+      {/* Radial glow top-right */}
+      <div style={{
+        position: 'absolute',
+        top: '-120px', right: '-120px',
+        width: '360px', height: '360px',
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(212,168,67,0.07), transparent 70%)',
+        pointerEvents: 'none',
+        zIndex: 0,
+      }} />
+
+      {/* Subtle bottom-left glow */}
+      <div style={{
+        position: 'absolute',
+        bottom: '-80px', left: '-80px',
+        width: '260px', height: '260px',
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(212,168,67,0.04), transparent 70%)',
+        pointerEvents: 'none',
+        zIndex: 0,
+      }} />
+
+      {/* Gold sliding line */}
+      <div style={{
+        width: goldLine ? '44px' : '0px',
+        height: '2px',
+        background: '#D4A843',
+        marginBottom: '32px',
+        borderRadius: '1px',
+        transition: 'width 0.9s cubic-bezier(0.22, 1, 0.36, 1)',
+        position: 'relative',
+        zIndex: 1,
+      }} />
+
+      {/* Typewriter quote text */}
+      <p style={{
+        fontFamily: 'Cormorant Garamond, Georgia, serif',
+        fontSize: 'clamp(20px, 2.2vw, 30px)',
+        fontStyle: 'italic',
+        fontWeight: 300,
+        lineHeight: 1.65,
+        color: 'rgba(245,237,216,0.90)',
+        margin: '0 0 32px 0',
+        position: 'relative',
+        zIndex: 1,
+        minHeight: '180px',
+      }}>
+        {displayed}
+        {/* Blinking cursor */}
+        <span style={{
+          display: 'inline-block',
+          width: '2px',
+          height: '1.1em',
+          background: '#D4A843',
+          marginLeft: '3px',
+          verticalAlign: 'middle',
+          opacity: cursorVisible ? 1 : 0,
+          transition: 'opacity 0.1s',
+        }} />
+      </p>
+
+      {/* Author — fades in after typing */}
+      <div style={{
+        opacity: showAuthor ? 1 : 0,
+        transform: showAuthor ? 'translateY(0)' : 'translateY(12px)',
+        transition: 'opacity 0.7s ease, transform 0.7s ease',
+        position: 'relative',
+        zIndex: 1,
+      }}>
+        {/* Divider */}
+        <div style={{
+          width: '100%',
+          height: '1px',
+          background: 'rgba(212,168,67,0.14)',
+          marginBottom: '20px',
+        }} />
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          {/* Avatar */}
+          <div style={{
+            width: '42px', height: '42px',
+            borderRadius: '50%',
+            border: '1.5px solid rgba(212,168,67,0.35)',
+            background: 'rgba(212,168,67,0.08)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            flexShrink: 0,
+            fontFamily: 'Cormorant Garamond, Georgia, serif',
+            fontSize: '18px',
+            color: 'rgba(212,168,67,0.7)',
+            fontWeight: 300,
+          }}>N</div>
+
+          <div>
+            <div style={{
+              fontSize: '12px',
+              fontWeight: 600,
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: '#D4A843',
+              fontFamily: 'Outfit, sans-serif',
+              marginBottom: '3px',
+            }}>{AUTHOR}</div>
+            <div style={{
+              fontSize: '11px',
+              color: 'rgba(245,237,216,0.28)',
+              letterSpacing: '0.07em',
+              fontFamily: 'Outfit, sans-serif',
+              lineHeight: 1.4,
+            }}>{ROLE}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ─────────────────────────────────────────────
+// Main Page
+// ─────────────────────────────────────────────
 export default function StoriesPage() {
 
   useEffect(() => {
@@ -11,13 +200,11 @@ export default function StoriesPage() {
       const reveals = document.querySelectorAll('.reveal')
       reveals.forEach(element => {
         const elementTop = element.getBoundingClientRect().top
-        const elementVisible = 150
-        if (elementTop < window.innerHeight - elementVisible) {
+        if (elementTop < window.innerHeight - 150) {
           element.classList.add('visible')
         }
       })
     }
-
     window.addEventListener('scroll', handleScroll)
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
@@ -58,47 +245,14 @@ export default function StoriesPage() {
           -webkit-font-smoothing: antialiased;
         }
 
-        /* ── Page Loader ── */
-        .page-loader {
-          position: fixed; inset: 0; z-index: 99990;
-          background: var(--bg);
-          display: flex; align-items: center; justify-content: center;
-          flex-direction: column; gap: 24px;
-          transition: opacity 0.8s, visibility 0.8s;
-        }
-        .page-loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        .loader-logo {
-          font-family: 'Cormorant', serif; font-size: 36px;
-          font-weight: 300; color: var(--ivory); letter-spacing: 0.12em;
-          opacity: 0; animation: loaderFade 0.6s 0.3s forwards;
-        }
-        .loader-logo span { color: var(--gold); }
-        .loader-bar-wrap {
-          width: 160px; height: 1px; background: rgba(160,120,48,0.2);
-          overflow: hidden; opacity: 0; animation: loaderFade 0.6s 0.5s forwards;
-        }
-        .loader-bar {
-          height: 100%; width: 0; background: var(--gold);
-          animation: loaderBar 1.4s 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
-        }
-        @keyframes loaderFade { to { opacity: 1; } }
-        @keyframes loaderBar { to { width: 100%; } }
-
-        /* ── Reveal System ── */
         .reveal {
           opacity: 0; transform: translateY(28px);
           transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
         }
         .reveal.visible { opacity: 1; transform: none; }
-        .reveal-left {
-          opacity: 0; transform: translateX(-32px);
-          transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
-        }
+        .reveal-left { opacity: 0; transform: translateX(-32px); transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
         .reveal-left.visible { opacity: 1; transform: none; }
-        .reveal-right {
-          opacity: 0; transform: translateX(32px);
-          transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
-        }
+        .reveal-right { opacity: 0; transform: translateX(32px); transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
         .reveal-right.visible { opacity: 1; transform: none; }
         .d1 { transition-delay: 0.1s; }
         .d2 { transition-delay: 0.2s; }
@@ -106,9 +260,7 @@ export default function StoriesPage() {
         .d4 { transition-delay: 0.4s; }
         .d5 { transition-delay: 0.5s; }
 
-        /* ══════════════════════════════════════════
-           HERO SECTION
-        ══════════════════════════════════════════ */
+        /* ── Hero ── */
         .sh-hero {
           min-height: 100vh;
           display: flex; flex-direction: column; justify-content: flex-end;
@@ -149,15 +301,9 @@ export default function StoriesPage() {
           font-size: 11px; letter-spacing: 0.18em;
           text-transform: uppercase; font-weight: 400; z-index: 10;
         }
-        @media (min-width: 768px) {
-          .sh-breadcrumb { font-size: 13px; left: 40px; }
-        }
-        @media (min-width: 1024px) {
-          .sh-breadcrumb { font-size: 20px; left: 56px; }
-        }
-        section.sh-hero .sh-breadcrumb a {
-          color: #1c1a1480 !important; text-decoration: none; transition: color 0.3s ease;
-        }
+        @media (min-width: 768px) { .sh-breadcrumb { font-size: 13px; left: 40px; } }
+        @media (min-width: 1024px) { .sh-breadcrumb { font-size: 20px; left: 56px; } }
+        section.sh-hero .sh-breadcrumb a { color: #1c1a1480 !important; text-decoration: none; transition: color 0.3s ease; }
         section.sh-hero .sh-breadcrumb a:hover { color: var(--ivory); }
         .sh-breadcrumb .sep { margin: 0 8px; color: var(--gold); opacity: 0.4; }
         .sh-breadcrumb .cur { color: var(--gold); }
@@ -167,12 +313,8 @@ export default function StoriesPage() {
           text-transform: uppercase; color: var(--orange);
           font-weight: 500; margin-top: 56px; margin-bottom: 22px;
         }
-        @media (min-width: 768px) {
-          .sh-eyebrow { font-size: 15px; gap: 14px; margin-bottom: 28px; }
-        }
-        @media (min-width: 1024px) {
-          .sh-eyebrow { font-size: 20px; margin-top: 0; margin-bottom: 10px; }
-        }
+        @media (min-width: 768px) { .sh-eyebrow { font-size: 15px; gap: 14px; margin-bottom: 28px; } }
+        @media (min-width: 1024px) { .sh-eyebrow { font-size: 20px; margin-top: 0; margin-bottom: 10px; } }
         .sh-eyebrow .line { width: 40px; height: 1px; background: var(--gold); }
         .sh-h1 {
           font-family: 'Cormorant', serif;
@@ -205,61 +347,39 @@ export default function StoriesPage() {
           display: flex; flex-direction: column; gap: 6px;
         }
         .sh-intro-item:not(:first-child) { padding-left: 32px; }
-        .sh-intro-num {
-          font-family: 'Cormorant', serif; font-size: 36px;
-          font-weight: 300; color: var(--gold);
-        }
-        .sh-intro-label {
-          font-size: 11px; letter-spacing: 0.1em;
-          text-transform: uppercase; color: var(--ivory-dim); font-weight: 300;
-        }
+        .sh-intro-num { font-family: 'Cormorant', serif; font-size: 36px; font-weight: 300; color: var(--gold); }
+        .sh-intro-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ivory-dim); font-weight: 300; }
         .sh-scroll {
-          position: absolute; bottom: 32px; left: 50%;
-          transform: translateX(-50%);
+          position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
           display: flex; flex-direction: column; align-items: center;
           gap: 10px; font-size: 10px; letter-spacing: 0.16em;
           text-transform: uppercase; color: var(--ivory-dim);
         }
-        .sh-scroll-line {
-          width: 1px; height: 48px; background: var(--divider);
-          overflow: hidden; position: relative;
-        }
+        .sh-scroll-line { width: 1px; height: 48px; background: var(--divider); overflow: hidden; position: relative; }
         .sh-scroll-line::after {
           content: ''; position: absolute; top: -100%; left: 0; right: 0; height: 100%;
           background: var(--gold); animation: scrollDrop 2s ease-in-out infinite;
         }
         @keyframes scrollDrop { 0% { top: -100%; } 50%, 100% { top: 100%; } }
 
-        /* ══════════════════════════════════════════
-           MARQUEE
-        ══════════════════════════════════════════ */
+        /* ── Marquee ── */
         .quote-marquee {
           background: var(--bg2); padding: 28px 0;
           border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider);
           overflow: hidden; white-space: nowrap;
         }
-        .quote-inner {
-          display: inline-flex; gap: 0; animation: marquee 30s linear infinite;
-        }
+        .quote-inner { display: inline-flex; gap: 0; animation: marquee 30s linear infinite; }
         .quote-item {
           font-family: 'Cormorant', serif; font-size: 24px;
           font-weight: 300; font-style: italic; color: var(--ivory-dim);
           padding: 0 48px; white-space: nowrap;
         }
-        .quote-item .dot {
-          color: var(--gold); font-style: normal; font-size: 10px;
-          vertical-align: middle; margin: 0 8px;
-        }
+        .quote-item .dot { color: var(--gold); font-style: normal; font-size: 10px; vertical-align: middle; margin: 0 8px; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* ══════════════════════════════════════════
-           STORIES SECTION
-        ══════════════════════════════════════════ */
+        /* ── Stories Section ── */
         .stories-section { padding: 120px 56px 0; }
-        .stories-head {
-          display: grid; grid-template-columns: 1fr 1fr;
-          gap: 80px; align-items: start; margin-bottom: 64px;
-        }
+        .stories-head { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-bottom: 64px; }
         .section-eyebrow {
           display: flex; align-items: center; gap: 12px;
           font-size: 11px; letter-spacing: 0.14em;
@@ -272,12 +392,9 @@ export default function StoriesPage() {
           font-weight: 300; line-height: 1.08; letter-spacing: -0.015em;
         }
         .section-h2 em { font-style: italic; color: var(--orange); }
-        .stories-intro p {
-          font-size: 20px; color: var(--ivory-mid); line-height: 1.9;
-          font-weight: 300; max-width: 480px; margin-bottom: 20px;
-        }
+        .stories-intro p { font-size: 20px; color: var(--ivory-mid); line-height: 1.9; font-weight: 300; max-width: 480px; margin-bottom: 20px; }
 
-        /* ── Featured Story ── */
+        /* ── Featured Story ── KEY CHANGE: left panel is now dark typewriter */
         .featured-story {
           margin-bottom: 2px;
           display: grid; grid-template-columns: 1fr 1fr;
@@ -285,42 +402,21 @@ export default function StoriesPage() {
           position: relative; overflow: hidden; cursor: pointer;
           transition: all 0.6s cubic-bezier(0.22,1,0.36,1);
         }
-        .featured-story::before {
-          content: ''; position: absolute; inset: 0;
-          background: linear-gradient(135deg, rgba(212,83,10,0.03) 0%, transparent 60%);
-          opacity: 0; transition: opacity 0.6s; z-index: 1;
-        }
-        .featured-story:hover::before { opacity: 1; }
-        .featured-story:hover .fs-overlay { opacity: 1; }
-        .featured-story:hover .fs-img-inner { transform: scale(1.06) rotate(1deg); }
         .featured-story:hover .fs-name { color: var(--orange); }
-        .fs-img { background: var(--bg3); position: relative; overflow: hidden; }
-        .fs-img-inner {
-          width: 100%; height: 100%;
-          background: linear-gradient(135deg, #EDE9E2 0%, #E4DFD6 60%, #D8D2C8 100%);
-          transition: transform 1.2s cubic-bezier(0.22,1,0.36,1);
-          display: flex; align-items: center; justify-content: center;
-          position: relative; min-height: 260px;
+
+        /* Left panel — typewriter dark panel */
+        .fs-left-panel {
+          position: relative;
+          overflow: hidden;
+          min-height: 580px;
         }
-        .fs-overlay {
-          position: absolute; inset: 0;
-          background: linear-gradient(135deg, rgba(160,120,48,0.12) 0%, transparent 60%);
-          opacity: 0; transition: opacity 0.5s;
-        }
-        .fs-tag {
-          position: absolute; top: 24px; left: 24px;
-          background: var(--gold); color: var(--bg);
-          font-size: 10px; letter-spacing: 0.12em;
-          text-transform: uppercase; font-weight: 600; padding: 6px 14px;
-        }
+
         .fs-content {
           padding: 56px 56px 56px 64px;
           display: flex; flex-direction: column; justify-content: space-between;
           background: var(--bg3);
         }
-        .fs-profile {
-          display: flex; align-items: flex-start; gap: 16px; margin-bottom: 40px;
-        }
+        .fs-profile { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 40px; }
         .fs-avatar {
           width: 56px; height: 56px; border-radius: 50%;
           border: 1px solid var(--gold-dim);
@@ -329,15 +425,14 @@ export default function StoriesPage() {
           color: var(--gold); background: var(--gold-faint); flex-shrink: 0;
           transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
         }
-        .fs-name {
-          font-size: 17px; font-weight: 500; color: var(--ivory);
-          letter-spacing: 0.01em; transition: color 0.3s;
+        .fs-name { font-size: 17px; font-weight: 500; color: var(--ivory); letter-spacing: 0.01em; transition: color 0.3s; }
+        .fs-role { font-size: 15px; color: var(--ivory-dim); margin-top: 3px; font-weight: 300; line-height: 1.5; }
+        .fs-tag {
+          position: absolute; top: 24px; left: 24px; z-index: 10;
+          background: var(--gold); color: var(--bg);
+          font-size: 10px; letter-spacing: 0.12em;
+          text-transform: uppercase; font-weight: 600; padding: 6px 14px;
         }
-        .fs-role {
-          font-size: 15px; color: var(--ivory-dim); margin-top: 3px;
-          font-weight: 300; line-height: 1.5;
-        }
-        .fs-city { font-size: 12px; color: var(--gold); margin-top: 2px; font-weight: 300; letter-spacing: 0.04em; }
         .fs-quote {
           font-family: 'Cormorant', serif;
           font-size: clamp(22px, 3.2vw, 36px);
@@ -353,46 +448,23 @@ export default function StoriesPage() {
           display: flex; align-items: stretch; gap: 0;
           background: var(--bg4); padding: 18px 20px; margin-bottom: 28px;
         }
-        .fs-trans-from, .fs-trans-to {
-          font-size: 16px; font-weight: 300; line-height: 1.5; flex: 1;
-        }
+        .fs-trans-from, .fs-trans-to { font-size: 16px; font-weight: 300; line-height: 1.5; flex: 1; }
         .fs-trans-from { color: var(--ivory-dim); }
         .fs-trans-to { color: var(--gold-light); text-align: right; }
-        .fs-trans-label {
-          font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
-          opacity: 0.6; display: block; margin-bottom: 3px;
-        }
-        .fs-trans-arrow {
-          width: 40px; text-align: center; flex-shrink: 0;
-          color: var(--gold); font-size: 18px;
-          display: flex; align-items: center; justify-content: center;
-        }
+        .fs-trans-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; display: block; margin-bottom: 3px; }
+        .fs-trans-arrow { width: 40px; text-align: center; flex-shrink: 0; color: var(--gold); font-size: 18px; display: flex; align-items: center; justify-content: center; }
         .fs-metrics { display: flex; gap: 32px; flex-wrap: wrap; }
-        .fs-metric-num {
-          font-family: 'Cormorant', serif; font-size: 32px;
-          font-weight: 300; color: var(--gold); line-height: 1;
-        }
+        .fs-metric-num { font-family: 'Cormorant', serif; font-size: 32px; font-weight: 300; color: var(--gold); line-height: 1; }
         .fs-metric-num sup { font-size: 16px; }
-        .fs-metric-label {
-          font-size: 12px; color: var(--ivory); margin-top: 4px;
-          font-weight: 300; letter-spacing: 0.04em; line-height: 1.4;
-        }
+        .fs-metric-label { font-size: 12px; color: var(--ivory); margin-top: 4px; font-weight: 300; letter-spacing: 0.04em; line-height: 1.4; }
 
         /* ── Story Grid ── */
-        .stories-grid {
-          display: grid; grid-template-columns: 1fr 1fr 1fr;
-          gap: 1px; background: var(--divider); margin-bottom: 2px;
-        }
+        .stories-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--divider); margin-bottom: 2px; }
         .story-card {
           background: var(--bg2); padding: 40px 36px;
           position: relative; overflow: hidden; cursor: pointer;
           transition: all 0.5s cubic-bezier(0.22,1,0.36,1);
           display: flex; flex-direction: column;
-        }
-        .story-card::before {
-          content: ''; position: absolute; inset: 0;
-          background: linear-gradient(135deg, rgba(212,83,10,0.02) 0%, transparent 50%);
-          opacity: 0; transition: opacity 0.5s; z-index: 0;
         }
         .story-card::after {
           content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
@@ -401,14 +473,9 @@ export default function StoriesPage() {
           transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
         }
         .story-card:hover { background: var(--bg3); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-        .story-card:hover::before { opacity: 1; }
         .story-card:hover::after { transform: scaleX(1); }
         .story-card:hover .sc-name { color: var(--orange); }
-        .sc-num {
-          font-family: 'Cormorant', serif; font-size: 11px; color: var(--ivory-dim);
-          letter-spacing: 0.1em; font-weight: 300; margin-bottom: 24px;
-          display: block; position: relative; z-index: 1;
-        }
+        .sc-num { font-family: 'Cormorant', serif; font-size: 11px; color: var(--ivory-dim); letter-spacing: 0.1em; font-weight: 300; margin-bottom: 24px; display: block; position: relative; z-index: 1; }
         .sc-avatar {
           width: 72px; height: 72px; border-radius: 50%;
           border: 1px solid var(--divider-bright);
@@ -418,17 +485,10 @@ export default function StoriesPage() {
           transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
           position: relative; z-index: 1; flex-shrink: 0;
         }
-        .sc-name {
-          font-size: 16px; font-weight: 500; color: var(--ivory); margin-bottom: 4px;
-          letter-spacing: 0.01em; position: relative; z-index: 1; transition: color 0.3s;
-        }
+        .sc-name { font-size: 16px; font-weight: 500; color: var(--ivory); margin-bottom: 4px; letter-spacing: 0.01em; position: relative; z-index: 1; transition: color 0.3s; }
         .sc-role { font-size: 12px; color: var(--ivory-dim); font-weight: 300; margin-bottom: 4px; position: relative; z-index: 1; }
         .sc-city { font-size: 11px; color: var(--gold); font-weight: 300; letter-spacing: 0.04em; margin-bottom: 24px; position: relative; z-index: 1; }
-        .sc-quote {
-          font-family: 'Cormorant', serif; font-size: 20px; font-style: italic;
-          font-weight: 300; line-height: 1.6; color: var(--ivory-mid); margin-bottom: 28px;
-          flex: 1; position: relative; z-index: 1;
-        }
+        .sc-quote { font-family: 'Cormorant', serif; font-size: 20px; font-style: italic; font-weight: 300; line-height: 1.6; color: var(--ivory-mid); margin-bottom: 28px; flex: 1; position: relative; z-index: 1; }
         .sc-divider { height: 1px; background: var(--divider); margin: 0 0 24px; position: relative; z-index: 1; }
         .sc-before-after { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; position: relative; z-index: 1; }
         .sc-ba-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; font-weight: 300; line-height: 1.5; }
@@ -437,11 +497,7 @@ export default function StoriesPage() {
         .sc-ba-before { color: var(--ivory-dim); }
         .sc-ba-after .sc-ba-icon { background: var(--gold); }
         .sc-ba-after { color: var(--ivory-mid); }
-        .sc-metric {
-          display: inline-flex; align-items: baseline; gap: 4px;
-          background: var(--gold-faint); border: 1px solid var(--gold-dim);
-          padding: 8px 14px; margin-top: 4px; position: relative; z-index: 1;
-        }
+        .sc-metric { display: inline-flex; align-items: baseline; gap: 4px; background: var(--gold-faint); border: 1px solid var(--gold-dim); padding: 8px 14px; margin-top: 4px; position: relative; z-index: 1; }
         .sc-metric-num { font-family: 'Cormorant', serif; font-size: 30px; font-weight: 300; color: var(--gold); line-height: 1; }
         .sc-metric-label { font-size: 10px; color: var(--ivory-dim); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 300; }
         .sc-stars { color: var(--gold); font-size: 12px; letter-spacing: 2px; margin-top: 16px; display: block; position: relative; z-index: 1; }
@@ -485,10 +541,7 @@ export default function StoriesPage() {
         .hb-metric-label { font-size: 10px; color: var(--ivory-dim); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 300; }
 
         /* ── Final CTA ── */
-        .final-cta {
-          padding: 120px 56px; text-align: center;
-          position: relative; overflow: hidden; background: var(--bg);
-        }
+        .final-cta { padding: 120px 56px; text-align: center; position: relative; overflow: hidden; background: var(--bg); }
         .cta-rings { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
         .cta-ring { position: absolute; border-radius: 50%; border: 1px solid var(--divider); transform: translate(-50%, -50%); }
         .cta-ring:nth-child(1) { width: 300px; height: 300px; }
@@ -528,197 +581,74 @@ export default function StoriesPage() {
         .btn-outline-lg:hover { border-color: var(--gold); color: var(--gold); }
         .cta-note { font-size: 11px; color: rgba(28,26,20,0.2); margin-top: 28px; letter-spacing: 0.1em; text-transform: uppercase; position: relative; z-index: 1; }
 
-        /* ══════════════════════════════════════════
-           TABLET  (768px – 1023px)
-        ══════════════════════════════════════════ */
+        /* ── Responsive ── */
         @media (max-width: 1023px) and (min-width: 768px) {
           .sh-hero { padding: 120px 40px 80px; }
           .sh-vert { display: none; }
-          .sh-h1 { font-size: clamp(44px, 7vw, 80px); }
-          .sh-sub { font-size: 18px; margin-top: 28px; margin-bottom: 44px; }
-          .sh-intro-grid { grid-template-columns: 1fr 1fr 1fr; }
-          .sh-scroll { display: none; }
           .stories-section { padding: 80px 40px 0; }
           .stories-head { grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
-          .stories-intro p { max-width: 100%; font-size: 17px; }
           .featured-story { grid-template-columns: 1fr; min-height: auto; }
-          .fs-img-inner { min-height: 300px; }
+          .fs-left-panel { min-height: 360px; }
           .fs-content { padding: 40px; }
-          .fs-quote { font-size: clamp(17px, 3vw, 22px); }
-          .fs-transformation { flex-direction: column; gap: 16px; }
-          .fs-trans-to { text-align: left; }
-          .fs-trans-arrow { display: none; }
           .stories-grid { grid-template-columns: 1fr 1fr; }
           .hstory-bar { grid-template-columns: 180px 1fr; gap: 32px; padding: 40px; }
           .hb-metrics { display: none; }
           .final-cta { padding: 96px 40px; }
         }
 
-        /* Laptop fix */
         @media (max-width: 1440px) and (min-width: 768px) {
           .sh-hero { padding-top: 180px; justify-content: flex-start; }
           .sh-breadcrumb { top: 130px; }
         }
 
-        /* ══════════════════════════════════════════
-           MOBILE  (≤767px)
-        ══════════════════════════════════════════ */
         @media (max-width: 767px) {
-
-          /* ── Hero ── */
-          .sh-hero {
-            padding: 130px 20px 56px;
-            min-height: 100svh;
-            justify-content: flex-start;
-          }
-          .sh-hero-num {
-            font-size: clamp(80px, 22vw, 120px);
-            right: -8px;
-            top: 40%;
-            opacity: 1;
-          }
+          .sh-hero { padding: 130px 20px 56px; min-height: 100svh; justify-content: flex-start; }
+          .sh-hero-num { font-size: clamp(80px, 22vw, 120px); right: -8px; top: 40%; }
           .sh-vert { display: none; }
-          .sh-breadcrumb { top: 88px; left: 20px; font-size: 10px; letter-spacing: 0.12em; }
+          .sh-breadcrumb { top: 88px; left: 20px; font-size: 10px; }
           .sh-eyebrow { font-size: 10px; gap: 10px; margin-top: 48px; margin-bottom: 16px; }
-          .sh-eyebrow .line { width: 28px; }
-          .sh-h1 {
-            font-size: clamp(42px, 12vw, 64px);
-            line-height: 1;
-            padding-bottom: 8px;
-          }
-          .sh-sub {
-            font-size: 15px; line-height: 1.7;
-            margin-top: 16px; margin-bottom: 32px; max-width: 100%;
-          }
-
-          /* Stats — single column */
-          .sh-intro-grid {
-            grid-template-columns: 1fr;
-            border-top: 1px solid var(--divider);
-          }
-          .sh-intro-item {
-            padding: 18px 0 !important;
-            border-bottom: 1px solid var(--divider);
-          }
+          .sh-h1 { font-size: clamp(42px, 12vw, 64px); line-height: 1; padding-bottom: 8px; }
+          .sh-sub { font-size: 15px; line-height: 1.7; margin-top: 16px; margin-bottom: 32px; max-width: 100%; }
+          .sh-intro-grid { grid-template-columns: 1fr; border-top: 1px solid var(--divider); }
+          .sh-intro-item { padding: 18px 0 !important; border-bottom: 1px solid var(--divider); }
           .sh-intro-item:last-child { border-bottom: none; }
           .sh-intro-item:not(:first-child) { padding-left: 0 !important; }
-          .sh-intro-num { font-size: 30px; }
-          .sh-intro-label { font-size: 10px; }
           .sh-scroll { display: none; }
-
-          /* ── Marquee ── */
           .quote-item { font-size: 16px; padding: 0 28px; }
-
-          /* ── Stories Section ── */
           .stories-section { padding: 56px 20px 0; }
-          .stories-head {
-            grid-template-columns: 1fr;
-            gap: 24px; margin-bottom: 36px;
-          }
+          .stories-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 36px; }
           .section-h2 { font-size: clamp(34px, 9vw, 48px); }
           .stories-intro p { font-size: 15px; max-width: 100%; margin-bottom: 10px; }
-
-          /* ── Featured Story ── */
-          .featured-story {
-            grid-template-columns: 1fr;
-            min-height: auto;
-            border-left: none;
-            border-right: none;
-          }
-          .fs-img-inner { min-height: 200px; }
+          .featured-story { grid-template-columns: 1fr; min-height: auto; border-left: none; border-right: none; }
+          .fs-left-panel { min-height: 320px; }
           .fs-tag { top: 14px; left: 14px; font-size: 9px; padding: 4px 10px; }
           .fs-content { padding: 24px 20px 28px; }
-          .fs-profile {
-            flex-direction: row; align-items: flex-start;
-            gap: 12px; margin-bottom: 20px;
-          }
+          .fs-profile { flex-direction: row; align-items: flex-start; gap: 12px; margin-bottom: 20px; }
           .fs-avatar { width: 44px; height: 44px; font-size: 16px; flex-shrink: 0; }
           .fs-name { font-size: 14px; }
           .fs-role { font-size: 12px; line-height: 1.4; }
-          .fs-city { font-size: 11px; }
-          .fs-quote {
-            font-size: clamp(15px, 4vw, 18px);
-            margin-bottom: 20px; padding-top: 12px;
-          }
-          .fs-quote::before { font-size: 48px; top: -10px; left: -4px; }
-          .fs-transformation {
-            flex-direction: column; gap: 12px;
-            padding: 14px 16px; margin-bottom: 18px;
-          }
+          .fs-quote { font-size: clamp(15px, 4vw, 18px); margin-bottom: 20px; padding-top: 12px; }
+          .fs-transformation { flex-direction: column; gap: 12px; padding: 14px 16px; margin-bottom: 18px; }
           .fs-trans-to { text-align: left; }
           .fs-trans-arrow { display: none; }
-          .fs-trans-from, .fs-trans-to { font-size: 13px; }
-          .fs-trans-label { font-size: 10px; }
           .fs-metrics { gap: 18px; }
           .fs-metric-num { font-size: 24px; }
-          .fs-metric-label { font-size: 11px; }
-
-          /* ── Story Grid ── */
           .stories-grid { grid-template-columns: 1fr; }
           .story-card { padding: 24px 20px; }
-          .sc-num { margin-bottom: 16px; }
-          .sc-avatar { width: 52px; height: 52px; font-size: 18px; margin-bottom: 12px; }
-          .sc-name { font-size: 15px; }
-          .sc-role { font-size: 12px; }
-          .sc-city { margin-bottom: 16px; }
-          .sc-quote { font-size: 15px; margin-bottom: 20px; }
-          .sc-ba-item { font-size: 12px; }
-          .sc-metric { padding: 6px 12px; }
-          .sc-metric-num { font-size: 22px; }
-          .sc-metric-label { font-size: 9px; }
-          .sc-stars { font-size: 11px; margin-top: 12px; }
-
-          /* ── Horizontal Bars ── */
-          .hstory-bar {
-            grid-template-columns: 1fr;
-            gap: 16px; padding: 24px 20px;
-          }
-          .hb-profile {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            grid-template-rows: auto auto auto;
-            column-gap: 14px; row-gap: 2px;
-            align-items: start;
-          }
-          .hb-avatar {
-            width: 52px; height: 52px; font-size: 18px;
-            flex-shrink: 0; grid-row: span 3;
-          }
-          .hb-name { font-size: 14px; align-self: end; }
-          .hb-role { font-size: 11px; line-height: 1.3; }
-          .hb-city { font-size: 10px; }
-          .hb-quote { font-size: 15px; line-height: 1.6; }
-          .hb-metrics {
-            display: flex; justify-content: flex-start; gap: 20px;
-          }
+          .hstory-bar { grid-template-columns: 1fr; gap: 16px; padding: 24px 20px; }
+          .hb-profile { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto auto; column-gap: 14px; row-gap: 2px; align-items: start; }
+          .hb-avatar { width: 52px; height: 52px; font-size: 18px; flex-shrink: 0; grid-row: span 3; }
+          .hb-metrics { display: flex; justify-content: flex-start; gap: 20px; }
           .hb-metric { text-align: left; }
-          .hb-metric-num { font-size: 22px; }
-          .hb-metric-label { font-size: 9px; }
-
-          /* ── Final CTA ── */
           .final-cta { padding: 64px 20px; }
-          .cta-ring:nth-child(3),
-          .cta-ring:nth-child(4) { display: none; }
-          .cta-ring:nth-child(1) { width: 160px; height: 160px; }
-          .cta-ring:nth-child(2) { width: 300px; height: 300px; }
           .cta-h2 { font-size: clamp(30px, 9vw, 44px) !important; line-height: 1.15; }
           .cta-sub { font-size: 14px; max-width: 100%; margin-bottom: 32px; }
-          .cta-btns {
-            flex-direction: column; align-items: stretch; gap: 10px;
-          }
-          .btn-gold-lg, .btn-outline-lg {
-            width: 100%; text-align: center; padding: 14px 20px;
-          }
-          .cta-note { font-size: 10px; margin-top: 18px; letter-spacing: 0.06em; }
+          .cta-btns { flex-direction: column; align-items: stretch; gap: 10px; }
+          .btn-gold-lg, .btn-outline-lg { width: 100%; text-align: center; padding: 14px 20px; }
         }
 
-        /* ══════════════════════════════════════════
-           SMALL MOBILE  (≤400px)
-        ══════════════════════════════════════════ */
         @media (max-width: 400px) {
           .sh-hero { padding: 120px 16px 48px; }
-          .sh-h1 { font-size: clamp(36px, 11vw, 48px); }
-          .sh-sub { font-size: 14px; }
           .stories-section { padding: 48px 16px 0; }
           .fs-content { padding: 20px 16px 24px; }
           .story-card { padding: 20px 16px; }
@@ -737,28 +667,23 @@ export default function StoriesPage() {
           <div className="sh-hero-bg"></div>
           <div className="sh-hero-num">Stories</div>
           <div className="sh-vert">Real Journeys · Real Clarity · 2024</div>
-
           <div className="sh-breadcrumb">
             <Link href="/" style={{ color: '#1c1a1480' }}>Home</Link>
             <span className="sep">—</span>
             <span className="cur">Stories</span>
           </div>
-
           <div className="sh-eyebrow reveal">
             <span className="line"></span>
             Client Stories
           </div>
-
           <h1 className="sh-h1">
             <span className="li visible">Not just <em>clients.</em></span>
             <span className="li visible">Transformed</span>
             <span className="li visible">perspectives.</span>
           </h1>
-
           <p className="sh-sub reveal d2">
             Our clients don't just invest — they change how they think about money. What starts as uncertainty and scattered decisions becomes clarity, structure, and a sense of direction.
           </p>
-
           <div className="sh-intro-grid">
             <div className="sh-intro-item reveal d1">
               <span className="sh-intro-num">500+</span>
@@ -773,7 +698,6 @@ export default function StoriesPage() {
               <span className="sh-intro-label">Goal-Based Approach</span>
             </div>
           </div>
-
           <div className="sh-scroll">
             <span>Scroll</span>
             <div className="sh-scroll-line"></div>
@@ -783,14 +707,14 @@ export default function StoriesPage() {
         {/* ── Marquee ── */}
         <div className="quote-marquee">
           <div className="quote-inner">
-            <span className="quote-item">These journeys are not about quick wins<span className="dot">·</span></span>
-            <span className="quote-item">They're about building discipline, staying consistent<span className="dot">·</span></span>
-            <span className="quote-item">Making better financial choices over long term<span className="dot">·</span></span>
-            <span className="quote-item">When the right guidance meets patience and intent<span className="dot">·</span></span>
-            <span className="quote-item">These journeys are not about quick wins<span className="dot">·</span></span>
-            <span className="quote-item">They're about building discipline, staying consistent<span className="dot">·</span></span>
-            <span className="quote-item">Making better financial choices over long term<span className="dot">·</span></span>
-            <span className="quote-item">When the right guidance meets patience and intent<span className="dot">·</span></span>
+            {[...Array(2)].map((_, ri) => (
+              <span key={ri} style={{ display: 'contents' }}>
+                <span className="quote-item">These journeys are not about quick wins<span className="dot">·</span></span>
+                <span className="quote-item">They're about building discipline, staying consistent<span className="dot">·</span></span>
+                <span className="quote-item">Making better financial choices over long term<span className="dot">·</span></span>
+                <span className="quote-item">When the right guidance meets patience and intent<span className="dot">·</span></span>
+              </span>
+            ))}
           </div>
         </div>
 
@@ -807,37 +731,31 @@ export default function StoriesPage() {
             </div>
           </div>
 
-          {/* Featured Story */}
+          {/* ── Featured Story — TypewriterQuote on LEFT, client quote on RIGHT ── */}
           <div className="featured-story reveal">
-            <div className="fs-img">
-              <div className="fs-img-inner">
-                <svg style={{ width: '60%', maxWidth: '280px', opacity: '0.35' }} viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20 160 L60 130 L90 140 L120 100 L150 90 L180 60 L210 40 L260 20" stroke="#A07830" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M20 160 L60 130 L90 140 L120 100 L150 90 L180 60 L210 40 L260 20 L260 180 L20 180 Z" fill="rgba(160,120,48,0.06)"/>
-                  <line x1="20" y1="180" x2="260" y2="180" stroke="rgba(160,120,48,0.2)" strokeWidth="0.5"/>
-                  <line x1="20" y1="140" x2="260" y2="140" stroke="rgba(160,120,48,0.08)" strokeWidth="0.5" strokeDasharray="4 4"/>
-                  <line x1="20" y1="100" x2="260" y2="100" stroke="rgba(160,120,48,0.08)" strokeWidth="0.5" strokeDasharray="4 4"/>
-                  <line x1="20" y1="60" x2="260" y2="60" stroke="rgba(160,120,48,0.08)" strokeWidth="0.5" strokeDasharray="4 4"/>
-                  <circle cx="260" cy="20" r="4" fill="#A07830"/>
-                  <circle cx="180" cy="60" r="3" fill="#A07830" opacity="0.7"/>
-                  <circle cx="120" cy="100" r="3" fill="#A07830" opacity="0.5"/>
-                </svg>
-              </div>
-              <div className="fs-overlay"></div>
+
+            {/* LEFT PANEL — Typewriter quote dark panel */}
+            <div className="fs-left-panel">
               <span className="fs-tag">Featured Story</span>
+              <TypewriterQuote />
             </div>
+
+            {/* RIGHT PANEL — Client testimonial */}
             <div className="fs-content">
               <div>
                 <div className="fs-profile">
-                  <div className="fs-avatar" style={{
-                    backgroundImage: 'url(/testimonials/subir-rao.jpeg)',
-                    backgroundSize: 'cover', backgroundPosition: 'center',
-                    border: '2px solid var(--gold)', boxShadow: '0 0 20px rgba(160,120,48,0.3)'
-                  }}></div>
+                  <div
+                    className="fs-avatar"
+                    style={{
+                      backgroundImage: 'url(/testimonials/subir-rao.jpeg)',
+                      backgroundSize: 'cover', backgroundPosition: 'center',
+                      border: '2px solid var(--gold)',
+                      boxShadow: '0 0 20px rgba(160,120,48,0.3)'
+                    }}
+                  />
                   <div>
                     <div className="fs-name">Mr Subir Rao</div>
                     <div className="fs-role">Associate Professor and Deputy Chair for Executive Management Programs — S.P.Jain Institute of Management and Research</div>
-                    <div className="fs-city">Location</div>
                   </div>
                 </div>
                 <blockquote className="fs-quote">
@@ -848,7 +766,7 @@ export default function StoriesPage() {
                     <span className="fs-trans-label">Before</span>
                     Scattered investments across 12+ products. No clarity on goals. Anxiety during every market dip.
                   </div>
-                  <div className="fs-trans-arrow">→</div>
+                  <div className="fs-trans-arrow">—</div>
                   <div className="fs-trans-to">
                     <span className="fs-trans-label">After</span>
                     Structured plan across 4 goals. Monthly SIP discipline. Calm through 2022 correction.
@@ -858,15 +776,15 @@ export default function StoriesPage() {
               <div className="fs-metrics">
                 <div>
                   <div className="fs-metric-num">3<sup>yrs</sup></div>
-                  <div className="fs-metric-label">Client Since<br/>2021</div>
+                  <div className="fs-metric-label">Client Since<br />2021</div>
                 </div>
                 <div>
                   <div className="fs-metric-num">4</div>
-                  <div className="fs-metric-label">Goals<br/>Structured</div>
+                  <div className="fs-metric-label">Goals<br />Structured</div>
                 </div>
                 <div>
-                  <div className="fs-metric-num">₹2Cr<sup>+</sup></div>
-                  <div className="fs-metric-label">Portfolio<br/>Value</div>
+                  <div className="fs-metric-num">Stable</div>
+                  <div className="fs-metric-label">Portfolio<br />Growth</div>
                 </div>
               </div>
             </div>
@@ -876,68 +794,36 @@ export default function StoriesPage() {
         {/* ── Story Grid ── */}
         <div className="stories-grid">
           {[
-            {
-              num: 'Story 01',
-              img: '/testimonials/eswaran-kps.jpeg',
-              name: 'Eswaran K P S',
-              role: 'Proprietor, Astrom Business Associates',
-              city: 'Location',
-              quote: '"Nitesh has been more of a partner than just an advisor or service provider. He has helped us navigate both tough & great times prudently. His innate understanding of financial markets is evident from returns on Investment."',
-              before: 'Uncertain market approach',
-              after: 'Strategic, goal-aligned investments',
-              metric: '18%', metricLabel: 'Annual Returns',
-              delay: ''
-            },
-            {
-              num: 'Story 02',
-              img: '/testimonials/ashish-more.jpeg',
-              name: 'Mr Ashish More',
-              role: 'Inspector Fire, Maharashtra Fire Service',
-              city: 'Location',
-              quote: '"Dear Nitesh, Thank you for your prompt response and swift action in getting my account opened. I truly appreciate your thoughtful suggestions in selecting the right funds for investment, as well as consistent support you provided until SIP was successfully initiated."',
-              before: 'Manual fund selection',
-              after: 'Expert-guided portfolio',
-              metric: '22%', metricLabel: 'Goal Achievement',
-              delay: 'd2'
-            },
-            {
-              num: 'Story 03',
-              img: '/testimonials/shamiran-banerjee.jpeg',
-              name: 'Mr Shamiran S Banerjee',
-              role: 'Associate Director, Morningstar, Inc',
-              city: 'Location',
-              quote: '"I\'ve had the privilege of working with Nitesh Kandarkar for the past 1 year and I can confidently say that his expertise has been instrumental in helping me maximize my capital gains. His deep understanding of market dynamics and disciplined investment strategy consistently delivered results that exceeded my expectations."',
-              before: 'Generic investment approach',
-              after: 'Personalized wealth strategy',
-              metric: '35%', metricLabel: 'Portfolio Growth',
-              delay: 'd3'
-            },
+            { num: 'Story 01', img: '/testimonials/eswaran-kps.jpeg', name: 'Eswaran K P S', role: 'Proprietor, Astrom Business Associates', quote: '"Nitesh has been more of a partner than just an advisor or service provider. He has helped us navigate both tough & great times prudently. His innate understanding of financial markets is evident from returns on Investment."', before: 'Uncertain market approach', after: 'Strategic, goal-aligned investments', metric: 'Strong', metricLabel: 'Portfolio<br/>Performance', delay: '' },
+            { num: 'Story 02', img: '/testimonials/ashish-more.jpeg', name: 'Mr Ashish More', role: 'Inspector Fire, Maharashtra Fire Service', quote: '"Dear Nitesh, Thank you for your prompt response and swift action in getting my account opened. I truly appreciate your thoughtful suggestions in selecting the right funds for investment."', before: 'Manual fund selection', after: 'Expert-guided portfolio', metric: 'On Track', metricLabel: 'Goal<br/>Progress', delay: 'd2' },
+            { num: 'Story 03', img: '/testimonials/shamiran-banerjee.jpeg', name: 'Mr Shamiran S Banerjee', role: 'Associate Director, Morningstar, Inc', quote: '"I\'ve had the privilege of working with Nitesh for the past 1 year and I can confidently say that his expertise has been instrumental in helping me maximize my capital gains."', before: 'Generic investment approach', after: 'Personalized wealth strategy', metric: 'Positive', metricLabel: 'Wealth<br/>Building', delay: 'd3' },
+            { num: 'Story 04', img: '/testimonials/mr-vaibhav-devlekar.png', name: 'Mr Vaibhav Devlekar', role: 'Head - Training & Quality, Reliable Spaces Private Limited', quote: '"Nitesh is one of most approachable person, always ready to answer any queries related to financial planning in a simple way. I stay worry-free with his support in the investment part."', before: 'Complex financial decisions', after: 'Clear, simple guidance', metric: 'Approachable', metricLabel: 'Advisor<br/>Style', delay: 'd4' },
+            { num: 'Story 05', img: '/testimonials/mrs-priyanka-shetty.png', name: 'Mrs Priyanka Shetty', role: 'Head of Accounting, Nynas Naphthenics pvt ltd.', quote: '"Nitesh is an exceptional investor and financial advisor who has consistently demonstrated a deep understanding of financial markets. His expertise and guidance have been invaluable to me."', before: 'Uncertain investment choices', after: 'Informed decision making', metric: 'Expert', metricLabel: 'Market<br/>Knowledge', delay: '' },
+            { num: 'Story 06', img: '/testimonials/mr-rigved-phadke.png', name: 'Mr Rigved Phadke', role: 'Actor, director, producer of Vedh Production', quote: '"Nitesh has been an incredible guide in my investment journey. He\'s honest, transparent, and always puts long-term growth first. He never pushes unnecessary options."', before: 'Product-pushing advisors', after: 'Client-first approach', metric: 'Trustworthy', metricLabel: 'Long-term<br/>Partnership', delay: 'd2' },
+            { num: 'Story 07', img: '/testimonials/shraddha-kadam-jain.png', name: 'Mrs Shraddha Kadam', role: 'Soul Coach & Grief Support Guide - Healer', quote: '"Nitesh is a game-changer for financial planning. For the last 7 years, he has been managing my funds. I can attest to his expertise, patience, and personalized approach."', before: 'Scattered investment approach', after: 'Strategic wealth building', metric: 'Patient', metricLabel: 'Personalized<br/>Service', delay: 'd3' },
+            { num: 'Story 08', img: '/testimonials/gauri.jpeg', name: 'Mrs Gauri', role: 'Investor', quote: '"I have been investing in mutual funds for almost 10 years. Nitesh was the one who guided me through this entire process in depth. He has proven to be the best Financial Advisor."', before: 'DIY investing struggles', after: 'Expert guidance and peace of mind', metric: 'Experienced', metricLabel: '10+ Years<br/>Partnership', delay: 'd4' },
+            { num: 'Story 09', img: '/testimonials/prasad.jpeg', name: 'Prasad', role: 'AVP - IndusInd Bank', quote: '"I have been investing in Mutual Funds through Nitesh for the past 15 years. His exceptional advice and services have helped me and my relatives achieve significant growth."', before: 'Limited investment knowledge', after: 'Professional wealth management', metric: 'Dedicated', metricLabel: '15+ Years<br/>Relationship', delay: '' },
+            { num: 'Story 10', img: '/testimonials/pallavi.jpeg', name: 'Miss Pallavi', role: 'Sr. Quality and Process Improvement Analyst - Morningstar India', quote: '"Nitesh has been extremely helpful and supportive. He explains everything clearly and is always available when I need assistance. I truly appreciate his prompt and detailed guidance."', before: 'Unclear financial communication', after: 'Clear, responsive guidance', metric: 'Supportive', metricLabel: 'Always<br/>Available', delay: 'd2' },
+            { num: 'Story 11', img: '/testimonials/utkarsha.jpeg', name: 'Mrs Utkarsha', role: 'Senior Operations Analyst - Morningstar', quote: '"Nitesh has been instrumental in helping me organize and grow my finances. His deep understanding of financial planning, combined with his patient and practical approach, made me feel confident."', before: 'Disorganized financial structure', after: 'Well-organized financial plan', metric: 'Structured', metricLabel: 'Financial<br/>Organization', delay: 'd3' },
+            { num: 'Story 12', img: '/testimonials/sujitha.jpeg', name: 'Mrs Sujitha', role: 'Trust and Safety Advisor - Accenture Ltd', quote: '"Nitesh has always placed his clients interest first. He always explains about risks, fees and other information critical to their decision making. I am glad that you are someone reputable."', before: 'Hidden fees and unclear risks', after: 'Transparent, client-first advice', metric: 'Transparent', metricLabel: 'Ethical<br/>Practices', delay: 'd4' },
+            { num: 'Story 13', img: '/testimonials/shubhangi.jpeg', name: 'शुभांगी', role: 'संगीत शिक्षिका – Naad Sangeet Vidyalaya', quote: 'नमस्कार, मी ३ वर्षांपूर्वी दीर्घकालीन गुंतवणूक वाढ आणि नियमित उत्पन्न योजना या उद्देशाने गुंतवणूक केली होती. त्याचा मला खूप चांगला फायदा झाला आहे.', before: 'गुंतवणुकीबद्दल अनिश्चितता', after: 'दीर्घकालीन वाढ आणि स्थिर उत्पन्न', metric: 'लाभदायक', metricLabel: 'गुंतवणूक<br/>योजना', delay: '' },
+            { num: 'Story 14', img: '/testimonials/Ankit.jpeg', name: 'Ankit', role: 'AVP - Citicorp Services India Pvt Ltd', quote: '"Nitesh is passionate for his work and a very good advisor. Special thanks to him for assisting me build a customized MF portfolio based on my requirements and his market expertise."', before: 'Generic portfolio approach', after: 'Customized investment strategy', metric: 'Expert', metricLabel: 'Customized<br/>Solutions', delay: 'd2' },
+            { num: 'Story 15', img: '/testimonials/Shirish.jpeg', name: 'Mr Shirish', role: 'Professional', quote: '"Mr. Nitesh has a sound knowledge of mutual funds. Since I was unaware of what to do with my savings, he has guided me with proper investment plans and has made me a secured investor."', before: 'Savings without direction', after: 'Secure investment planning', metric: 'Secured', metricLabel: 'Investment<br/>Safety', delay: 'd3' },
           ].map((card) => (
             <div key={card.num} className={`story-card reveal ${card.delay}`}>
               <span className="sc-num">{card.num}</span>
-              <div className="sc-avatar" style={{
-                backgroundImage: `url(${card.img})`,
-                backgroundSize: 'cover', backgroundPosition: 'center',
-                border: '1px solid var(--gold)', boxShadow: '0 0 15px rgba(160,120,48,0.2)'
-              }}></div>
+              <div className="sc-avatar" style={{ backgroundImage: `url(${card.img})`, backgroundSize: 'cover', backgroundPosition: 'center', border: '1px solid var(--gold)', boxShadow: '0 0 15px rgba(160,120,48,0.2)' }} />
               <div className="sc-name">{card.name}</div>
               <div className="sc-role">{card.role}</div>
-              <div className="sc-city">{card.city}</div>
               <div className="sc-quote">{card.quote}</div>
-              <div className="sc-divider"></div>
+              <div className="sc-divider" />
               <div className="sc-before-after">
-                <div className="sc-ba-item sc-ba-before">
-                  <div className="sc-ba-icon"></div>
-                  <div>{card.before}</div>
-                </div>
-                <div className="sc-ba-item sc-ba-after">
-                  <div className="sc-ba-icon"></div>
-                  <div>{card.after}</div>
-                </div>
+                <div className="sc-ba-item sc-ba-before"><div className="sc-ba-icon" /><div>{card.before}</div></div>
+                <div className="sc-ba-item sc-ba-after"><div className="sc-ba-icon" /><div>{card.after}</div></div>
               </div>
               <div className="sc-metric">
                 <span className="sc-metric-num">{card.metric}</span>
-                <span className="sc-metric-label">{card.metricLabel}</span>
+                <span className="sc-metric-label" dangerouslySetInnerHTML={{ __html: card.metricLabel }} />
               </div>
               <span className="sc-stars">★★★★★</span>
             </div>
@@ -946,53 +832,16 @@ export default function StoriesPage() {
 
         {/* ── Horizontal Story Bars ── */}
         {[
-          {
-            img: '/testimonials/manisha-phadke.jpeg',
-            name: 'Dr Manisha Phadke',
-            role: 'DGM - Quality Assurance, Ajanta Pharma Ltd',
-            city: 'Location',
-            quote: '"Nitesh is very patient. Person like me who was not knowing anything about finance, he explained me everything in detail in simple language. He has taken all care of my investment and made my retirement tenure peaceful."',
-            metrics: [{ num: '12%', label: 'Annual Returns' }, { num: '8', label: 'Years Together' }],
-            delay: ''
-          },
-          {
-            img: '/testimonials/lekha-bharathan.jpeg',
-            name: 'Mrs Lekha Bharathan',
-            role: 'Vice President & National Manager - Audit, Reliance General Insurance',
-            city: 'Location',
-            quote: '"If you wish to have a Personal trustworthy friend who will also manage your money expertly for you, look no further than Nitesh. Nitesh was referred by a mutual friend and it\'s been two years of transparent dedicated stress free relationship since."',
-            metrics: [{ num: '8', label: 'Years Together' }, { num: '25%', label: 'Portfolio Growth' }],
-            delay: 'd2'
-          },
-          {
-            img: '/testimonials/sdkhandeka.jpeg',
-            name: 'Mr S.D.Khandekar',
-            role: 'Retired Sr. Accounts Officer, Mumbai Port Authority',
-            city: 'Location',
-            quote: '"Nitesh is a professional portfolio adviser. He is hard working and updated in his field. He has insight in his subject and capability to keep the investors satisfied not only by offering prompt services but by achieving optimum returns on their portfolios."',
-            metrics: [{ num: '15%', label: 'Annual Returns' }, { num: '25', label: 'Years Experience' }],
-            delay: 'd3'
-          },
-          {
-            img: '/testimonials/sadhana-khandekar.jpeg',
-            name: 'Mrs Sadhana Khandekar',
-            role: 'Retired Manager, Air India Limited',
-            city: 'Location',
-            quote: '"I know Nitesh for a long time and I know his passion about financial planning. His guidance has proved very beneficial to me looking at returns I am getting today out of my investment. He keeps me updated about the capital market and advices me accordingly."',
-            metrics: [{ num: '18%', label: 'Avg. Returns' }, { num: '12', label: 'Years Together' }],
-            delay: 'd4'
-          },
+          { img: '/testimonials/manisha-phadke.jpeg', name: 'Dr Manisha Phadke', role: 'DGM - Quality Assurance, Ajanta Pharma Ltd', quote: '"Nitesh is very patient. Person like me who was not knowing anything about finance, he explained me everything in detail in simple language. He has taken all care of my investment and made my retirement tenure peaceful."', metrics: [{ num: 'Strong', label: 'Partnership' }, { num: '8', label: 'Years Together' }], delay: '' },
+          { img: '/testimonials/lekha-bharathan.jpeg', name: 'Mrs Lekha Bharathan', role: 'Vice President & National Manager - Audit, Reliance General Insurance', quote: '"If you wish to have a Personal trustworthy friend who will also manage your money expertly for you, look no further than Nitesh. It\'s been two years of transparent dedicated stress free relationship."', metrics: [{ num: '8', label: 'Years Together' }, { num: 'Positive', label: 'Growth' }], delay: 'd2' },
+          { img: '/testimonials/sdkhandeka.jpeg', name: 'Mr S.D.Khandekar', role: 'Retired Sr. Accounts Officer, Mumbai Port Authority', quote: '"Nitesh is a professional portfolio adviser. He is hard working and updated in his field. He has insight in his subject and capability to keep the investors satisfied by achieving optimum returns."', metrics: [{ num: 'Strong', label: 'Performance' }, { num: '25', label: 'Years Experience' }], delay: 'd3' },
+          { img: '/testimonials/sadhana-khandekar.jpeg', name: 'Mrs Sadhana Khandekar', role: 'Retired Manager, Air India Limited', quote: '"I know Nitesh for a long time and I know his passion about financial planning. His guidance has proved very beneficial to me looking at returns I am getting today out of my investment."', metrics: [{ num: 'Steady', label: 'Returns' }, { num: '12', label: 'Years Together' }], delay: 'd4' },
         ].map((bar) => (
           <div key={bar.name} className={`hstory-bar reveal ${bar.delay}`}>
             <div className="hb-profile">
-              <div className="hb-avatar" style={{
-                backgroundImage: `url(${bar.img})`,
-                backgroundSize: 'cover', backgroundPosition: 'center',
-                border: '1px solid var(--gold)', boxShadow: '0 0 20px rgba(160,120,48,0.25)'
-              }}></div>
+              <div className="hb-avatar" style={{ backgroundImage: `url(${bar.img})`, backgroundSize: 'cover', backgroundPosition: 'center', border: '1px solid var(--gold)', boxShadow: '0 0 20px rgba(160,120,48,0.25)' }} />
               <div className="hb-name">{bar.name}</div>
               <div className="hb-role">{bar.role}</div>
-              <div className="hb-city">{bar.city}</div>
             </div>
             <div className="hb-quote">{bar.quote}</div>
             <div className="hb-metrics">
@@ -1009,23 +858,17 @@ export default function StoriesPage() {
         {/* ── Final CTA ── */}
         <section className="final-cta">
           <div className="cta-rings">
-            <div className="cta-ring"></div>
-            <div className="cta-ring"></div>
-            <div className="cta-ring"></div>
-            <div className="cta-ring"></div>
+            <div className="cta-ring" />
+            <div className="cta-ring" />
+            <div className="cta-ring" />
+            <div className="cta-ring" />
           </div>
           <div className="cta-eyebrow reveal">Ready to Begin Your Journey?</div>
           <h2 className="cta-h2 reveal d1">Your story of <em>financial clarity</em> starts here.</h2>
-          <p className="cta-sub reveal d2">
-            Join hundreds of families who've transformed their relationship with money through disciplined, goal-based wealth management.
-          </p>
+          <p className="cta-sub reveal d2">Join hundreds of families who've transformed their relationship with money through disciplined, goal-based wealth management.</p>
           <div className="cta-btns reveal d3">
-            <Link href="/contact">
-              <button className="btn-gold-lg"><span>Start Your Journey</span></button>
-            </Link>
-            <Link href="/about">
-              <button className="btn-outline-lg">View All Stories</button>
-            </Link>
+            <Link href="/contact"><button className="btn-gold-lg"><span>Start Your Journey</span></button></Link>
+            <Link href="/about"><button className="btn-outline-lg">View All Stories</button></Link>
           </div>
           <p className="cta-note reveal d4">No obligation · Confidential consultation · Personalised approach</p>
         </section>

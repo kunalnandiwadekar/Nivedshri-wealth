@@ -50,11 +50,7 @@ export default function About() {
         {/* Left Column */}
         <div className="ah-left">
           {/* Large Watermark Numeral */}
-          <div style={{
-            position: 'absolute', bottom: '-60px', left: '-20px',
-            fontFamily: "'Cormorant', serif", fontSize: '400px', fontWeight: '700',
-            color: 'rgba(160,120,48,0.025)', lineHeight: '1', pointerEvents: 'none', zIndex: '1'
-          }}>01</div>
+          <div className="ah-watermark-num">01</div>
 
           {/* Breadcrumb */}
           <div className="ah-breadcrumb">
@@ -356,13 +352,33 @@ export default function About() {
           </div>
         </div>
 
-        {/* Timeline */}
+        {/* Timeline — updated data */}
         <div className="story-timeline">
           {[
-            { year: '2006', title: 'The Foundation Years', body: 'Began career in financial services, learning the discipline of institutional wealth management from the ground up.', pills: ['HSBC', 'HDFC Bank'] },
-            { year: '2010', title: 'Deepening Expertise', body: 'Expanded across insurance, investment products and multi-family advisory, serving HNI and mass affluent segments.', pills: ['ICICI Prudential', 'Tata AIG'] },
-            { year: '2015', title: 'The Turning Point', body: 'Observed a persistent gap: clients with good incomes but fragmented, purposeless financial structures. The conviction to change this grew stronger.', pills: ['Independent Advisory'] },
-            { year: '2017', title: 'NVS Wealth Born', body: 'Founded with a single mission - goal-based, long-term financial clarity. Built around trust, not transactions.', pills: ['500+ Families', 'Pan India'] },
+            {
+              year: '2007',
+              title: 'The Foundation Years',
+              body: 'Started as Team Leader at Serco, managing Tata-AIG and HSBC bank operations — building discipline in institutional processes from the ground up.',
+              pills: ['Serco', 'Team Leader', 'Tata AIG', 'HSBC']
+            },
+            {
+              year: '2010',
+              title: 'Deepening Expertise',
+              body: 'Joined Aegon Life as Relationship Manager, developing a deep understanding of client needs in life insurance advisory across HNI and mass affluent segments.',
+              pills: ['Aegon Life', 'Relationship Manager']
+            },
+            {
+              year: '2016',
+              title: 'The Turning Point',
+              body: 'Expanded into private wealth management at HDFC Bank. Observed a persistent gap: clients with good incomes but fragmented, purposeless financial structures. The conviction to change this grew stronger.',
+              pills: ['HDFC Bank', 'Wealth Manager', 'Private Wealth']
+            },
+            {
+              year: '2017',
+              title: 'NVS Wealth Born',
+              body: 'Founded with a single mission — goal-based, long-term financial clarity. Built around trust, not transactions. Today serving 500+ families across India.',
+              pills: ['Founder & CEO', '500+ Families', 'Pan India']
+            },
           ].map((era, i) => (
             <div
               key={era.year}
@@ -419,10 +435,6 @@ export default function About() {
             }} />
             <div className="director-avatar-wrap">
               <div className="director-avatar">N</div>
-              <div className="cfp-badge">
-                <span className="cfp-dot" />
-                Certified Financial Planner
-              </div>
             </div>
             <div className="director-name-block">
               <div className="director-name">Nitesh Tara</div>
@@ -430,7 +442,7 @@ export default function About() {
               <div className="director-credentials">
                 {[
                   '18+ Years Financial Advisory',
-                  'HSBC · HDFC · ICICI Pru · Tata AIG',
+                  'Serco · Aegon Life · HDFC Bank · ICICI Pru',
                   'AMFI Registered Distributor',
                   '500+ Families Guided',
                 ].map(cred => (
@@ -464,7 +476,7 @@ export default function About() {
               <div className="dir-sig-line" />
               <div>
                 <div className="dir-sig-name">Nitesh Tara</div>
-                <div className="dir-sig-title">Founder & Director · CFP</div>
+                <div className="dir-sig-title">Founder & Director</div>
               </div>
             </div>
           </div>
@@ -618,7 +630,7 @@ export default function About() {
 
       <style jsx>{`
         /* ============================================================
-           DESKTOP BASE STYLES (≥1024px) — unchanged from original
+           DESKTOP BASE STYLES (≥1280px)
            ============================================================ */
 
         .about-hero {
@@ -627,6 +639,19 @@ export default function About() {
           overflow: hidden;
           display: grid;
           grid-template-columns: 55% 45%;
+        }
+
+        .ah-watermark-num {
+          position: absolute;
+          bottom: -60px;
+          left: -20px;
+          font-family: 'Cormorant', serif;
+          font-size: 400px;
+          font-weight: 700;
+          color: rgba(160,120,48,0.025);
+          line-height: 1;
+          pointer-events: none;
+          z-index: 1;
         }
 
         .ah-left {
@@ -703,6 +728,7 @@ export default function About() {
         .ah-btns {
           display: flex;
           gap: 20px;
+          flex-wrap: wrap;
         }
 
         .ah-right {
@@ -816,7 +842,7 @@ export default function About() {
           animation: scrollPulse 2s ease-in-out infinite;
         }
 
-        /* Story Section */
+        /* ── Story Section ── */
         .story-section {
           background: var(--bg);
           padding: 160px 0 0;
@@ -955,7 +981,7 @@ export default function About() {
           transition: border-color 0.3s, color 0.3s, background 0.3s, transform 0.3s;
         }
 
-        /* Director Section */
+        /* ── Director Section ── */
         .director-section {
           background: var(--bg2);
           position: relative;
@@ -1004,30 +1030,6 @@ export default function About() {
           color: var(--gold);
           position: relative;
           box-shadow: 0 0 60px rgba(160,120,48,0.15);
-        }
-
-        .cfp-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          background: rgba(160,120,48,0.12);
-          border: 1px solid var(--divider-bright);
-          padding: 8px 16px;
-          border-radius: 20px;
-          font-size: 20px;
-          letter-spacing: 0.16em;
-          text-transform: uppercase;
-          color: var(--gold);
-          font-weight: 500;
-          margin-top: 16px;
-        }
-
-        .cfp-dot {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background: var(--gold);
-          animation: cfpPulse 2s ease-in-out infinite;
         }
 
         .director-name-block {
@@ -1149,7 +1151,7 @@ export default function About() {
           margin-top: 4px;
         }
 
-        /* Beliefs Section */
+        /* ── Beliefs Section ── */
         .beliefs-section {
           background: var(--bg);
           padding: 160px 72px;
@@ -1267,7 +1269,7 @@ export default function About() {
           padding-top: 12px;
         }
 
-        /* Process Section */
+        /* ── Process Section ── */
         .process-section {
           background: var(--bg2);
           padding: 160px 72px;
@@ -1391,11 +1393,6 @@ export default function About() {
           100% { transform: translateY(0) scale(1); opacity: 1; }
         }
 
-        @keyframes premiumGlow {
-          0%, 100% { box-shadow: 0 0 20px rgba(160,120,48,0.1); }
-          50% { box-shadow: 0 0 30px rgba(160,120,48,0.2); }
-        }
-
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
@@ -1409,11 +1406,6 @@ export default function About() {
         @keyframes ahSpin {
           from { transform: translate(-50%, -50%) rotate(0deg); }
           to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        @keyframes cfpPulse {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(0.8); }
         }
 
         .reveal {
@@ -1439,6 +1431,37 @@ export default function About() {
         .premium-pillar:hover .ah-pillar-num { transform: scale(1.3); text-shadow: 0 0 15px var(--orange); }
 
         /* ============================================================
+           LAPTOP (1024px – 1279px)
+           ============================================================ */
+        @media (max-width: 1279px) and (min-width: 1024px) {
+
+          .ah-left { padding: 120px 56px 72px 56px; }
+          .ah-right { padding: 72px 40px; }
+          .ah-pillars { max-width: 320px; }
+          .ah-pillar { padding: 28px 28px; }
+          .ah-pillar-title { font-size: 30px; }
+          .ah-pillar-desc { font-size: 15px; }
+
+          .story-header { padding: 0 56px; gap: 60px; }
+          .story-era { padding: 48px 32px 64px; }
+          .era-title { font-size: 26px; }
+          .era-body { font-size: 16px; }
+
+          .director-inner { grid-template-columns: 340px 1fr; }
+          .director-visual { padding: 72px 44px; }
+          .director-message { padding: 72px 56px; }
+
+          .beliefs-section { padding: 120px 56px; }
+          .belief-card { padding: 52px 40px; }
+          .belief-title { font-size: 30px; }
+
+          .process-section { padding: 120px 56px; }
+          .udg-item { padding: 48px 28px; }
+          .udg-word { font-size: 46px; }
+          .udg-num { font-size: 96px; }
+        }
+
+        /* ============================================================
            TABLET (768px – 1023px)
            ============================================================ */
         @media (max-width: 1023px) and (min-width: 768px) {
@@ -1448,6 +1471,8 @@ export default function About() {
             grid-template-columns: 1fr;
             min-height: auto;
           }
+
+          .ah-watermark-num { font-size: 220px; bottom: -30px; left: -10px; }
 
           .ah-left {
             padding: 120px 48px 60px;
@@ -1459,19 +1484,23 @@ export default function About() {
           .ah-tag { font-size: 16px; margin-bottom: 28px; }
           .ah-tagline { font-size: 22px; }
           .ah-intro { font-size: 17px; max-width: 100%; margin-bottom: 44px; }
-          .ah-btns { flex-wrap: wrap; }
 
           .ah-right {
             padding: 60px 48px;
-            min-height: 480px;
+            min-height: 420px;
           }
 
-          .ah-pillars { max-width: 100%; flex-direction: row; gap: 12px; }
-          .ah-pillar { padding: 24px 20px; flex: 1; }
-          .ah-pillar-title { font-size: 26px; }
-          .ah-pillar-desc { font-size: 15px; }
+          .ah-pillars {
+            max-width: 100%;
+            flex-direction: row;
+            gap: 12px;
+          }
+          .ah-pillar { padding: 24px 20px; flex: 1; min-width: 0; }
+          .ah-pillar-title { font-size: 24px; }
+          .ah-pillar-desc { font-size: 14px; }
 
           .ah-scroll { display: none; }
+          .ah-rings { display: none; }
 
           /* Story */
           .story-section { padding: 100px 0 0; }
@@ -1480,14 +1509,8 @@ export default function About() {
           .story-insight { font-size: 24px; padding-left: 24px; }
           .story-body { font-size: 18px; }
 
-          .story-timeline {
-            grid-template-columns: repeat(2, 1fr);
-          }
-
-          .story-era {
-            padding: 40px 32px 56px;
-          }
-
+          .story-timeline { grid-template-columns: repeat(2, 1fr); }
+          .story-era { padding: 40px 32px 56px; }
           .story-era:nth-child(2) { border-right: none; }
           .story-era:nth-child(3) { border-top: 1px solid var(--divider); }
           .era-year { font-size: 48px; }
@@ -1495,14 +1518,23 @@ export default function About() {
           .era-body { font-size: 16px; }
 
           /* Director */
-          .director-inner {
-            grid-template-columns: 320px 1fr;
-            min-height: auto;
+          .director-inner { grid-template-columns: 1fr; min-height: auto; }
+          .director-visual {
+            padding: 60px 48px;
+            border-right: none;
+            border-bottom: 1px solid var(--divider);
+            min-height: 360px;
           }
-
-          .director-visual { padding: 60px 32px; }
+          .director-avatar-wrap {
+            position: static;
+            transform: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 24px;
+          }
+          .director-name-block { position: static; margin-top: 0; }
           .director-avatar { width: 120px; height: 120px; font-size: 48px; }
-          .cfp-badge { font-size: 14px; padding: 6px 12px; }
           .director-name { font-size: 32px; }
           .director-title-text { font-size: 13px; }
           .cred-item { font-size: 13px; }
@@ -1510,12 +1542,13 @@ export default function About() {
           .dir-quote-open { font-size: 80px; }
           .dir-message-body { font-size: 18px; }
           .dir-sig-name { font-size: 26px; }
+          .director-credentials { align-items: center; }
 
           /* Beliefs */
           .beliefs-section { padding: 100px 48px; }
           .beliefs-watermark { font-size: 180px; }
           .beliefs-header { grid-template-columns: 1fr; gap: 32px; margin-bottom: 60px; }
-          .beliefs-grid { grid-template-columns: 1fr; gap: 1px; }
+          .beliefs-grid { grid-template-columns: 1fr; }
           .belief-card { padding: 48px 40px; }
           .belief-title { font-size: 28px; }
           .belief-body { font-size: 16px; }
@@ -1543,6 +1576,8 @@ export default function About() {
             grid-template-columns: 1fr;
             min-height: auto;
           }
+
+          .ah-watermark-num { display: none; }
 
           .ah-left {
             padding: 100px 24px 48px;
@@ -1587,7 +1622,7 @@ export default function About() {
           }
 
           .ah-right {
-            padding: 48px 24px;
+            padding: 40px 20px;
             min-height: auto;
           }
 
@@ -1605,8 +1640,6 @@ export default function About() {
           .ah-pillar-title { font-size: 28px; }
           .ah-pillar-desc { font-size: 15px; }
           .ah-scroll { display: none; }
-
-          /* Rings — hide on mobile for perf */
           .ah-rings { display: none; }
 
           /* Story */
@@ -1630,12 +1663,10 @@ export default function About() {
 
           .story-body { font-size: 16px; line-height: 1.8; }
 
-          .story-timeline {
-            grid-template-columns: 1fr;
-          }
+          .story-timeline { grid-template-columns: 1fr; }
 
           .story-era {
-            padding: 40px 24px 48px;
+            padding: 36px 24px 44px;
             border-right: none;
             border-bottom: 1px solid var(--divider);
           }
@@ -1655,7 +1686,7 @@ export default function About() {
             padding: 48px 24px;
             border-right: none;
             border-bottom: 1px solid var(--divider);
-            min-height: 380px;
+            min-height: auto;
           }
 
           .director-avatar-wrap {
@@ -1667,19 +1698,19 @@ export default function About() {
             margin-bottom: 24px;
           }
 
-          .director-avatar { width: 100px; height: 100px; font-size: 42px; }
-          .cfp-badge { font-size: 12px; padding: 6px 12px; letter-spacing: 0.1em; }
-
           .director-name-block {
             position: static;
             margin-top: 0;
           }
 
+          .director-credentials { align-items: center; }
+
+          .director-avatar { width: 100px; height: 100px; font-size: 42px; }
           .director-name { font-size: 28px; }
           .director-title-text { font-size: 12px; }
           .cred-item { font-size: 13px; }
 
-          .director-message { padding: 48px 24px; }
+          .director-message { padding: 40px 24px; }
           .dir-quote-open { font-size: 72px; }
           .dir-message-text { font-size: clamp(20px, 5vw, 28px); }
           .dir-message-body { font-size: 16px; line-height: 1.8; }
@@ -1691,7 +1722,7 @@ export default function About() {
           .beliefs-watermark { font-size: 120px; top: 20px; left: -10px; }
           .beliefs-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 48px; }
           .beliefs-grid { grid-template-columns: 1fr; }
-          .belief-card { padding: 40px 24px; }
+          .belief-card { padding: 36px 24px; }
           .belief-num { font-size: 56px; }
           .belief-title { font-size: 28px; }
           .belief-body { font-size: 16px; }
@@ -1713,7 +1744,7 @@ export default function About() {
             font-size: 24px;
           }
 
-          .udg-item { padding: 32px 16px; width: 100%; }
+          .udg-item { padding: 28px 16px; width: 100%; }
           .udg-num { font-size: 72px; }
           .udg-word { font-size: 36px; }
           .udg-desc { font-size: 16px; }
@@ -1722,7 +1753,7 @@ export default function About() {
             flex-direction: column;
             gap: 16px;
             align-items: flex-start;
-            padding: 36px 24px;
+            padding: 32px 24px;
           }
 
           .cs-label { font-size: 14px; letter-spacing: 0.16em; white-space: normal; }
@@ -1730,18 +1761,21 @@ export default function About() {
         }
 
         /* ============================================================
-           SMALL MOBILE (≤400px) — extra safety
+           SMALL MOBILE (≤400px)
            ============================================================ */
         @media (max-width: 400px) {
           .ah-left { padding: 90px 16px 40px; }
-          .ah-right { padding: 36px 16px; }
+          .ah-right { padding: 32px 16px; }
           .story-header { padding: 0 16px; }
-          .story-era { padding: 32px 16px 40px; }
-          .director-visual { padding: 36px 16px; }
-          .director-message { padding: 36px 16px; }
+          .story-era { padding: 28px 16px 36px; }
+          .director-visual { padding: 32px 16px; }
+          .director-message { padding: 32px 16px; }
           .beliefs-section { padding: 60px 16px; }
           .process-section { padding: 60px 16px; }
-          .commitment-strip { padding: 28px 16px; }
+          .commitment-strip { padding: 24px 16px; }
+          .ah-pillar { padding: 20px 16px; }
+          .belief-card { padding: 28px 16px; }
+          .udg-item { padding: 24px 12px; }
         }
       `}</style>
     </>

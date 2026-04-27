@@ -187,7 +187,7 @@ export default function WhyUs() {
               gap: '32px',
               alignItems: 'start',
               position: 'relative',
-              cursor: 'none',
+              cursor: 'pointer',
               transition: 'background 0.4s'
             }}
             onMouseEnter={(e) => {

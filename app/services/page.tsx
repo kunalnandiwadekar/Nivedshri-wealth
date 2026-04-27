@@ -1120,6 +1120,26 @@ export default function Services() {
                 </ul>
               </div></div>
             </div>
+
+            {/* 07 */}
+            <div className="svc-card reveal" onClick={() => toggleCard(6)}>
+              <div className="svc-header-row">
+                <span className="svc-big-num">07</span>
+                <div><span className="svc-label">Asset Service</span><div className="svc-name">Real Estate Advisory & Planning</div></div>
+                <div className="svc-toggle"><div className="svc-toggle-icon" /></div>
+              </div>
+              <div className="svc-body"><div className="svc-body-inner">
+                <div>
+                  <p className="svc-desc-text">Real estate is often the largest single asset in a financial plan — yet it is rarely integrated into the broader wealth picture. We help you evaluate, plan, and optimise real estate decisions as a cohesive part of your financial strategy, not in isolation.</p>
+                  <p className="svc-closing">Property should work alongside your portfolio, not outside it.</p>
+                </div>
+                <ul className="svc-features">
+                  {['Buy vs rent analysis aligned with your financial goals','Loan structuring and EMI optimisation','Real estate as an asset class within your overall portfolio','Planning for rental income, appreciation, and exit timing'].map((f,i) => (
+                    <li key={i} className="svc-feature"><div className="svc-feature-dot" />{f}</li>
+                  ))}
+                </ul>
+              </div></div>
+            </div>
           </div>
         </section>
 

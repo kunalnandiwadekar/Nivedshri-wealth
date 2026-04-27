@@ -103,7 +103,7 @@ export default function About() {
               display: 'inline-block', transform: 'translateY(100%)', opacity: '0',
               animation: 'fadeInUpText 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1.2s forwards'
             }}>
-              Ladco Wealth was built on a simple belief — managing money should feel clear, structured, and aligned with real life goals. We work with individuals and families who want more than just investment advice.
+              NVS Wealth was built on a simple belief — managing money should feel clear, purposeful, and aligned with real life goals. We work with individuals and families who want more than just investment advice. They want a partner who stays with them through every market cycle, every milestone, and every decision that matters.
             </span>
           </p>
 

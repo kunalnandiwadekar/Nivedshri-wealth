@@ -314,7 +314,7 @@ export default function StoriesPage() {
           font-weight: 600; margin-top: 56px; margin-bottom: 26px;
         }
         @media (min-width: 768px) { .sh-eyebrow { font-size: 17px; gap: 16px; margin-bottom: 32px; } }
-        @media (min-width: 1024px) { .sh-eyebrow { font-size: 22px; margin-top: 0; margin-bottom: 14px; } }
+        @media (min-width: 1024px) { .sh-eyebrow { font-size: 22px; margin-top: 20px; margin-bottom: 14px; } }
         .sh-eyebrow .line { width: 40px; height: 1px; background: var(--gold); }
         .sh-h1 {
           font-family: 'Cormorant', serif;
@@ -450,8 +450,8 @@ export default function StoriesPage() {
           background: var(--bg4); padding: 18px 20px; margin-bottom: 28px;
         }
         .fs-trans-from, .fs-trans-to { font-size: 17px; font-weight: 300; line-height: 1.6; flex: 1; letter-spacing: 0.01em; }
-        .fs-trans-from { color: var(--ivory-dim); }
-        .fs-trans-to { color: var(--gold-light); text-align: right; }
+        .fs-trans-from { color: rgba(28,26,20,0.9); }
+        .fs-trans-to { color: var(--orange); text-align: right; }
         .fs-trans-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.7; display: block; margin-bottom: 4px; font-weight: 500; }
         .fs-trans-arrow { width: 40px; text-align: center; flex-shrink: 0; color: var(--gold); font-size: 18px; display: flex; align-items: center; justify-content: center; }
         .fs-metrics { display: flex; gap: 36px; flex-wrap: wrap; }
@@ -602,11 +602,16 @@ export default function StoriesPage() {
           .sh-breadcrumb { top: 130px; }
         }
 
+        @media (min-width: 1441px) {
+          .sh-breadcrumb { display: none; }
+          .sh-eyebrow { margin-top: 0; }
+        }
+
         @media (max-width: 767px) {
           .sh-hero { padding: 130px 20px 56px; min-height: 100svh; justify-content: flex-start; }
           .sh-hero-num { font-size: clamp(80px, 22vw, 120px); right: -8px; top: 40%; }
           .sh-vert { display: none; }
-          .sh-breadcrumb { top: 88px; left: 20px; font-size: 10px; }
+          .sh-breadcrumb { top: 120px; left: 20px; font-size: 10px; }
           .sh-eyebrow { font-size: 11px; gap: 10px; margin-top: 48px; margin-bottom: 18px; }
           .sh-h1 { font-size: clamp(44px, 12vw, 68px); line-height: 1; padding-bottom: 8px; }
           .sh-sub { font-size: 16px; line-height: 1.75; margin-top: 18px; margin-bottom: 36px; max-width: 100%; }

@@ -219,7 +219,7 @@ export default function Footer() {
               <p style={{ fontSize: 'clamp(14px, 3.2vw, 15px)', color: 'rgba(250,243,225,0.65)', fontFamily: "'Cormorant Garamond', Georgia, serif", lineHeight: 1.7, letterSpacing: '0.02em' }}>
                 Office Unit No : 901, 9th Floor<br />
                 IRIS Shopping Co-op Premises Society Ltd<br />
-                <span style={{ color: '#CBB077' }}>Hiranandani Meadows</span><br />
+                <span style={{ color: '#CBB077', textShadow: '0 0 5px #FF9900', fontSize: 'clamp(18px, 4vw, 20px)' }}>Hiranandani Meadows</span><br />
                 Thane West 400610
               </p>
             </div>
@@ -258,7 +258,7 @@ export default function Footer() {
               letterSpacing: '0.02em'
             }}
           >
-            Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not a guarantee of future results. NVS Wealth is an AMFI Registered Mutual Fund Distributor. Registration does not indicate that SEBI endorses intermediary. © 2025 NVS Wealth. All rights reserved.
+            Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not a guarantee of future results. NVS Wealth is an AMFI Registered Mutual Fund Distributor. Registration does not indicate that SEBI endorses intermediary. © 2026 NVS Wealth. All rights reserved.
           </p>
           <span
             style={{
@@ -270,9 +270,36 @@ export default function Footer() {
               textTransform: 'uppercase'
             }}
           >
-            © 2025 NVS Wealth
+            © 2026 NVS Wealth
           </span>
         </div>
+      </div>
+      
+      {/* Bottom Credit Section */}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '20px 0',
+          borderTop: '1px solid rgba(203,176,119,0.1)'
+        }}
+      >
+        {/* Gold Divider Line */}
+      
+        
+        <span
+          style={{
+            fontSize: 'clamp(11px, 2.5vw, 13px)',
+            color: 'rgba(203,176,119,0.5)',
+            letterSpacing: '0.08em',
+            fontFamily: "'Outfit', sans-serif",
+            fontStyle: 'italic'
+          }}
+        >
+          Made with love by WORDPINCH
+        </span>
       </div>
     </footer>
   )

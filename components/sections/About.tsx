@@ -1814,6 +1814,7 @@ export default function About() {
             margin-bottom: 28px;
             gap: 8px;
             letter-spacing: 0.15em;
+            margin-top: 40px;
           }
 
           .ah-tag {
@@ -1821,8 +1822,8 @@ export default function About() {
             margin-bottom: 24px;
             letter-spacing: 0.16em;
           }
-
           .ah-h1 {
+
             font-size: clamp(44px, 12vw, 64px);
             margin-bottom: 20px;
           }

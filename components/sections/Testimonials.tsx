@@ -55,7 +55,7 @@ const testimonials = [
   },
   {
     name: 'Mr Shamiran Banerjee',
-    role: 'Associate Director, Morningstar, Inc',
+    role: 'Associate CEO, Morningstar, Inc',
     content: "I've had the privilege of working with Nitesh for the past year and I can confidently say that his expertise has been instrumental in helping me maximize my capital gains. His deep understanding of market dynamics and disciplined investment strategy consistently delivered results that exceeded my expectations.",
     rating: 5,
     image: '/testimonials/shamiran-banerjee.jpeg'

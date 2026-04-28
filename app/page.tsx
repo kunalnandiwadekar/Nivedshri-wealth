@@ -11,6 +11,7 @@ import Process from '@/components/sections/Process'
 import Testimonials from '@/components/sections/Testimonials'
 import Insights from '@/components/sections/Insights'
 import TrustBar from '@/components/sections/TrustBar'
+import TickerStrips from '@/components/sections/TickerStrips'
 import FinalCTA from '@/components/sections/FinalCTA'
 
 export default function Home() {
@@ -51,6 +52,7 @@ export default function Home() {
       <Testimonials />
       <Insights />
       <TrustBar />
+      <TickerStrips />
       <FinalCTA />
     </Layout>
   )

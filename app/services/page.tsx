@@ -148,19 +148,19 @@ export default function Services() {
 
         /* ── SHARED ATOMS ── */
         .eyebrow {
-          font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase;
+          font-size: 16px; letter-spacing: 0.22em; text-transform: uppercase;
           color: var(--orange); font-weight: 500;
           display: inline-flex; align-items: center; gap: 14px; margin-bottom: 20px;
         }
         .eyebrow .line { width: 28px; height: 1px; background: var(--orange); }
         .eyebrow-gold { color: var(--gold); }
         .eyebrow-gold .line { background: var(--gold); }
-        @media (min-width: 768px)  { .eyebrow { font-size: 16px; } }
-        @media (min-width: 1024px) { .eyebrow { font-size: 20px; } }
+        @media (min-width: 768px)  { .eyebrow { font-size: 20px; } }
+        @media (min-width: 1024px) { .eyebrow { font-size: 24px; } }
 
         .sec-h2 {
           font-family: 'Cormorant', serif;
-          font-size: clamp(36px, 6vw, 70px);
+          font-size: clamp(44px, 7vw, 80px);
           font-weight: 600; line-height: 1.04; letter-spacing: -0.025em; margin-bottom: 20px;
         }
         .sec-h2 em      { font-style: italic; color: var(--orange); font-weight: 300; }
@@ -168,7 +168,7 @@ export default function Services() {
 
         .btn-orange {
           position: relative; overflow: hidden; background: var(--orange); color: var(--bg);
-          padding: 15px 28px; font-size: 12px; border: none; border-radius: 1px;
+          padding: 15px 28px; font-size: 14px; border: none; border-radius: 1px;
           cursor: pointer; letter-spacing: 0.14em; text-transform: uppercase;
           font-weight: 700; font-family: 'Outfit', sans-serif; transition: box-shadow 0.3s;
           display: inline-block;
@@ -184,7 +184,7 @@ export default function Services() {
 
         .btn-ghost {
           position: relative; overflow: hidden; background: transparent; color: var(--ivory);
-          padding: 15px 28px; font-size: 12px; border: 1px solid rgba(28,26,20,0.18);
+          padding: 15px 28px; font-size: 14px; border: 1px solid rgba(28,26,20,0.18);
           border-radius: 1px; cursor: pointer; letter-spacing: 0.14em; text-transform: uppercase;
           font-weight: 400; font-family: 'Outfit', sans-serif;
           transition: border-color 0.3s, color 0.3s; display: inline-block;
@@ -246,11 +246,11 @@ export default function Services() {
 
         .sh-breadcrumb {
           display: flex; align-items: center; gap: 10px;
-          font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+          font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
           color: var(--ivory-dim); margin-bottom: 28px;
         }
-        @media (min-width: 768px)  { .sh-breadcrumb { font-size: 13px; margin-bottom: 40px; } }
-        @media (min-width: 1024px) { .sh-breadcrumb { font-size: 20px; margin-bottom: 52px; } }
+        @media (min-width: 768px)  { .sh-breadcrumb { font-size: 16px; margin-bottom: 40px; } }
+        @media (min-width: 1024px) { .sh-breadcrumb { font-size: 22px; margin-bottom: 52px; } }
         .sh-breadcrumb a { color: var(--ivory-dim); text-decoration: none; transition: color 0.3s; }
         .sh-breadcrumb a:hover { color: var(--orange); }
         .sh-breadcrumb .sep { color: var(--orange); opacity: 0.4; }
@@ -258,16 +258,16 @@ export default function Services() {
 
         .sh-tag {
           display: inline-flex; align-items: center; gap: 12px;
-          font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+          font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase;
           color: var(--orange); font-weight: 500; margin-bottom: 22px;
         }
-        @media (min-width: 768px)  { .sh-tag { font-size: 15px; gap: 14px; margin-bottom: 28px; } }
-        @media (min-width: 1024px) { .sh-tag { font-size: 20px; margin-bottom: 36px; } }
+        @media (min-width: 768px)  { .sh-tag { font-size: 18px; gap: 14px; margin-bottom: 28px; } }
+        @media (min-width: 1024px) { .sh-tag { font-size: 24px; margin-bottom: 36px; } }
         .sh-tag .line { width: 40px; height: 1px; background: var(--orange); flex-shrink: 0; }
 
         .sh-h1 {
           font-family: 'Cormorant', serif;
-          font-size: clamp(44px, 9vw, 90px);
+          font-size: clamp(52px, 10vw, 100px);
           font-weight: 600; line-height: 0.96; letter-spacing: -0.028em; margin-bottom: 18px; overflow: hidden;
         }
         .sh-h1 .lw { overflow: hidden; display: block; }
@@ -276,16 +276,17 @@ export default function Services() {
         .sh-h1 em { font-style: italic; color: var(--orange); font-weight: 300; }
 
         .sh-sub-quote {
-          font-family: 'Cormorant', serif; font-size: clamp(16px, 2.5vw, 25px);
+          font-family: 'Cormorant', serif; font-size: clamp(18px, 3vw, 28px);
           font-weight: 400; font-style: italic; color: var(--ivory-mid);
           padding-left: 18px; border-left: 2px solid var(--orange);
           margin-bottom: 22px; line-height: 1.45;
           opacity: 0; animation: slideIn 0.8s 1.5s cubic-bezier(0.22,1,0.36,1) forwards;
         }
+        @media (min-width: 768px)  { .sh-sub-quote { padding-left: 20px; margin-bottom: 28px; } }
         @media (min-width: 1024px) { .sh-sub-quote { padding-left: 22px; margin-bottom: 36px; } }
 
         .sh-intro {
-          font-size: clamp(14px, 2vw, 20px); line-height: 1.95; color: var(--ivory-mid);
+          font-size: clamp(16px, 2.5vw, 22px); line-height: 1.95; color: var(--ivory-mid);
           max-width: 100%; font-weight: 300; margin-bottom: 32px;
           opacity: 0; animation: fadeUp 0.8s 1.8s cubic-bezier(0.22,1,0.36,1) forwards;
         }
@@ -347,20 +348,20 @@ export default function Services() {
         .sh-svc-item:hover { border-color: rgba(212,83,10,0.35); background: rgba(240,238,234,0.9); transform: translateX(8px); }
 
         .sh-svc-num {
-          font-family: 'Cormorant', serif; font-size: 11px; font-weight: 600;
+          font-family: 'Cormorant', serif; font-size: 13px; font-weight: 600;
           color: var(--orange); opacity: 0.5; letter-spacing: 0.1em; min-width: 22px; transition: opacity 0.3s;
         }
-        @media (min-width: 1024px) { .sh-svc-num { font-size: 13px; min-width: 28px; } }
+        @media (min-width: 1024px) { .sh-svc-num { font-size: 16px; min-width: 28px; } }
         .sh-svc-item:hover .sh-svc-num { opacity: 1; }
 
         .sh-svc-name {
-          font-size: 13px; font-weight: 500; color: var(--ivory); letter-spacing: 0.02em; transition: color 0.3s;
+          font-size: 15px; font-weight: 500; color: var(--ivory); letter-spacing: 0.02em; transition: color 0.3s;
         }
-        @media (min-width: 768px)  { .sh-svc-name { font-size: 17px; } }
-        @media (min-width: 1024px) { .sh-svc-name { font-size: 25px; } }
+        @media (min-width: 768px)  { .sh-svc-name { font-size: 20px; } }
+        @media (min-width: 1024px) { .sh-svc-name { font-size: 28px; } }
         .sh-svc-item:hover .sh-svc-name { color: var(--orange-light); }
 
-        .sh-svc-arrow { margin-left: auto; font-size: 14px; color: var(--ivory-dim); transition: color 0.3s, transform 0.3s; }
+        .sh-svc-arrow { margin-left: auto; font-size: 16px; color: var(--ivory-dim); transition: color 0.3s, transform 0.3s; }
         .sh-svc-item:hover .sh-svc-arrow { color: var(--orange); transform: translateX(4px); }
 
         .sh-scroll { display: none; }
@@ -397,12 +398,12 @@ export default function Services() {
         .belief-inner { display: inline-flex; animation: marquee 36s linear infinite; }
         .belief-inner:hover { animation-play-state: paused; }
         .belief-item {
-          font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-          color: rgba(28,26,20,0.25); font-weight: 500;
+          font-size: 16px; letter-spacing: 0.18em; text-transform: uppercase;
+          color: rgba(28,26,20,0.8); font-weight: 500;
           display: inline-flex; align-items: center; gap: 20px;
           flex-shrink: 0; transition: color 0.3s; padding: 0 18px;
         }
-        @media (min-width: 768px) { .belief-item { font-size: 11px; gap: 28px; padding: 0 28px; } }
+        @media (min-width: 768px) { .belief-item { font-size: 18px; gap: 28px; padding: 0 28px; } }
         .belief-item:hover { color: var(--orange); }
         .belief-sep { width: 5px; height: 5px; border-radius: 50%; background: var(--orange); opacity: 0.35; flex-shrink: 0; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -434,14 +435,14 @@ export default function Services() {
         @media (min-width: 1024px) { .ib-right { padding: 120px 72px 120px 80px; } }
 
         .ib-statement {
-          font-family: 'Cormorant', serif; font-size: clamp(20px, 2.6vw, 42px);
+          font-family: 'Cormorant', serif; font-size: clamp(24px, 3vw, 48px);
           font-style: italic; font-weight: 400; line-height: 1.45; color: var(--ivory);
           border-left: 2px solid var(--orange); padding-left: 20px; margin: 24px 0 28px;
         }
         @media (min-width: 1024px) { .ib-statement { padding-left: 36px; margin: 32px 0 36px; } }
         .ib-statement strong { font-style: normal; color: var(--orange); font-weight: 600; }
 
-        .ib-body { font-size: clamp(13px, 1.6vw, 15px); color: var(--ivory-mid); line-height: 1.9; font-weight: 300; margin-bottom: 20px; }
+        .ib-body { font-size: clamp(15px, 1.8vw, 17px); color: var(--ivory-mid); line-height: 1.9; font-weight: 300; margin-bottom: 20px; }
 
         .ib-pillars {
           display: flex; gap: 1px; background: var(--divider); margin-top: 32px;
@@ -482,7 +483,7 @@ export default function Services() {
           .svcs-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 100px; }
         }
 
-        .svcs-intro { font-size: clamp(14px, 1.8vw, 20px); color: var(--ivory-mid); line-height: 1.9; font-weight: 300; }
+        .svcs-intro { font-size: clamp(16px, 2vw, 22px); color: var(--ivory-mid); line-height: 1.9; font-weight: 300; }
 
         .svc-cards { display: flex; flex-direction: column; gap: 1px; background: var(--divider); }
 
@@ -529,17 +530,18 @@ export default function Services() {
         .svc-card.gold-card:hover .svc-big-num, .svc-card.gold-card.open .svc-big-num { color: rgba(160,120,48,0.5); }
 
         .svc-label {
-          font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
-          color: rgba(212,83,10,0.7); font-weight: 500; margin-bottom: 6px;
+          font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase;
+          color: rgba(212,83,10,0.7); margin-bottom: 8px;
           transition: color 0.3s; display: block;
         }
-        @media (min-width: 1024px) { .svc-label { font-size: 15px; margin-bottom: 8px; } }
+        @media (min-width: 1024px) { .svc-label { font-size: 20px; margin-bottom: 10px; } }
         .svc-card.gold-card .svc-label { color: rgba(160,120,48,0.7); }
         .svc-card:hover .svc-label, .svc-card.open .svc-label { color: var(--orange); }
         .svc-card.gold-card:hover .svc-label, .svc-card.gold-card.open .svc-label { color: var(--gold); }
 
         .svc-name {
-          font-family: 'Cormorant', serif; font-size: clamp(18px, 2.5vw, 28px);
+          font-family: 'Cormorant', serif; font-size: clamp(24px, 3.5vw, 40px);
+          font-family: 'Cormorant', serif; font-size: clamp(20px, 3vw, 32px);
           font-weight: 600; color: var(--ivory); letter-spacing: -0.01em; transition: color 0.3s;
         }
         .svc-card:hover .svc-name, .svc-card.open .svc-name { color: var(--orange-light); }
@@ -576,9 +578,9 @@ export default function Services() {
           .svc-body-inner { padding: 40px 60px 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
         }
 
-        .svc-desc-text { font-size: clamp(14px, 1.8vw, 20px); color: var(--ivory-mid); line-height: 1.9; font-weight: 300; margin-bottom: 20px; }
+        .svc-desc-text { font-size: clamp(16px, 2vw, 22px); color: var(--ivory-mid); line-height: 1.9; font-weight: 300; margin-bottom: 20px; }
         .svc-closing {
-          font-family: 'Cormorant', serif; font-size: clamp(16px, 1.6vw, 20px);
+          font-family: 'Cormorant', serif; font-size: clamp(18px, 1.8vw, 22px);
           font-style: italic; color: var(--ivory-dim); line-height: 1.55;
           border-left: 2px solid rgba(212,83,10,0.3); padding-left: 14px;
         }
@@ -1158,7 +1160,7 @@ export default function Services() {
                 {[
                   { num: '18', sup: '+', supColor: 'var(--orange)', label: 'Years of Financial\nAdvisory Experience' },
                   { num: '500', sup: '+', supColor: 'var(--orange)', label: 'Families &\nIndividuals Guided' },
-                  { num: '6', sup: '', supColor: '', label: 'Integrated Service\nDisciplines' },
+                  { num: '7', sup: '', supColor: '', label: 'Integrated Service\nDisciplines' },
                   { num: '100', sup: '%', supColor: 'var(--gold)', label: 'Goal-Based\nPlanning Focus' },
                 ].map((s, i) => (
                   <div key={i} className="diff-stat">
@@ -1251,7 +1253,7 @@ export default function Services() {
           <div className="cta-rings-wrap">
             <div className="cta-r" /><div className="cta-r" /><div className="cta-r" /><div className="cta-r" />
           </div>
-          <span className="cta-eyebrow reveal">Let's Begin</span>
+          <span className="cta-eyebrow reveal" style={{ fontSize: '1.2rem' }}>Let's Begin</span>
           <h2 className="cta-h2 reveal d1">Let's Bring Structure<br />to Your <em>Financial Future.</em></h2>
           <p className="cta-sub reveal d2">Start your wealth plan with a private, no-pressure consultation. We'll understand your goals and design a clear, disciplined path forward — together.</p>
           <div className="cta-btns reveal d3">

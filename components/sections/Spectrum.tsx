@@ -313,13 +313,13 @@ export default function Spectrum() {
         <Link href="/services" style={{ flexShrink: 0, position: 'relative', zIndex: 1 }}>
           <button className="spec-outcome-btn" style={{
             background: 'var(--gold)', color: '#FAFAF8', padding: '16px 36px',
-            fontSize: '12px', border: 'none', borderRadius: '1px', cursor: 'pointer',
+            fontSize: '18px', border: 'none', borderRadius: '1px', cursor: 'pointer',
             letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: '700',
             fontFamily: "'Outfit', sans-serif", transition: 'opacity 0.3s, box-shadow 0.3s',
             boxShadow: '0 8px 25px rgba(160,120,48,0.25)'
           }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = '0 12px 40px rgba(160,120,48,0.4)'; (e.currentTarget as HTMLElement).style.opacity = '0.92' }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 25px rgba(160,120,48,0.25)'; (e.currentTarget as HTMLElement).style.opacity = '1' }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'var(--orange)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 12px 40px rgba(212,83,10,0.4), 0 0 60px rgba(212,83,10,0.3)'; (e.currentTarget as HTMLElement).style.opacity = '0.92' }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'var(--gold)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 25px rgba(160,120,48,0.25)'; (e.currentTarget as HTMLElement).style.opacity = '1' }}
           >
             Explore Our Services
           </button>

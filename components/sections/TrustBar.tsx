@@ -21,7 +21,7 @@ export default function TrustBar() {
           <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
         </>
       ),
-      title: '1,200+ Families',
+      title: '500+ Families',
       subtitle: 'Across India'
     },
     {
@@ -31,7 +31,7 @@ export default function TrustBar() {
     },
     {
       icon: (<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>),
-      title: '96% Retention',
+      title: '100% Retention',
       subtitle: 'Client Loyalty Rate'
     }
   ]

@@ -444,14 +444,15 @@ export default function Hero() {
               N
             </div>
             <div>
-              <div className="font-cormorant text-[17px] lg:text-[20px] font-semibold text-[var(--cream)] tracking-[0.02em]">
-                Nitesh Tara-Founder & Chief Executive Officer Nivedshri Wealth
+              <div className="font-cormorant text-[17px] lg:text-[20px] font-semibold text-orange-500  tracking-[0.02em]">
+                Nitesh Tara-Founder &<br />Chief Executive Officer <br />
+                <span className="text-[var(--cream)]">Nivedshri Wealth</span>
               </div>
               <div className="text-[9px] lg:text-[10px] text-[var(--gold)] tracking-[0.16em] uppercase font-medium mt-1">
                 Mutual Fund Distributor
               </div>
             </div>
-            <div className="ml-auto text-right flex-shrink-0">
+            <div className="ml-auto text-right flex-shrink-0"><br />
               <span className="text-[8px] lg:text-[9px] text-[rgba(250,243,225,0.38)] tracking-[0.1em] uppercase mb-1 block">
                 AMFI Registered
               </span>
@@ -478,7 +479,8 @@ export default function Hero() {
             </span>
             <span className="text-[8px] lg:text-[9px] tracking-[0.16em] uppercase text-[rgba(250,243,225,0.5)] mt-1 block font-medium">
               <br />
-              families
+              families <br />
+              Individuals Guided
             </span>
           </motion.div>
         </div>

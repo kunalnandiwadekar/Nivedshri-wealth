@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { useEffect } from 'react'
 import Link from 'next/link'
 import Spectrum from './Spectrum'
@@ -362,16 +363,10 @@ export default function About() {
               pills: ['Serco', 'Team Leader', 'Tata AIG', 'HSBC']
             },
             {
-              year: '2010',
-              title: 'Deepening Expertise',
-              body: 'Joined Aegon Life as Relationship Manager, developing a deep understanding of client needs in life insurance advisory across HNI and mass affluent segments.',
-              pills: ['Aegon Life', 'Relationship Manager']
-            },
-            {
-              year: '2016',
-              title: 'The Turning Point',
-              body: 'Expanded into private wealth management at HDFC Bank. Observed a persistent gap: clients with good incomes but fragmented, purposeless financial structures. The conviction to change this grew stronger.',
-              pills: ['HDFC Bank', 'Wealth Manager', 'Private Wealth']
+              year: '2010-2016',
+              title: 'Expertise & The Turning Point',
+              body: 'Joined Aegon Life as Relationship Manager, developing deep understanding of client needs in life insurance advisory across HNI and mass affluent segments. Later expanded into private wealth management at HDFC Bank, observing a persistent gap: clients with good incomes but fragmented, purposeless financial structures. The conviction to change this grew stronger.',
+              pills: ['Aegon Life', 'Relationship Manager', 'HDFC Bank', 'Wealth Manager', 'ICICI Prudential', 'ICICI Bank', 'Private Wealth']
             },
             {
               year: '2017',
@@ -395,7 +390,7 @@ export default function About() {
                 if (year) year.style.color = 'rgba(160,120,48,0.45)';
                 if (title) { title.style.color = 'var(--orange)'; title.style.transform = 'translateX(4px)'; }
                 if (body) body.style.color = 'var(--ink)';
-                pills.forEach(pill => { pill.style.borderColor = 'var(--gold)'; pill.style.color = 'var(--gold)'; pill.style.background = 'rgba(160,120,48,0.08)'; pill.style.transform = 'scale(1.05)'; });
+                pills.forEach(pill => { pill.style.borderColor = 'var(--orange)'; pill.style.color = 'var(--orange)'; pill.style.background = 'rgba(212,83,10,0.08)'; pill.style.transform = 'scale(1.05)'; });
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = 'transparent';
@@ -438,7 +433,7 @@ export default function About() {
             </div>
             <div className="director-name-block">
               <div className="director-name">Nitesh Tara</div>
-              <div className="director-title-text">Founder & Director · NVS Wealth</div>
+              <div className="director-title-text">Founder & CEO <br /> NVS Wealth</div>
               <div className="director-credentials">
                 {[
                   '18+ Years Financial Advisory',
@@ -459,7 +454,7 @@ export default function About() {
           <div className="director-message">
             <div className="section-eyebrow">
               <span className="line" style={{ width: '28px', height: '1px', background: 'var(--gold)' }} />
-              A Message from Director
+              A Message from CEO
             </div>
             <span className="dir-quote-open">&ldquo;</span>
             <p className="dir-message-text">
@@ -476,7 +471,7 @@ export default function About() {
               <div className="dir-sig-line" />
               <div>
                 <div className="dir-sig-name">Nitesh Tara</div>
-                <div className="dir-sig-title">Founder & Director</div>
+                <div className="dir-sig-title">Founder & CEO</div>
               </div>
             </div>
           </div>
@@ -569,12 +564,23 @@ export default function About() {
       </section>
 
       {/* Process Section */}
-      <section className="process-section">
+<section className="process-section">
+        {/* Background radial glow */}
         <div style={{
-          content: "''", position: 'absolute', inset: '0',
-          background: 'radial-gradient(ellipse at 50% 80%, rgba(160,120,48,0.04) 0%, transparent 65%)',
+          position: 'absolute', inset: '0',
+          background: 'radial-gradient(ellipse at 50% 80%, rgba(160,120,48,0.05) 0%, transparent 65%)',
           pointerEvents: 'none'
         }} />
+
+        {/* Watermark */}
+        <div style={{
+          position: 'absolute', top: '40px', right: '-20px',
+          fontFamily: "'Cormorant', serif", fontSize: '220px', fontWeight: '700',
+          color: 'rgba(160,120,48,0.025)', letterSpacing: '-0.05em',
+          lineHeight: '1', pointerEvents: 'none', whiteSpace: 'nowrap', userSelect: 'none'
+        }}>Process</div>
+
+        {/* Header */}
         <div className="process-header">
           <div>
             <div className="section-eyebrow">
@@ -593,33 +599,251 @@ export default function About() {
           </div>
         </div>
 
-        <div className="udg-visual">
-          {['Understand', 'Design', 'Guide'].map((word, i) => (
-            <div key={word} style={{ display: 'contents' }}>
+        {/* Process Cards */}
+        <div className="udg-visual" style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr auto 1fr auto 1fr',
+          gap: '0',
+          alignItems: 'stretch',
+          marginBottom: '100px',
+          border: '1px solid var(--divider)',
+          background: 'var(--divider)',
+          position: 'relative',
+          overflow: 'hidden'
+        }}>
+          {[
+            {
+              num: '01',
+              word: 'Understand',
+              desc: 'Deep listening. Your goals, your life, your responsibilities — we start here, not with products.',
+              icon: (
+                <svg viewBox="0 0 24 24" style={{ width: '28px', height: '28px', stroke: 'var(--gold)', fill: 'none', strokeWidth: '1.5', strokeLinecap: 'round', strokeLinejoin: 'round' }}>
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              ),
+              detail: 'Goals · Life Stage · Responsibilities'
+            },
+            {
+              num: '02',
+              word: 'Design',
+              desc: 'A structured financial plan built around your life — practical, disciplined, and easy to follow.',
+              icon: (
+                <svg viewBox="0 0 24 24" style={{ width: '28px', height: '28px', stroke: 'var(--gold)', fill: 'none', strokeWidth: '1.5', strokeLinecap: 'round', strokeLinejoin: 'round' }}>
+                  <path d="M2 20h20M5 20V10l7-7 7 7v10" /><path d="M9 20v-5h6v5" />
+                </svg>
+              ),
+              detail: 'Structure · Allocation · Timeline'
+            },
+            {
+              num: '03',
+              word: 'Guide',
+              desc: 'We stay with you — through market shifts, life changes, and every stage of your wealth journey.',
+              icon: (
+                <svg viewBox="0 0 24 24" style={{ width: '28px', height: '28px', stroke: 'var(--gold)', fill: 'none', strokeWidth: '1.5', strokeLinecap: 'round', strokeLinejoin: 'round' }}>
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              ),
+              detail: 'Reviews · Rebalancing · Long-Term'
+            }
+          ].map((step, i) => (
+            <React.Fragment key={step.num}>
+              {/* Card */}
               <div
+                key={step.num}
                 className={`udg-item reveal d${i + 1}`}
-                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(160,120,48,0.03)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+                style={{
+                  background: 'var(--bg2)',
+                  padding: '64px 48px 56px',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  cursor: 'default',
+                  transition: 'background 0.4s cubic-bezier(0.22,1,0.36,1)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  textAlign: 'left'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'var(--bg3)';
+                  const bar = e.currentTarget.querySelector('.udg-top-bar') as HTMLElement;
+                  const num = e.currentTarget.querySelector('.udg-num') as HTMLElement;
+                  const word = e.currentTarget.querySelector('.udg-word') as HTMLElement;
+                  const iconWrap = e.currentTarget.querySelector('.udg-icon-wrap') as HTMLElement;
+                  const detail = e.currentTarget.querySelector('.udg-detail') as HTMLElement;
+                  if (bar) bar.style.transform = 'scaleX(1)';
+                  if (num) { num.style.color = 'rgba(160,120,48,0.35)'; num.style.transform = 'translateY(-4px)'; }
+                  if (word) { word.style.color = 'var(--orange)'; }
+                  if (iconWrap) { iconWrap.style.borderColor = 'var(--gold)'; iconWrap.style.background = 'rgba(160,120,48,0.08)'; iconWrap.style.transform = 'scale(1.08)'; }
+                  if (detail) detail.style.opacity = '1';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'var(--bg2)';
+                  const bar = e.currentTarget.querySelector('.udg-top-bar') as HTMLElement;
+                  const num = e.currentTarget.querySelector('.udg-num') as HTMLElement;
+                  const word = e.currentTarget.querySelector('.udg-word') as HTMLElement;
+                  const iconWrap = e.currentTarget.querySelector('.udg-icon-wrap') as HTMLElement;
+                  const detail = e.currentTarget.querySelector('.udg-detail') as HTMLElement;
+                  if (bar) bar.style.transform = 'scaleX(0)';
+                  if (num) { num.style.color = 'rgba(160,120,48,0.08)'; num.style.transform = 'translateY(0)'; }
+                  if (word) { word.style.color = 'var(--ink)'; }
+                  if (iconWrap) { iconWrap.style.borderColor = 'var(--divider)'; iconWrap.style.background = 'transparent'; iconWrap.style.transform = 'scale(1)'; }
+                  if (detail) detail.style.opacity = '0';
+                }}
               >
-                <span className="udg-num">0{i + 1}</span>
-                <div className="udg-word">{word}</div>
-                <p className="udg-desc">
-                  {i === 0 && 'Deep listening. Your goals, your life, your responsibilities — we start here, not with products.'}
-                  {i === 1 && 'A structured financial plan built around your life — practical, disciplined, and easy to follow.'}
-                  {i === 2 && 'We stay with you — through market shifts, life changes, and every stage of your wealth journey.'}
-                </p>
+                {/* Top accent bar */}
+                <div className="udg-top-bar" style={{
+                  position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
+                  background: 'linear-gradient(to right, var(--gold-dark), var(--gold))',
+                  transform: 'scaleX(0)', transformOrigin: 'left',
+                  transition: 'transform 0.5s cubic-bezier(0.22,1,0.36,1)'
+                }} />
+
+                {/* Step number — large watermark */}
+                <div className="udg-num" style={{
+                  fontFamily: "'Cormorant', serif",
+                  fontSize: '100px', fontWeight: '700',
+                  color: 'rgba(160,120,48,0.08)', lineHeight: '1',
+                  position: 'absolute', top: '20px', right: '28px',
+                  transition: 'color 0.4s, transform 0.4s',
+                  pointerEvents: 'none', userSelect: 'none'
+                }}>{step.num}</div>
+
+                {/* Icon */}
+                <div className="udg-icon-wrap" style={{
+                  width: '56px', height: '56px',
+                  border: '1px solid var(--divider)', borderRadius: '2px',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  marginBottom: '28px',
+                  transition: 'border-color 0.3s, background 0.3s, transform 0.4s',
+                  position: 'relative', zIndex: 1
+                }}>
+                  {step.icon}
+                </div>
+
+                {/* Step label */}
+                <div style={{
+                  fontSize: '12px', letterSpacing: '0.22em', textTransform: 'uppercase',
+                  color: 'var(--gold)', fontWeight: '500', marginBottom: '12px',
+                  position: 'relative', zIndex: 1
+                }}>Step {step.num}</div>
+
+                {/* Word */}
+                <div className="udg-word" style={{
+                  fontFamily: "'Cormorant', serif",
+                  fontSize: '52px', fontWeight: '600',
+                  color: 'var(--ink)', marginBottom: '16px',
+                  transition: 'color 0.3s', lineHeight: '1.1',
+                  position: 'relative', zIndex: 1
+                }}>{step.word}</div>
+
+                {/* Divider */}
+                <div style={{
+                  width: '36px', height: '1px',
+                  background: 'var(--gold)', opacity: '0.4',
+                  marginBottom: '20px'
+                }} />
+
+                {/* Description */}
+                <p className="udg-desc" style={{
+                  fontSize: '18px', color: 'var(--ink-dim)',
+                  lineHeight: '1.8', fontWeight: '300',
+                  position: 'relative', zIndex: 1, flex: 1
+                }}>{step.desc}</p>
+
+                {/* Detail tags — appear on hover */}
+                <div className="udg-detail" style={{
+                  marginTop: '28px', opacity: '0',
+                  transition: 'opacity 0.4s',
+                  fontSize: '12px', letterSpacing: '0.14em',
+                  textTransform: 'uppercase', color: 'var(--gold)',
+                  fontWeight: '500', position: 'relative', zIndex: 1
+                }}>{step.detail}</div>
               </div>
-              {i < 2 && <div key={`arrow-${i}`} className="udg-arrow reveal">→</div>}
-            </div>
+
+              {/* Arrow between cards */}
+              {i < 2 && (
+                <div key={`arrow-${i}`} className="udg-arrow reveal" style={{
+                  background: 'var(--bg)',
+                  display: 'flex', flexDirection: 'column',
+                  alignItems: 'center', justifyContent: 'center',
+                  padding: '0 4px', gap: '8px', minWidth: '48px'
+                }}>
+                  <div style={{
+                    width: '1px', height: '40px',
+                    background: 'linear-gradient(to bottom, transparent, var(--gold))',
+                    opacity: '0.3'
+                  }} />
+                  <span style={{
+                    fontSize: '20px', color: 'var(--gold)', opacity: '0.5',
+                    fontFamily: 'monospace', lineHeight: 1
+                  }}>→</span>
+                  <div style={{
+                    width: '1px', height: '40px',
+                    background: 'linear-gradient(to top, transparent, var(--gold))',
+                    opacity: '0.3'
+                  }} />
+                </div>
+              )}
+            </React.Fragment>
           ))}
         </div>
 
-        <div className="commitment-strip reveal">
-          <div style={{ content: "''", position: 'absolute', left: '0', top: '0', bottom: '0', width: '3px', background: 'linear-gradient(to bottom, var(--gold-dark), var(--gold), var(--gold-bright))' }} />
-          <span className="cs-label">Our Commitment</span>
-          <p className="cs-text">
-            We help you stay consistent when markets change and emotions fluctuate — because <strong style={{ fontStyle: 'normal', color: 'var(--gold)', fontWeight: '600' }}>consistency is where wealth is truly built.</strong>
-          </p>
+        {/* Commitment Strip — enhanced */}
+        <div className="commitment-strip reveal" style={{
+          background: 'var(--bg3)',
+          border: '1px solid var(--divider)',
+          padding: '52px 60px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '60px',
+          position: 'relative',
+          overflow: 'hidden'
+        }}>
+          {/* Left accent bar */}
+          <div style={{
+            position: 'absolute', left: '0', top: '0', bottom: '0', width: '3px',
+            background: 'linear-gradient(to bottom, var(--gold-dark), var(--gold), var(--gold-bright))'
+          }} />
+          {/* Background glow */}
+          <div style={{
+            position: 'absolute', right: '-60px', top: '50%',
+            transform: 'translateY(-50%)',
+            width: '400px', height: '400px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(160,120,48,0.06) 0%, transparent 70%)',
+            pointerEvents: 'none'
+          }} />
+
+          {/* Icon */}
+          <div style={{
+            width: '56px', height: '56px', flexShrink: 0,
+            border: '1px solid var(--divider-bright)', borderRadius: '2px',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            background: 'rgba(160,120,48,0.06)'
+          }}>
+            <svg viewBox="0 0 24 24" style={{ width: '24px', height: '24px', stroke: 'var(--gold)', fill: 'none', strokeWidth: '1.5', strokeLinecap: 'round', strokeLinejoin: 'round' }}>
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+
+          <div style={{ flex: 1, position: 'relative', zIndex: 1 }}>
+            <span className="cs-label" style={{
+              fontSize: '12px', letterSpacing: '0.22em', textTransform: 'uppercase',
+              color: 'var(--gold)', fontWeight: '500', display: 'block', marginBottom: '12px'
+            }}>Our Commitment</span>
+            <p className="cs-text" style={{
+              fontFamily: "'Cormorant', serif",
+              fontSize: 'clamp(20px, 1.8vw, 28px)',
+              fontStyle: 'italic', color: 'var(--ink)',
+              fontWeight: '400', lineHeight: '1.4'
+            }}>
+              We help you stay consistent when markets change and emotions fluctuate — because{' '}
+              <strong style={{ fontStyle: 'normal', color: 'var(--gold)', fontWeight: '600' }}>
+                consistency is where wealth is truly built.
+              </strong>
+            </p>
+          </div>
         </div>
       </section>
 
@@ -919,7 +1143,7 @@ export default function About() {
         .story-timeline {
           border-top: 1px solid var(--divider);
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           position: relative;
         }
 
@@ -1512,7 +1736,7 @@ export default function About() {
           .story-timeline { grid-template-columns: repeat(2, 1fr); }
           .story-era { padding: 40px 32px 56px; }
           .story-era:nth-child(2) { border-right: none; }
-          .story-era:nth-child(3) { border-top: 1px solid var(--divider); }
+          .story-era:nth-child(3) { border-top: 1px solid var(--divider); border-right: none; }
           .era-year { font-size: 48px; }
           .era-title { font-size: 24px; }
           .era-body { font-size: 16px; }

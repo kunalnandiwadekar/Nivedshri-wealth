@@ -9,7 +9,7 @@ import Layout from '@/components/layout/Layout'
 // ─────────────────────────────────────────────
 const QUOTE = "Every great financial story begins with one decision — to stop drifting and start planning."
 const AUTHOR = "Nitesh Tara"
-const ROLE = "Founder & Director, NVS Wealth"
+const ROLE = "Founder & CEO, NVS Wealth"
 const TYPING_SPEED = 58
 
 function TypewriterQuote() {
@@ -339,7 +339,7 @@ export default function StoriesPage() {
           max-width: 600px; font-weight: 300; margin-top: 40px; margin-bottom: 60px;
         }
         .sh-intro-grid {
-          display: grid; grid-template-columns: 1fr 1fr 1fr;
+          display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;
           gap: 1px; background: var(--divider); border-top: 1px solid var(--divider);
         }
         .sh-intro-item {
@@ -549,7 +549,7 @@ export default function StoriesPage() {
         .cta-ring:nth-child(2) { width: 500px; height: 500px; border-color: rgba(160,120,48,0.07); }
         .cta-ring:nth-child(3) { width: 700px; height: 700px; border-color: rgba(160,120,48,0.04); }
         .cta-ring:nth-child(4) { width: 900px; height: 900px; border-color: rgba(160,120,48,0.02); }
-        .cta-eyebrow { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; font-weight: 500; position: relative; z-index: 1; }
+        .cta-eyebrow { font-size: 16px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; font-weight: 500; position: relative; z-index: 1; }
         .cta-h2 { font-family: 'Cormorant', serif; font-size: clamp(56px, 9vw, 104px); font-weight: 300; color: var(--ivory); line-height: 1.05; margin-bottom: 20px; letter-spacing: -0.02em; position: relative; z-index: 1; }
         .cta-h2 em { font-style: italic; color: var(--orange); }
         .cta-sub { font-size: 20px; color: var(--ivory-mid); margin-bottom: 52px; font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7; position: relative; z-index: 1; }
@@ -667,7 +667,7 @@ export default function StoriesPage() {
         <section className="sh-hero">
           <div className="sh-hero-bg"></div>
           <div className="sh-hero-num">Stories</div>
-          <div className="sh-vert">Real Journeys · Real Clarity · 2024</div>
+
           <div className="sh-breadcrumb">
             <Link href="/" style={{ color: '#1c1a1480' }}>Home</Link>
             <span className="sep">—</span>
@@ -695,6 +695,10 @@ export default function StoriesPage() {
               <span className="sh-intro-label">Years of Experience</span>
             </div>
             <div className="sh-intro-item reveal d3">
+              <span className="sh-intro-num">7</span>
+              <span className="sh-intro-label">Integrated Service<br />Disciplines</span>
+            </div>
+            <div className="sh-intro-item reveal d4">
               <span className="sh-intro-num">100%</span>
               <span className="sh-intro-label">Goal-Based Approach</span>
             </div>

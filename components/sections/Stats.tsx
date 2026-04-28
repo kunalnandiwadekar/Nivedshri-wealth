@@ -7,19 +7,19 @@ export default function Stats() {
       description: "Navigating multiple market cycles with calm and discipline"
     },
     {
-      number: "₹500",
-      suffix: "Cr",
-      label: "Assets Under Management",
-      description: "Systematically managed across diversified goal-based portfolios"
+      number: "7",
+      suffix: "",
+      label: "Integrated Services",
+      description: "Comprehensive wealth management solutions under one unified approach"
     },
     {
-      number: "1,200",
+      number: "500",
       suffix: "+",
       label: "Families Served",
       description: "Across India — each relationship built on honesty and long-term care"
     },
     {
-      number: "96",
+      number: "100",
       suffix: "%",
       label: "Client Retention Rate",
       description: "The most meaningful number — trust renewed year after year"

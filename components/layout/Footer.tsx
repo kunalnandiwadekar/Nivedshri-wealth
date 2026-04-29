@@ -130,7 +130,6 @@ export default function Footer() {
                 { label: 'Home', href: '/' },
                 { label: 'About Us', href: '/about' },
                 { label: 'Services', href: '/services' },
-                { label: 'Insights', href: '/insights' },
                 { label: 'Stories', href: '/stories' },
                 { label: 'Contact', href: '/contact' }
               ].map((item, i) => (

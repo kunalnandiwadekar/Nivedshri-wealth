@@ -771,7 +771,7 @@ export default function StoriesPage() {
                 <blockquote className="fs-quote">
                   "I'm extremely satisfied with services provided by Nitesh. His ability to stay on top of market movements is impressive, and consistently understanding what impacts my investments is key. He takes time to listen and tell me stuff that's tailored to my specific situation, rather than pushing products that might benefit him more. I've developed this full trust over time and I'd highly recommend Nitesh."
                 </blockquote>
-                <div className="fs-transformation">
+                {/* <div className="fs-transformation">
                   <div className="fs-trans-from">
                     <span className="fs-trans-label">Before</span>
                     Scattered investments across 12+ products. No clarity on goals. Anxiety during every market dip.
@@ -781,7 +781,7 @@ export default function StoriesPage() {
                     <span className="fs-trans-label">After</span>
                     Structured plan across 4 goals. Monthly SIP discipline. Calm through 2022 correction.
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="fs-metrics">
                 <div>

@@ -86,18 +86,7 @@ export default function Navigation() {
             pathname === '/services' ? 'w-full' : 'w-0 group-hover:w-full'
           }`} />
         </Link>
-        <Link
-          href="/insights"
-          className={`text-[clamp(11px, 2.5vw, 13px)] font-bold tracking-[0.16em] uppercase relative transition-colors duration-300 group ${
-            pathname === '/insights' ? 'text-[#000000]' : 'text-[var(--ink-dim)] hover:text-[var(--ink)]'
-          }`}
-        >
-          Insights
-          <span className={`absolute bottom-[-4px] left-0 h-[1px] bg-[#000000] transition-all duration-350 ${
-            pathname === '/insights' ? 'w-full' : 'w-0 group-hover:w-full'
-          }`} />
-        </Link>
-        <Link
+                <Link
           href="/stories"
           className={`text-[clamp(11px, 2.5vw, 13px)] font-bold tracking-[0.16em] uppercase relative transition-colors duration-300 group ${
             pathname === '/stories' ? 'text-[#000000]' : 'text-[var(--ink-dim)] hover:text-[var(--ink)]'
@@ -169,15 +158,7 @@ export default function Navigation() {
             Services
             <span className="block w-0 h-[1px] bg-[#000000] transition-all duration-350 group-hover:w-full mt-1" />
           </Link>
-          <Link
-            href="/insights"
-            className="text-[clamp(14px, 3.5vw, 16px)] font-bold tracking-[0.16em] uppercase text-[var(--ink)] hover:text-[#000000] group transition-colors duration-300"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Insights
-            <span className="block w-0 h-[1px] bg-[#000000] transition-all duration-350 group-hover:w-full mt-1" />
-          </Link>
-          <Link
+                    <Link
             href="/stories"
             className="text-[clamp(14px, 3.5vw, 16px)] font-bold tracking-[0.16em] uppercase text-[var(--ink)] hover:text-[#000000] group transition-colors duration-300"
             onClick={() => setIsMobileMenuOpen(false)}

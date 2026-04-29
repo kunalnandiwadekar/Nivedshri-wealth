@@ -922,6 +922,7 @@ export default function Services() {
                 { n: '04', label: "Children's Education & Legacy" },
                 { n: '05', label: 'Insurance & Wealth Protection' },
                 { n: '06', label: 'Tax-Efficient Wealth Structuring' },
+                { n: '07', label: 'Estate Planning & Succession' },
               ].map((item, i) => (
                 <div key={i} className={`sh-svc-item reveal d${i + 1}`}>
                   <span className="sh-svc-num">{item.n}</span>

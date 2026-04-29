@@ -225,7 +225,8 @@ export default function Footer() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(8px, 2vw, 12px)' }}>
               {[
-                { label: 'hello@nvswealth.in', href: 'mailto:hello@nvswealth.in' },
+                { label: 'hello@nivedshri.com', href: 'mailto:hello@nivedshri.com' },
+                { label: 'niteshtaraa@gmail.com', href: 'mailto:niteshtaraa@gmail.com' },
                 { label: 'WhatsApp Us', href: '/contact' },
                 { label: 'Book a Call', href: '/contact' },
               ].map((item, i) => (

@@ -55,7 +55,7 @@ export default function ServicesAccordion() {
               marginBottom: '20px'
             }}
           >
-            Six Ways We<br/>Serve Your <em style={{ fontStyle: 'italic', color: 'var(--orange)', fontWeight: '300' }}>Wealth Journey</em>
+            Seven Ways We<br/>Serve Your <em style={{ fontStyle: 'italic', color: 'var(--orange)', fontWeight: '300' }}>Wealth Journey</em>
           </h2>
         </div>
         <div>

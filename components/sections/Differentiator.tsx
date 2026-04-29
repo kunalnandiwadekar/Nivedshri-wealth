@@ -193,7 +193,7 @@ export default function Differentiator() {
                   transition: 'color 0.3s'
                 }}
               >
-                6
+                7
               </span>
               <div 
                 className="diff-stat-label"

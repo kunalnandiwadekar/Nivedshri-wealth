@@ -983,7 +983,7 @@ export default function Services() {
           <div className="svcs-header">
             <div>
               <div className="eyebrow reveal"><span className="line" />Core Services</div>
-              <h2 className="sec-h2 reveal d1">Six Ways We<br />Serve Your <em>Wealth Journey</em></h2>
+              <h2 className="sec-h2 reveal d1">Seven Ways We<br />Serve Your <em>Wealth Journey</em></h2>
             </div>
             <div className="reveal d2">
               <p className="svcs-intro">Every service we offer is designed around one outcome: long-term financial clarity. Click any service to explore how we approach it and what it delivers for you.</p>
